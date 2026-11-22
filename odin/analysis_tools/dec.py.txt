@@ -1,0 +1,54 @@
+import sys; sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+import re, base64, json, math, urllib.parse
+s = open('payload.js').read()
+i = s.find('function a0f')
+j = s.find('];', i)
+body = s[s.find('[', i):j]
+table = re.findall(r"'([^']*)'", body)
+
+
+ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/='
+STD = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+TR = str.maketrans(ALPHA, STD)
+
+
+def dec(x):
+    x = x.translate(TR)
+    x = x + '=' * (-len(x) % 4)
+    try:
+        b = base64.b64decode(x)
+        return urllib.parse.unquote(''.join('%%%02x' % c for c in b))
+    except Exception:
+        return None
+
+
+def pint(v):
+    m = re.match(r'\s*[-+]?\d+', v or '')
+    return int(m.group()) if m else math.nan
+
+
+def check(T):
+    p = lambda x: pint(dec(T[x - 0x189]))
+    try:
+        return (p(0x4b4) / 1 * (-p(0x309) / 2) + p(0x220) / 3 * (-p(0x3cd) / 4) + -p(0x3fe) / 5
+                + p(0x3ca) / 6 * (-p(0x4f5) / 7) + -p(0x3a6) / 8 + p(0x209) / 9 * (p(0x393) / 10) + p(0x249) / 11)
+    except Exception:
+        return math.nan
+
+
+T = table[:]
+print('table size', len(T))
+found = False
+for n in range(len(T) + 1):
+    if check(T) == 0x4cf8a:
+        print('rotation', n)
+        found = True
+        break
+    T.append(T.pop(0))
+if not found:
+    print('NO MATCH')
+res = {hex(0x189 + k)[2:]: dec(v) for k, v in enumerate(T)}
+json.dump(res, open('strings.json', 'w'))
+for k, v in res.items():
+    if v and len(v) > 2 and v.isprintable():
+        print(k, repr(v))

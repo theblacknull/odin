@@ -1,0 +1,84 @@
+# Tạo RENAME_MAP.txt + giải nén (đổi đuôi .bin) các binary NetSupport trong zip. KHÔNG chạy gì.
+import os, zipfile, hashlib, shutil
+
+ROOT = r'C:\Users\DELL\Desktop\Work\odin'
+HOME = os.path.expanduser('~')
+
+# 1. package-lock.json do loader của họ tạo ra khi npm install trong .vs_cache
+src = os.path.join(HOME, '.vs_cache', 'package-lock.json')
+if os.path.exists(src):
+    shutil.copy2(src, os.path.join(ROOT, 'stage2_blockchain_loader', 'package-lock.json.txt'))
+
+# 2. Giải nén binary trong zip, mỗi file thêm đuôi .bin (đường dẫn tự dựng, chống zip-slip)
+zpath = os.path.join(ROOT, 'stage5_modules', 'netsupport_client_portable.zip.bin')
+out = os.path.join(ROOT, 'stage5_modules', 'netsupport_extracted')
+extracted = []
+with zipfile.ZipFile(zpath) as z:
+    for i in z.infolist():
+        if i.is_dir():
+            continue
+        name = i.filename.replace('\\', '/')
+        if name.startswith('/') or '..' in name.split('/'):
+            continue
+        if not name.lower().endswith(('.exe', '.dll', '.inf', '.lic', '.ini', '.cmd', '.ps1', '.txt', '.json')):
+            continue
+        dst = os.path.join(out, *name.split('/')) + '.bin'
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        with open(dst, 'wb') as f:
+            f.write(z.read(i))
+        extracted.append((dst, 'client-portable.zip::' + name))
+
+# 3. Bảng ánh xạ rõ ràng: (đường dẫn đã lưu tương đối ROOT, tên gốc, nguồn gốc / vị trí gốc, loại)
+T = [
+ ('stage1_loader/tailwind.config.js.txt', 'tailwind.config.js', 'Repo TradeMind-MVP: frontend/tailwind.config.js (commit 4e5e577)', 'Của kẻ tấn công'),
+ ('stage1_loader/tailwind.gif.js.txt', 'tailwind.gif', 'Repo: frontend/src/assets/images/dist/tailwind.gif (JS giả ảnh, được require)', 'Của kẻ tấn công'),
+ ('stage1_loader/vscode-settings.json.txt', 'settings.json', 'Repo: .vscode/settings.json (ẩn **/*d.config.js)', 'Của kẻ tấn công'),
+ ('stage2_blockchain_loader/main.js.txt', 'main.js', '%USERPROFILE%\\.vs_cache\\main.js (cũng là GET /download-main/101)', 'Của kẻ tấn công'),
+ ('stage2_blockchain_loader/main.vbs.txt', 'main.vbs', '%USERPROFILE%\\.vs_cache\\main.vbs (Run key trỏ tới)', 'Của kẻ tấn công'),
+ ('stage2_blockchain_loader/package.json.txt', 'package.json', '%USERPROFILE%\\.vs_cache\\package.json', 'Của kẻ tấn công'),
+ ('stage2_blockchain_loader/package-lock.json.txt', 'package-lock.json', '%USERPROFILE%\\.vs_cache\\package-lock.json (do npm tạo)', 'Sinh ra khi cài'),
+ ('stage3_c2_bootstrap/stage3_from_blockchain.js.txt', '(không có tên file)', 'Giải từ input giao dịch BSC 0x319ee72a...; chạy trong bộ nhớ bằng new Function', 'Của kẻ tấn công'),
+ ('stage4_stealer_rat/c2_response_fake_vscode_package.json.txt', '(phản hồi HTTP)', 'GET http://famoustreamservice.store:80/session/6c3368b5fa77237f (ngày 18/11/2026)', 'Của kẻ tấn công'),
+ ('stage4_stealer_rat/stage4_sessions_payload.js.txt', 'client (không có tên file)', 'Giá trị khóa "sessions" của phản hồi trên; cũng là GET /download-client/101; chạy trong bộ nhớ', 'Của kẻ tấn công'),
+ ('stage5_modules/abe_payload.dll.bin', 'abe_payload.dll', 'GET /download-abe-payload; trên máy: %USERPROFILE%\\.vs_cache\\abe_payload.dll', 'Của kẻ tấn công'),
+ ('stage5_modules/win_key_agent_keylogger.js.txt', 'win_key_agent.js', 'GET :443/download-win-key; chạy với --win-key-agent', 'Của kẻ tấn công'),
+ ('stage5_modules/netsupport_client_portable.zip.bin', 'client-portable.zip', 'GET /download-client-portable (NetSupport Manager)', 'Của kẻ tấn công'),
+ ('victim_artifacts/loader.log.txt', 'loader.log', '%USERPROFILE%\\.vs_cache\\loader.log (trên máy bạn)', 'Dấu vết trên máy bạn'),
+ ('victim_artifacts/keylogger_log_7f25-2c61-6824-bf72.txt', '7f25-2c61-6824-bf72', '%LOCALAPPDATA%\\Microsoft\\RealPrior\\Cache\\ (log keylogger)', 'Dấu vết trên máy bạn'),
+ ('victim_artifacts/abe_payload_on_victim.dll.bin', 'abe_payload.dll', '%USERPROFILE%\\.vs_cache\\abe_payload.dll (bản trên máy bạn, hash trùng bản C2)', 'Dấu vết trên máy bạn'),
+]
+for dst, orig in extracted:
+    rel = os.path.relpath(dst, ROOT).replace('\\', '/')
+    T.append((rel, orig.split('::')[1], 'Giải nén từ ' + orig.split('::')[0] + ' (đường dẫn trong zip: ' + orig.split('::')[1] + ')', 'Của kẻ tấn công (binary NetSupport)'))
+# các file văn bản trích từ zip trước đó
+tc = os.path.join(ROOT, 'stage5_modules', 'netsupport_text_configs')
+for n in sorted(os.listdir(tc)):
+    rel = 'stage5_modules/netsupport_text_configs/' + n
+    T.append((rel, n[:-4] if n.endswith('.txt') else n, 'Trích từ client-portable.zip (bản văn bản, thêm .txt)', 'Của kẻ tấn công'))
+
+def sha(p):
+    h = hashlib.sha256()
+    with open(p, 'rb') as f:
+        for b in iter(lambda: f.read(1 << 20), b''):
+            h.update(b)
+    return h.hexdigest()
+
+lines = []
+lines.append('RENAME_MAP.txt: bảng đổi lại tên gốc (tạo ngày 18/11/2026)')
+lines.append('Cột: ĐÃ LƯU (tương đối thư mục odin) | TÊN GỐC | NGUỒN/VỊ TRÍ GỐC | LOẠI | SHA256')
+lines.append('Các file ở deobfuscated/ và analysis_tools/ là do người phân tích tạo, không có tên gốc của kẻ tấn công.')
+lines.append('')
+for rel, orig, where, kind in T:
+    p = os.path.join(ROOT, *rel.split('/'))
+    if os.path.exists(p):
+        lines.append(f'{rel} | {orig} | {where} | {kind} | {sha(p)}')
+    else:
+        lines.append(f'{rel} | {orig} | {where} | {kind} | (THIẾU FILE)')
+lines.append('')
+lines.append('CÁCH ĐỔI LẠI TÊN (chỉ làm trên máy cô lập/VM, KHÔNG chạy file):')
+lines.append('  - Đổi lại bằng tay: bỏ phần đuôi .txt/.bin thêm vào, hoặc đặt đúng "TÊN GỐC" ở trên.')
+lines.append('  - Ví dụ PowerShell (chỉ đổi tên, không thực thi): Rename-Item stage5_modules\\abe_payload.dll.bin abe_payload.dll')
+lines.append('  - File đuôi .bin trong netsupport_extracted: bỏ ".bin" cuối (Service.exe.bin -> Service.exe).')
+lines.append('  - Kiểm tra toàn vẹn sau khi đổi: so SHA256 với cột cuối.')
+open(os.path.join(ROOT, 'RENAME_MAP.txt'), 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
+print('mapped', len(T), 'extracted', len(extracted))

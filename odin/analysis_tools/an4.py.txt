@@ -1,0 +1,28 @@
+import re, sys, collections
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+s = open('stage4.js.txt', encoding='utf-8').read()
+# split into pseudo-lines for readable context
+pretty = re.sub(r'(;|\{|\})', r'\1\n', s)
+open('stage4_pretty.js', 'w', encoding='utf-8').write(pretty)
+print('lines', pretty.count('\n'))
+
+strs = re.findall(r'"((?:[^"\\\n]|\\.){3,300})"', s)
+strs += re.findall(r"`((?:[^`\\]|\\.){3,300})`", s)
+c = collections.Counter(strs)
+print('unique strings', len(c))
+
+
+def show(title, pred, lim=200):
+    print('\n=====', title)
+    seen = 0
+    for k in c:
+        if pred(k):
+            print('  ', k[:220])
+            seen += 1
+            if seen >= lim:
+                break
+
+
+show('URLs/hosts/IPs', lambda k: re.search(r'https?://|\d+\.\d+\.\d+\.\d+|\.store|\.com|\.io', k))
+show('socket events / endpoints', lambda k: re.match(r'^(/[\w\-/:.]+|[a-z]+:[a-z_\-:]+)$', k) and len(k) < 60)
+show('paths with AppData / Local / User Data / profile', lambda k: re.search(r'AppData|Local State|User Data|Login Data|Cookies|Web Data|\.ssh|\.aws|\.config|Library/|\.kube|\.docker|wallet|keystore|\.env|id_rsa|\.npmrc|\.git-credentials|history|Keychain', k, re.I), 300)

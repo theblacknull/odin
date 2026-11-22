@@ -1,0 +1,26 @@
+import sys, re, json
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+s = open('payload.js').read()
+strs = json.load(open('strings.json'))
+aliases = set(re.findall(r'([A-Za-z_$][\w$]*)\s*=\s*a0C\b', s)) | {'a0C'}
+# aliases of aliases
+for _ in range(3):
+    aliases |= set(re.findall(r'([A-Za-z_$][\w$]*)\s*=\s*(?:%s)\b' % '|'.join(map(re.escape, aliases)), s))
+print('aliases', sorted(aliases))
+pat = re.compile(r'\b(%s)\(0x([0-9a-f]+)\)' % '|'.join(map(re.escape, aliases)))
+
+
+def rep(m):
+    v = strs.get(m.group(2))
+    return repr(v) if v is not None else m.group(0)
+
+
+out = pat.sub(rep, s)
+# join adjacent literal concatenations 'a'+'b'
+for _ in range(5):
+    out = re.sub(r"'((?:[^'\\]|\\.)*)'\s*\+\s*'((?:[^'\\]|\\.)*)'", lambda m: "'" + m.group(1) + m.group(2) + "'", out)
+# start of main code after rotation
+k = out.find('(a0f,0x4cf8a)')
+main = out[k:]
+open('main_deob.js', 'w').write(main)
+print(len(main))

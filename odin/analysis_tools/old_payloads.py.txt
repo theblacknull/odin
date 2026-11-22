@@ -1,0 +1,66 @@
+import sys, json, gzip, base64, hashlib, os, urllib.request, datetime
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+ADDR = 'THKrGQ3EuFscDfCmcWFwWPtFbi5YWNQKNZ'
+KEY = '02e4f3e7-9442-4f9c-a6f4-4fa136605d1c'
+UA = {'User-Agent': 'Mozilla/5.0'}
+OUT = r'C:\Users\DELL\Desktop\Work\odin\stage3_c2_bootstrap\variants'
+os.makedirs(OUT, exist_ok=True)
+
+
+def get(url, data=None, hdr=None):
+    req = urllib.request.Request(url, data=data, headers={**UA, **(hdr or {})})
+    return json.load(urllib.request.urlopen(req, timeout=40))
+
+
+# toàn bộ giao dịch gửi đi của ví (phân trang)
+txs, fp = [], None
+while True:
+    u = f'https://api.trongrid.io/v1/accounts/{ADDR}/transactions?only_confirmed=true&only_from=true&limit=200&order_by=block_timestamp,asc' + (f'&fingerprint={fp}' if fp else '')
+    r = get(u)
+    txs += r.get('data', [])
+    fp = (r.get('meta') or {}).get('fingerprint')
+    if not fp:
+        break
+print('tong giao dich gui di:', len(txs))
+rows = []
+for i, t in enumerate(txs):
+    ts = datetime.datetime.fromtimestamp(t['block_timestamp'] / 1000, datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+    memo = t['raw_data'].get('data')
+    ctype = t['raw_data']['contract'][0]['type']
+    info = {'idx': i, 'tron_tx': t['txID'], 'time': ts, 'type': ctype, 'memo': memo}
+    if not memo:
+        print(i, ts, ctype, 'khong co memo'); rows.append(info); continue
+    try:
+        h = len(memo) >> 1
+        sw = memo[h:] + memo[:h]
+        bsc = '0x' + bytes.fromhex(sw).decode('utf8')
+        info['bsc_hash'] = bsc
+    except Exception as e:
+        print(i, ts, 'memo khong giai duoc', e); rows.append(info); continue
+    body = json.dumps({'jsonrpc': '2.0', 'method': 'eth_getTransactionByHash', 'params': [bsc], 'id': 1}).encode()
+    res = None
+    for host in ('bsc-dataseed.binance.org', 'bsc-rpc.publicnode.com'):
+        try:
+            res = get(f'https://{host}/', body, {'Content-Type': 'application/json'})
+            if res.get('result'):
+                break
+        except Exception as e:
+            print('  rpc', host, 'err', e)
+    if not res or not res.get('result'):
+        print(i, ts, bsc, 'khong tim thay giao dich BSC'); rows.append(info); continue
+    r0 = res['result']
+    info.update({'bsc_from': r0.get('from'), 'bsc_to': r0.get('to'), 'bsc_block': r0.get('blockNumber')})
+    try:
+        s = bytes.fromhex(r0['input'][2:]).decode('utf8')[::-1]
+        x = ''.join(chr(ord(c) ^ ord(KEY[k % len(KEY)])) for k, c in enumerate(s))
+        if not x.startswith('BCGZ1|'):
+            info['note'] = 'khong co tien to BCGZ1| (giai ma khac?) dau=' + repr(x[:20]); print(i, ts, info['note']); rows.append(info); continue
+        code = gzip.decompress(base64.b64decode(x[6:])).decode('utf8')
+        fn = f'{i:02d}_{ts[:10]}_{ts[11:13]}{ts[14:16]}_{bsc[2:10]}.js.txt'
+        open(os.path.join(OUT, fn), 'w', encoding='utf-8').write(code)
+        info.update({'file': fn, 'len': len(code), 'sha256': hashlib.sha256(code.encode()).hexdigest()})
+        print(i, ts, bsc[:12], 'len', len(code), info['sha256'][:12], fn)
+    except Exception as e:
+        info['note'] = 'loi giai ma: ' + str(e); print(i, ts, info['note'])
+    rows.append(info)
+json.dump(rows, open(os.path.join(OUT, 'variants_index.json.txt'), 'w', encoding='utf-8'), indent=1)

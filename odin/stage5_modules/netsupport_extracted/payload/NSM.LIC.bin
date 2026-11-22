@@ -1,0 +1,20 @@
+1200
+0x17584cd2
+; NetSupport License File.
+; Generated on 11:59 - 11/02/2026
+
+
+
+[[Enforce]]
+
+[_License]
+control_only=0
+expiry=
+inactive=0
+licensee=NSM1234
+maxslaves=9999
+os2=1
+product=10
+serial_no=NSM1234
+shrink_wrap=0
+transport=0

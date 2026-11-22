@@ -1,0 +1,54 @@
+import sys, re, json, base64, math, urllib.parse
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+q = open('stage3.js.txt', encoding='utf-8').read()
+BASE = 0x1b7
+i = q.find('const N=[')
+j = q.find('];', i)
+table = re.findall(r"'((?:[^'\\]|\\.)*)'", q[i + 8:j])
+print('table', len(table))
+ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/='
+STD = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+TR = str.maketrans(ALPHA, STD)
+
+
+def dec(x):
+    x = x.translate(TR)
+    x += '=' * (-len(x) % 4)
+    try:
+        return urllib.parse.unquote(''.join('%%%02x' % c for c in base64.b64decode(x)))
+    except Exception:
+        return None
+
+
+def pint(v):
+    m = re.match(r'\s*[-+]?\d+', v or '')
+    return int(m.group()) if m else math.nan
+
+
+k = q.find('const S=')
+expr = q[k + 8:q.find(';if(S===o)', k)]
+expr = re.sub(r'parseInt\(j\((0x[0-9a-f]+)\)\)', r'P(\1)', expr)
+T = table[:]
+for n in range(len(T) + 1):
+    P = lambda x: pint(dec(T[x - BASE]))
+    try:
+        v = eval(expr)
+    except Exception:
+        v = math.nan
+    if v == 0x1d401:
+        print('rotation', n)
+        break
+    T.append(T.pop(0))
+else:
+    print('no match')
+strs = {hex(BASE + k): dec(v) for k, v in enumerate(T)}
+pat = re.compile(r'\b(R|b|G|J|W|y|M|g|j)\((0x[0-9a-f]+)\)')
+out = pat.sub(lambda m: repr(strs.get(m.group(2))) if strs.get(m.group(2)) is not None else m.group(0), q)
+# the host hex
+hexs = re.findall(r"'((?:[0-9a-f]{2}){10,})'", out)
+for h in hexs:
+    print('hex ->', bytes.fromhex(h).decode())
+a = out.find('(async function')
+b = out.find('function a0o')
+body = out[a:b]
+print(re.sub(r'(;|\{|\})', r'\1\n', body))

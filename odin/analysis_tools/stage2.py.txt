@@ -1,0 +1,54 @@
+import sys, re, json
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+m = open('main_deob.js').read()
+
+# --- loader tail (after const q=...) ---
+i = m.find("const q=")
+# parse the concatenated string expression: literals, +, parens
+j = i + len("const q=")
+n = len(m)
+
+
+def parse_lit(s, k):
+    q = s[k]
+    k += 1
+    buf = []
+    while s[k] != q:
+        if s[k] == '\\':
+            buf.append(s[k:k + 2])
+            k += 2
+            # handle \xNN, \uNNNN
+            if buf[-1] == '\\x':
+                buf[-1] = '\\x' + s[k:k + 2]
+                k += 2
+            elif buf[-1] == '\\u':
+                buf[-1] = '\\u' + s[k:k + 4]
+                k += 4
+        else:
+            buf.append(s[k])
+            k += 1
+    raw = ''.join(buf)
+    val = re.sub(r'\\(x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|.)', lambda mm: (chr(int(mm.group(1)[1:], 16)) if mm.group(1)[0] in 'xu' and len(mm.group(1)) > 1 else {'n': '\n', 't': '\t', 'r': '\r'}.get(mm.group(1), mm.group(1))), raw)
+    return val, k + 1
+
+
+parts = []
+k = j
+while True:
+    c = m[k]
+    if c in '\'"':
+        v, k = parse_lit(m, k)
+        parts.append(v)
+    elif c in '+() \n':
+        k += 1
+    elif c == ';':
+        break
+    else:
+        print('unexpected', repr(m[k - 40:k + 40]))
+        break
+q = ''.join(parts)
+open('stage2_raw.js', 'w').write(q)
+print('stage2 len', len(q))
+print('---- loader tail ----')
+tail = m[k:]
+print(re.sub(r'(;|\{|\})', r'\1\n', tail)[:7000])

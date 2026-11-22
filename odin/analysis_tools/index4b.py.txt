@@ -1,0 +1,27 @@
+import re, sys
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+s = open('stage4.js.txt', encoding='utf-8').read()
+# unit boundaries at every function declaration
+starts = [(m.start(), m.group(2)) for m in re.finditer(r'(?<![\w$.])(async\s+)?function\s+([\w$]+)\s*\(', s)]
+starts.append((len(s), 'END'))
+cats = {
+    'NET': r'axios|\.post\(|\.get\(|socket|\.emit\(|FormData|form-data|upload|\.request\(',
+    'PROC': r'\bspawn\(|\bexec\(|execSync|execFileSync|schtasks|wscript|cmd\.exe|powershell',
+    'FS': r'readFileSync|readdirSync|writeFileSync|copyFileSync|unlinkSync|createReadStream|rmSync',
+    'CRYPT': r'createDecipheriv|aes-256-gcm|Protect|sqlite|APPB',
+    'PERSIST': r'"reg"|LaunchAgents|\.plist|systemd|crontab|autostart',
+}
+rows = []
+for (a, name), (b, _) in zip(starts, starts[1:]):
+    code = s[a:b]
+    tags = [k for k, p in cats.items() if re.search(p, code)]
+    strs = []
+    for x in re.findall(r'"((?:[^"\\\n]){4,80})"', code):
+        if re.search(r'[A-Za-z]{3}', x) and x not in strs:
+            strs.append(x)
+    rows.append((name, a, b - a, tags, strs))
+print('units', len(rows))
+for name, a, sz, tags, strs in rows:
+    if sz < 250 and not tags:
+        continue
+    print(f'{name}@{a} {sz}B {",".join(tags)} :: ' + ' | '.join(x[:48] for x in strs[:8]))

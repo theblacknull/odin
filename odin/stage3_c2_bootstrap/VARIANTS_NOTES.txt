@@ -1,0 +1,15 @@
+Các phiên bản tầng 3 (dead-drop TRON -> BSC), lấy bằng truy vấn chỉ đọc ngày 18/11/2026
+Ví TRON THKrGQ3EuFscDfCmcWFwWPtFbi5YWNQKNZ có đúng 4 giao dịch gửi đi (đã phân trang đủ):
+
+ #  Thời gian (UTC)     BSC tx (đầu)   Kích thước  SHA256 (đầu)  C2 trong payload
+ 0  2026-11-12 20:28    0x2fbd49a6     5070        6c466fe79276  http://195.66.213.162:80  + /session/<token>
+ 1  2026-11-12 20:33    0xc068840c     5070        6c466fe79276  (giống #0)
+ 2  2026-11-14 13:35    0x368776d1     5070        6c466fe79276  (giống #0)
+ 3  2026-11-14 20:06    0x319ee72a     4734        312432a6a4d4  http://famoustreamservice.store:80 + /session/<token>
+
+Kết luận: 3 bản đầu giống hệt nhau (cùng hash), trỏ vào IP trần 195.66.213.162; bản #3 (mới nhất) đổi sang
+domain famoustreamservice.store (cùng IP). Logic giống nhau: GET /session/<token>, nhận JSON có khóa "sessions"
+hoặc mã JS thô, chạy bằng new Function. Máy bạn bị nhiễm 17/11 (sau giao dịch #3) nên đã chạy bản #3.
+Token __SESSION_TOKEN__ được tầng 2 thay bằng 6c3368b5fa77237f.
+Bản giải mã chuỗi của bản cũ: ../deobfuscated/stage3_old_variant_2026-11-12_deob.js.txt
+Chi tiết từng bản: variants/variants_index.json.txt

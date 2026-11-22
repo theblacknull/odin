@@ -1,0 +1,26 @@
+Portable client payload — files pre-copied from 92SAD7q5 into this payload\ folder.
+
+Required files (client32.ini comes from the parent Client-Portable folder, not here):
+
+  Service.exe
+  NSM.LIC
+  msvcr100.dll
+  remcmdstub.exe
+  HTCTL32.DLL
+  PCICL32.DLL
+  PCICHEK.DLL
+  pcicapi.dll
+  TCCTL32.DLL
+  AudioCapture.dll
+  nskbfltr.inf
+
+Optional (if present in your bundle):
+
+  nsm_vpro.ini
+
+After copying, run deploy-to-target.cmd on the target PC as Administrator.
+
+Optional — for INI checksum fix after editing client32.ini:
+
+  Copy cksini.exe from a Gateway or Control install into Client-Portable\ before deploy.
+  Deploy runs cksini.exe client32.ini, then Service.exe.

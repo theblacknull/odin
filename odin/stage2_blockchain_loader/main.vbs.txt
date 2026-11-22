@@ -1,0 +1,2 @@
+Set sh = CreateObject("Wscript.Shell")
+sh.Run Chr(34) & "C:\Program Files\nodejs\node.exe" & Chr(34) & " " & Chr(34) & "C:\Users\DELL\.vs_cache\main.js" & Chr(34), 0, False

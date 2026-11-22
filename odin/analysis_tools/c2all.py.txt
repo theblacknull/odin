@@ -1,0 +1,26 @@
+import sys, http.client, hashlib, os
+sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+HOST = 'famoustreamservice.store'
+os.makedirs('dl', exist_ok=True)
+T = [
+    (80, '/download-abe-payload', 'abe_payload.bin'),
+    (443, '/download-win-key', 'win_key.bin'),
+    (443, '/download-app', 'app.bin'),
+    (80, '/download-client/101', 'client101.bin'),
+    (80, '/download-main/101', 'main101.bin'),
+    (80, '/download-client-portable', 'client_portable.bin'),
+]
+MAX = 80 * 1024 * 1024
+for port, path, name in T:
+    try:
+        c = http.client.HTTPConnection(HOST, port, timeout=60)
+        c.request('GET', path, headers={'Accept': '*/*'})
+        r = c.getresponse()
+        hdr = {k: v for k, v in r.getheaders() if k.lower() in ('content-type', 'content-length', 'content-disposition', 'last-modified', 'x-file-modified-at')}
+        data = r.read(MAX + 1)
+        trunc = len(data) > MAX
+        open(os.path.join('dl', name), 'wb').write(data[:MAX])
+        print(f'{port}{path} -> {r.status} len={len(data)}{" TRUNC" if trunc else ""} sha256={hashlib.sha256(data).hexdigest()} magic={data[:8]!r} {hdr}')
+        c.close()
+    except Exception as e:
+        print(f'{port}{path} ERR {e}')
